@@ -1,0 +1,343 @@
+main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    column-gap: 4rem;
+}
+
+div.dashboard-main-title {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.3rem;
+    margin: 0.5rem;
+    width: fit-content;
+}
+
+header div.dashboard-main-title-border {
+    width: 50%;
+    height: 3px;
+    background: red;
+}
+
+h1 {
+    font-size: 1.75rem;
+}
+
+div.dashboard-main-settings {
+    column-gap: 0.75rem;
+}
+
+.dashboard-main-settings-icon {
+    height: 1.2rem;
+    width: 1.2rem;
+    color: black;
+}
+
+/* Student Information Section */
+
+div.dashboard-payments-student-information {
+    flex-direction: column;
+    row-gap: 1.2rem;
+}
+
+div.dashboard-payments-student-information-container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3rem;
+    row-gap: 1.4rem;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    padding: 2rem;
+    width: 75%;
+}
+
+div.dashboard-payments-student-information-container > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    row-gap: 1.4rem;
+}
+
+div.dashboard-payments-student-information-label {
+    display: flex;
+    column-gap: 0.5rem;
+}
+
+div.dashboard-payments-student-information-label span:first-child {
+    text-wrap: nowrap;
+    color: rgb(100, 100, 100)
+}
+
+div.dashboard-payments-student-information-label span:last-child {
+    text-wrap: nowrap;
+    flex: 1;
+}
+
+/* Payment Information Section */
+
+div.dashboard-payments-primary-information {
+    display: flex;
+    column-gap: 3rem;
+    width: 100%;
+}
+
+div.dashboard-payments-primary-information div.dashboard-payments-primary-information-container {
+    border: 1px solid rgb(200, 200, 200);
+    padding: 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    gap: 2rem;
+    overflow: hidden;
+}
+
+div.dashboard-payments-primary-information-container > div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    flex: 1;
+}
+
+div.dashboard-payments-primary-information-container > div > div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+div.dashboard-payments-primary-information-container > div > div > div {
+    white-space: nowrap;
+}
+
+div.dashboard-payments-primary-information-container span {
+    text-wrap: nowrap;
+}
+
+div.dashboard-payments-primary-information-container > div > span {
+    color: rgb(100, 100, 100);
+}
+
+div.dashboard-payments-primary-information div.dashboard-payments-primary-information-payment {
+    flex-grow: 2;
+    width: 66.66%;
+}
+
+div.dashboard-payments-primary-information div.dashboard-payments-primary-information-term {
+    flex-grow: 1;
+    width: 33.33%;
+}
+
+div.dashboard-payments-primary-information-label {
+    column-gap: 1rem;
+    margin: 1rem 0 1.4rem 0;
+}
+
+div.dashboard-payments-primary-information-label span {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+div.dashboard-payments-primary-information-details > div > div > span:last-child {
+    color: rgb(100, 100, 100);
+}
+
+div.dashboard-payments-primary-information-details > div > div:last-child > span:last-child {
+    color: black;
+    font-weight: 500;
+}
+
+/* Payment Information Vouchers */
+
+div.dashboard-payments-primary-information-vouchers > div {
+    row-gap: 1.4rem !important;
+}
+
+div.dashboard-payments-primary-information-voucher-item {
+    margin-top: 0.5rem;
+}
+
+div.dashboard-payments-primary-information-voucher-item:first-of-type {
+    margin-top: 0;
+}
+
+div.dashboard-payments-primary-information-voucher-item > span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+div.dashboard-payments-primary-information-voucher-label {
+    margin-top: 0.65rem;
+}
+
+/* Payment Information Term Section */
+
+div.dashboard-payments-primary-information-term > div:last-child {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.9rem;
+}
+
+div.dashboard-payments-primary-information-term-label {
+    display: flex;
+    column-gap: 0.5rem;
+}
+
+div.dashboard-payments-primary-information-term-label span {
+    text-wrap: nowrap;
+}
+
+div.dashboard-payments-primary-information-term-label > span:first-child {
+    color: rgb(100, 100, 100);
+}
+
+/* Payment Gateways */
+
+div.dashboard-payment-gateways {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+div.dashboard-payment-gateways > div > span {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: rgb(100, 100, 100);
+}
+
+div.dashboard-payment-gateways-bank-options {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+div.dashboard-payment-gateways-wallet-options {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+a.dashboard-payment-gateways-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 0.75rem;
+    padding: 1rem;
+    color: black;
+    text-decoration: none;
+}
+
+a.dashboard-payment-gateways-option img {
+    height: 6rem;
+    width: 6rem;
+    object-fit: contain;
+    border: 1px solid black;
+}
+
+a.dashboard-payment-gateways-option span {
+    text-align: center;
+}
+
+/* TOS */
+
+div.dashboard-payments-tos {
+    margin: 0.5rem 0 0 0;
+}
+
+div.dashboard-payments-tos p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: rgb(100, 100, 100);
+    width: 75%;
+}
+
+div.dashboard-payments-tos p span {
+    color: black;
+}
+
+/* Small Laptop View */
+
+@media screen and (max-width: 1200px) {
+    div.dashboard-payments-primary-information {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        align-items: center;
+        row-gap: 1.5rem;
+    }
+
+    div.dashboard-payments-primary-information-term > div:last-child {
+        align-items: center;
+        text-align: center;
+    }
+
+    div.dashboard-payments-primary-information-term, div.dashboard-payments-primary-information-payment {
+        width: 100% !important;
+    }
+
+    div.dashboard-payments-primary-information-container {
+        flex-wrap: wrap;
+    }
+
+    div.dashboard-main-settings span {
+        display: none;
+    }
+}
+
+/* Tablet View */
+
+@media screen and (max-width: 900px) {
+    div.dashboard-payments-student-information-container {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    div.dashboard-payments-tos p {
+        width: 100%;
+    }
+
+    div.dashboard-payment-gateways-bank-options {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+    }
+
+    div.dashboard-payment-gateways-wallet-options {
+        grid-template-rows: 100%;
+    }
+}
+
+/* Small Mobile View */
+
+@media screen and (max-width: 450px) {
+    div.dashboard-main-settings {
+        align-items: start;
+        flex-direction: column;
+        row-gap: 0.5rem;
+        margin-top: 0.25rem;
+        width: 100%;
+    }
+
+    div.dashboard-main-settings span {
+        display: block;
+    }
+
+    div.dashboard-payments-student-information-label span:last-child {
+        text-wrap: wrap;
+    }
+
+    div.dashboard-payment-gateways-bank-options {
+        grid-template-columns: 100%;
+        grid-template-rows: 25% 25% 25% 25%;
+    }
+    
+    div.dashboard-payment-gateways-wallet-options {
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+    }
+}

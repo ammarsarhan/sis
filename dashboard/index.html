@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/dashboard/main.css">
+    <link rel="stylesheet" href="../styles/dashboard/home.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../scripts/lucide.js"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside>
+            <div class="flex-center dashboard-aside-primary">
+                <a href="/dashboard">
+                    <img src="../static/images/logo.png" alt="Logo" class="dashboard-aside-logo">
+                </a>
+                <nav>
+                    <ul class="dashboard-aside-nav-list">
+                        <li>
+                            <a href="/dashboard/search.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="search"></i>
+                                Search
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard" class="dashboard-aside-nav-item dashboard-aside-nav-item-active flex-center">
+                                <i data-lucide="home"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/view.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="eye"></i>
+                                Viewing
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/academic.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="book"></i>
+                                Academic Affairs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/records.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="library"></i>
+                                Records
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/payments.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="credit-card"></i>
+                                Payment & Fees
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-center dashboard-aside-secondary">
+
+            </div>
+            <div class="flex-center dashboard-aside-secondary">                
+                <a href="/dashboard/account.html" class="dashboard-aside-nav-item flex-center">
+                    <i data-lucide="user"></i>
+                    Your Account
+                </a>
+                <a href="/auth/student/sign-out.html" class="dashboard-aside-nav-item flex-center">
+                    <i data-lucide="log-out"></i>
+                    Log Out
+                </a>
+            </div>
+        </aside>
+        <main>
+            <header>
+                <div class="dashboard-main-title">
+                    <h1>Home</h1>
+                    <div class="dashboard-main-title-border"></div>
+                </div>
+                <div class="dashboard-main-settings flex-center">
+                    <a href="/dashboard/settings.html">
+                        <i data-lucide="settings" class="dashboard-main-settings-icon"></i>
+                    </a>
+                    <img src="" alt="SIS logo">
+                </div>
+            </header>
+            <div class="flex-center dashboard-main-label">
+                <div class="dashboard-label-circle"></div>
+                <span>Student Data</span>
+                <div class="dashboard-label-circle"></div>
+            </div>
+            <div class="dashboard-primary-information-section">
+                <table class="dashboard-main-information">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span>Name</span>
+                            </td>
+                            <td>
+                                <div class="dashboard-main-information-border"></div>
+                            </td>
+                            <td>
+                                <span>Ammar Yasser Gaber Elsawy Sarhan</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>ID</span>
+                            </td>
+                            <td>
+                                <div class="dashboard-main-information-border"></div>
+                            </td>
+                            <td>
+                                <span>320230031</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Faculty</span>
+                            </td>
+                            <td>
+                                <div class="dashboard-main-information-border"></div>
+                            </td>
+                            <td>
+                                <span>Computer Science and Information Technology</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Major</span>
+                            </td>
+                            <td>
+                                <div class="dashboard-main-information-border"></div>
+                            </td>
+                            <td>
+                                <span>B.Sc Artificial Intelligence and Data Science</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Level</span>
+                            </td>
+                            <td>
+                                <div class="dashboard-main-information-border"></div>
+                            </td>
+                            <td>
+                                <span>2</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Total CH Passed</span>
+                            </td>
+                            <td>
+                                <div class="dashboard-main-information-border"></div>
+                            </td>
+                            <td>
+                                <span>34.00</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Enrollment Status</span>
+                            </td>
+                            <td>
+                                <div class="dashboard-main-information-border"></div>
+                            </td>
+                            <td>
+                                <span>Enrolled</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Academic Status</span>
+                            </td>
+                            <td>
+                                <div class="dashboard-main-information-border"></div>
+                            </td>
+                            <td>
+                                <span>Normal</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>CGPA</span>
+                            </td>
+                            <td>
+                                <div class="dashboard-main-information-border"></div>
+                            </td>
+                            <td>
+                                <span>2.91</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="dashboard-main-attendance">
+                    <div class="dashboard-main-attendance-label flex-center">
+                        <div class="dashboard-label-circle"></div>
+                        <span>Attendance</span>
+                        <div class="dashboard-label-circle"></div>
+                    </div>
+                    <table>
+                        <thead>
+                            <th>Course</th>
+                            <th>Absence</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="dashboard-attendance-table-name">Probability and Statistics</span>
+                                    <span class="dashboard-attendance-table-code">MTH 212</span>
+                                </td>
+                                <td><span>1</span>/6</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="dashboard-attendance-table-name">Networks and Web Progamming</span>
+                                    <span class="dashboard-attendance-table-code">CNC 111</span>
+                                </td>
+                                <td>0/6</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="dashboard-attendance-table-name">Software Engineering</span>
+                                    <span class="dashboard-attendance-table-code">CSC 211</span>
+                                </td>
+                                <td><span>3</span>/6</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="dashboard-attendance-table-name">Natural Resources and Sustainability</span>
+                                    <span class="dashboard-attendance-table-code">LRA 306</span>
+                                </td>
+                                <td>0/6</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="dashboard-attendance-table-name">Computer Organization</span>
+                                    <span class="dashboard-attendance-table-code">CSE 214</span>
+                                </td>
+                                <td>0/6</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="dashboard-attendance-table-name">Ordinary Differential Equations</span>
+                                    <span class="dashboard-attendance-table-code">ACM 215</span>
+                                </td>
+                                <td>0/6</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="dashboard-attendance-table-name">Japanese Language</span>
+                                    <span class="dashboard-attendance-table-code">LRA 403</span>
+                                </td>
+                                <td>0/6</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="dashboard-secondary-information-section">
+                <div class="dashboard-secondary-actions">
+                    <div class="dashboard-secondary-actions-col flex-center">
+                        <div class="dashboard-secondary-actions-col-label">
+                            <div class="dashboard-label-circle"></div>
+                            <span>Report</span>
+                            <div class="dashboard-label-circle"></div>
+                        </div>
+                        <button class="primary">English</button>
+                        <button class="primary">Arabic</button>
+                    </div>
+                    <div class="dashboard-secondary-actions-col">
+                        <div class="dashboard-secondary-actions-col-label">
+                            <div class="dashboard-label-circle"></div>
+                            <span>Transcript</span>
+                            <div class="dashboard-label-circle"></div>
+                        </div>
+                        <button class="primary">English</button>
+                        <button class="primary">Arabic</button>
+                    </div>
+                </div>
+                <div class="dashboard-notifications flex-center">
+                    <div class="dashboard-notifications-label">
+                        <div class="dashboard-label-circle"></div>
+                        <span>Notifications</span>
+                        <div class="dashboard-label-circle"></div>
+                    </div>
+                    <div class="dashboard-notifications-container">
+                        <span>No new announcements</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments & Fees</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/dashboard/main.css">
+    <link rel="stylesheet" href="../styles/dashboard/payments.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../scripts/lucide.js"></script>
+    <script src="../scripts/dashboard/payments.js"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside>
+            <div class="flex-center dashboard-aside-primary">
+                <a href="/dashboard">
+                    <img src="../static/images/logo.png" alt="Logo" class="dashboard-aside-logo">
+                </a>
+                <nav>
+                    <ul class="dashboard-aside-nav-list">
+                        <li>
+                            <a href="/dashboard/search.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="search"></i>
+                                Search
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="home"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/view.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="eye"></i>
+                                Viewing
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/academic.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="book"></i>
+                                Academic Affairs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/records.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="library"></i>
+                                Records
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/payments.html" class="dashboard-aside-nav-item dashboard-aside-nav-item-active flex-center">
+                                <i data-lucide="credit-card"></i>
+                                Payment & Fees
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-center dashboard-aside-secondary">
+
+            </div>
+            <div class="flex-center dashboard-aside-secondary">                
+                <a href="/dashboard/account.html" class="dashboard-aside-nav-item flex-center">
+                    <i data-lucide="user"></i>
+                    Your Account
+                </a>
+                <a href="/auth/student/sign-out.html" class="dashboard-aside-nav-item flex-center">
+                    <i data-lucide="log-out"></i>
+                    Log Out
+                </a>
+            </div>
+        </aside>
+        <main>
+            <header>
+                <div class="dashboard-main-title">
+                    <h1>Payments</h1>
+                    <div class="dashboard-main-title-border"></div>
+                </div>
+                <div class="dashboard-main-settings flex-center">
+                    <span>Current: </span>
+                    <select name="" id="dashboard-installment-select">
+                        <option value="First">First Installment - 2024/2025</option>
+                        <option value="Second">Second Installment - 2024/2025</option>
+                        <option value="Third">Third Installment - 2024/2025</option>
+                        <option value="Fourth">Fourth Installment - 2024/2025</option>
+                    </select>
+                </div>
+            </header>
+            <div class="flex-center dashboard-payments-student-information">
+                <div class="flex-center dashboard-main-label">
+                    <div class="dashboard-label-circle"></div>
+                    <span>Student Information</span>
+                    <div class="dashboard-label-circle"></div>
+                </div>
+                <div class="dashboard-payments-student-information-container">
+                    <div>
+                        <div class="dashboard-payments-student-information-label">
+                            <span>Name: </span>
+                            <span>Ammar Yasser Gaber Elsawy Sarhan</span>
+                        </div>
+                        <div class="dashboard-payments-student-information-label">
+                            <span>Faculty: </span>
+                            <span>Computer Science and Information Technology</span>
+                        </div>
+                        <div class="dashboard-payments-student-information-label">
+                            <span>Major/Minor: </span>
+                            <span>B.Sc Computer Science</span>
+                        </div>
+                        <div class="dashboard-payments-student-information-label">
+                            <span>CGPA: </span>
+                            <span>2.91</span>
+                        </div>
+                        <div class="dashboard-payments-student-information-label">
+                            <span>Academic Status: </span>
+                            <span>Normal</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dashboard-payments-student-information-label">
+                            <span>Registered CHs: </span>
+                            <span>18.00</span>
+                        </div>
+                        <div class="dashboard-payments-student-information-label">
+                            <span>Total Passed CHs: </span>
+                            <span>18.00</span>
+                        </div>
+                        <div class="dashboard-payments-student-information-label">
+                            <span>Student Status: </span>
+                            <span>Enrolled</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-payments-primary-information">
+                    <div class="dashboard-payments-primary-information-payment">
+                        <div class="flex-center dashboard-payments-primary-information-label">
+                            <div class="dashboard-label-circle"></div>
+                            <span>Payment Information</span>
+                            <div class="dashboard-label-circle"></div>
+                        </div>
+                        <div class="dashboard-payments-primary-information-container">
+                            <div class="dashboard-payments-primary-information-details">
+                                <span>Payment Details</span>
+                                <div>
+                                    <div>
+                                        <span>Installment Fee:</span>
+                                        <span id="dashboard-payments-fee">EGP 18,500.00</span>
+                                    </div>
+                                    <div>
+                                        <span>Discount:</span>
+                                        <span id="dashboard-payments-discount">EGP 0.00</span>
+                                    </div>
+                                    <div>
+                                        <span>Due Fees:</span>
+                                        <span id="dashboard-payments-due">EGP 18,500.00</span>
+                                    </div>
+                                    <div>
+                                        <span>Paid:</span>
+                                        <span id="dashboard-payments-paid">EGP 0.00</span>
+                                    </div>
+                                    <div>
+                                        <span>Remaining Amount:</span>
+                                        <span id="dashboard-payments-remaining">EGP 18,500.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard-payments-primary-information-vouchers">
+                                <span>Voucher Details</span>
+                                <div id="dashboard-payments-vouchers-container">
+                                    <!-- Voucher Items -->
+
+                                    <!-- <div class="dashboard-payments-primary-information-voucher-item">
+                                        <span>Voucher 1</span>
+                                        <div class="dashboard-payments-primary-information-voucher-label">
+                                            <span>Voucher:</span>
+                                            <span>Sibling Discount</span>
+                                        </div>
+                                        <div class="dashboard-payments-primary-information-voucher-label">
+                                            <span>Voucher Value:</span>
+                                            <span class="text-red">-20%</span>
+                                        </div>
+                                        <div class="dashboard-payments-primary-information-voucher-label">
+                                            <span>Voucher Description:</span>
+                                            <a href="https://www.ejust.edu.eg/ug-scholarships" target="_blank">Sibling Discount</a>
+                                        </div>
+                                    </div> -->
+                                    <!-- <div class="dashboard-payments-primary-information-voucher-item">
+                                        <span>Voucher 2</span>
+                                        <div class="dashboard-payments-primary-information-voucher-label">
+                                            <span>Voucher:</span>
+                                            <span>Academic Excellence</span>
+                                        </div>
+                                        <div class="dashboard-payments-primary-information-voucher-label">
+                                            <span>Voucher Value:</span>
+                                            <span class="text-red">-15%</span>
+                                        </div>
+                                        <div class="dashboard-payments-primary-information-voucher-label">
+                                            <span>Voucher Description:</span>
+                                            <a href="https://www.ejust.edu.eg/ug-scholarships" target="_blank">Academic Excellence</a>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-payments-primary-information-term">
+                        <div class="flex-center dashboard-payments-primary-information-label">
+                            <div class="dashboard-label-circle"></div>
+                            <span>Semester/Term</span>
+                            <div class="dashboard-label-circle"></div>
+                        </div>
+                        <div>
+                            <div class="dashboard-payments-primary-information-term-label">
+                                <span>Installment: </span>
+                                <span id="dashboard-installment-label">First Installment</span>
+                            </div>
+                            <div class="dashboard-payments-primary-information-term-label">
+                                <span>Semester: </span>
+                                <span id="dashboard-semester-label">Fall</span>
+                            </div>
+                            <div class="dashboard-payments-primary-information-term-label">
+                                <span>Term: </span>
+                                <span id="dashboard-term-label">1st Term</span>
+                            </div>
+                            <div class="dashboard-payments-primary-information-term-label">
+                                <span>Academic Year: </span>
+                                <span id="dashboard-year-label">2024/2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="flex-center dashboard-payments-primary-information-label">
+                    <div class="dashboard-label-circle"></div>
+                    <span>Payment Method</span>
+                    <div class="dashboard-label-circle"></div>
+                </div>
+                <div class="dashboard-payment-gateways">
+                    <div>
+                        <span>Bank Gateways</span>
+                        <div class="dashboard-payment-gateways-bank-options">
+                            <a class="dashboard-payment-gateways-option" href="/">
+                                <img src="" alt="Banque Misr logo">
+                                <span>Banque Misr</span>
+                            </a>
+                            <a class="dashboard-payment-gateways-option" href="/">
+                                <img src="" alt="NBE logo">
+                                <span>National Bank of Egypt</span>
+                            </a>
+                            <a class="dashboard-payment-gateways-option" href="/">
+                                <img src="" alt="CIB logo">
+                                <span>Commercial International Bank</span>
+                            </a>
+                            <a class="dashboard-payment-gateways-option" href="/">
+                                <img src="" alt="ADIB logo">
+                                <span>Abu Dhabi Islamic Bank</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <span>Mobile Wallet Gateways</span>
+                        <div class="dashboard-payment-gateways-wallet-options">
+                            <a class="dashboard-payment-gateways-option" href="/">
+                                <img src="" alt="Fawry logo">
+                                <span>Fawry</span>
+                            </a>
+                            <a class="dashboard-payment-gateways-option" href="/">
+                                <img src="" alt="Vodafone Cash logo">
+                                <span>Vodafone Cash</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-payments-tos flex-center">
+                <p><span>Note:</span> Terms and Conditions apply as specified per the E-JUST noticeboard. Please refer to the following <a href="/">link</a> for more information. For any inquires regarding payments/fees, feel free to shoot us an email.</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+/* Dashboard Wrapper */
+
+div.dashboard-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+div.dashboard-wrapper > * {
+    padding: 1rem;
+}
+
+/* Dashboard Aside */
+
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-basis: 20%;
+    border-right: 1px solid rgb(200, 200, 200);
+    height: 100%;
+}
+
+aside div.dashboard-aside-primary {
+    margin: 0.75rem 0;
+    row-gap: 2.25rem;
+    flex-direction: column;
+}
+
+aside div.dashboard-aside-secondary {
+    margin: 0.75rem 0;
+    row-gap: 1.25rem;
+    flex-direction: column;
+}
+
+img.dashboard-aside-logo {
+    height: 2.5rem;
+    width: 2.5rem;
+    object-fit: contain;
+}
+
+nav ul.dashboard-aside-nav-list {
+    list-style-type: none;
+}
+
+nav li {
+    margin-bottom: 1.5rem;
+}
+
+nav li:last-child {
+    margin-bottom: 0;
+}
+
+a.dashboard-aside-nav-item {
+    column-gap: 0.5rem;
+    color: rgb(100, 100, 100);
+    text-decoration: none;
+}
+
+a.dashboard-aside-nav-item:hover {
+    text-decoration: underline;
+}
+
+nav a.dashboard-aside-nav-item-active {
+    color: black;
+    text-decoration: none !important;
+}
+
+/* Dashboard Main */
+
+main {
+    flex-basis: 80%;
+    flex-grow: 4;
+    margin: 0.75rem 0;
+    height: auto;
+}
+
+/* Dashboard Main Label */
+
+div.dashboard-main-label {
+    display: flex;
+    column-gap: 0.8rem;
+    margin: 0.75rem 0;
+}
+
+div.dashboard-main-label span {
+    font-size: 1.1rem;
+}
+
+/* Dashboard Tablet View */
+
+div.dashboard-wrapper {
+    display: block;
+}
+
+aside {
+    position: fixed;
+    width: 20%;
+    background-color: white;
+}
+
+main {
+    width: 80%;
+    float: right;
+}
+
+@media screen and (max-width: 900px) {
+    div.dashboard-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    aside {
+        border-right: none;
+        border-bottom: 1px solid rgb(200, 200, 200);
+        display: none;
+    }
+
+    main {
+        width: 100%;
+        flex-basis: 100%;
+    }
+}
+
+/* Dashboard Mobile View */
+
+/* Miscellaneous */
+
+div.dashboard-label-circle {
+    width: 0.4rem;
+    height: 0.4rem;
+    background-color: red;
+    border-radius: 100%;
+}
