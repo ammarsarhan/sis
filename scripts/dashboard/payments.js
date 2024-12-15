@@ -35,7 +35,7 @@ var vouchers = [
         name: "Academic Excellence",
         value: 0.15,
         description: "https://www.ejust.edu.eg/ug-scholarships"
-    },
+    }
 ]
 
 // Event Handlers
