@@ -116,6 +116,9 @@ function populateListView (date, events) {
     var eventsList = document.getElementById("dashboard-viewing-calendar-event-list");
     var deadlinesList = document.getElementById("dashboard-viewing-calendar-deadline-list");
 
+    var eventFlag = false;
+    var deadlineFlag = false;
+
     // Clear out previous list view items
     if (eventsList.childNodes.length > 0 || deadlinesList.childNodes.length > 0) {
         eventsList.innerHTML = "";
@@ -130,7 +133,13 @@ function populateListView (date, events) {
         var event = filter[i];
         
         // Check if event date is the same as current date
-        if (event.date.getMonth() === date.getMonth()) {      
+        if (event.date.getMonth() === date.getMonth()) {
+            // Fix styling for when elements are re-added  
+            eventsList.style.marginLeft = "1.5rem";
+            eventsList.style.marginRight = "1.5rem";
+            deadlinesList.style.marginLeft = "1.5rem";
+            deadlinesList.style.marginRight = "1.5rem";
+
             // Create list item DOM element  
             var listElement = document.createElement("li");
             listElement.innerHTML = `
@@ -141,11 +150,37 @@ function populateListView (date, events) {
             // Append to list according to event type
             if (event.type === "Event") {
                 eventsList.appendChild(listElement);
+                eventFlag = true;
             } else if (event.type === "Deadline") {
                 deadlinesList.appendChild(listElement);
+                deadlineFlag = true;
             }
         }
+    }
 
+    // Display none instead of list elements if none are found
+    if (!eventFlag) {
+        var listElement = document.createElement("li");
+        listElement.style.listStyleType = "None"
+        listElement.style.color = "rgb(100, 100, 100)";
+        listElement.innerText = "None"
+        
+        eventsList.style.marginLeft = 0;
+        eventsList.style.marginRight = 0;
+        
+        eventsList.appendChild(listElement);
+    }
+    
+    if (!deadlineFlag) {
+        var listElement = document.createElement("li");
+        listElement.style.listStyleType = "None"
+        listElement.style.color = "rgb(100, 100, 100)";
+        listElement.innerText = "None"
+        
+        deadlinesList.style.marginLeft = 0;
+        deadlinesList.style.marginRight = 0;
+
+        deadlinesList.appendChild(listElement);
     }
 }
 

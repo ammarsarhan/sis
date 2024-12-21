@@ -130,6 +130,6 @@ main {
 div.dashboard-label-circle {
     width: 0.4rem;
     height: 0.4rem;
-    background-color: red;
+    background: linear-gradient(45deg, rgb(225, 0, 0), rgb(255, 0, 0));
     border-radius: 100%;
 }
