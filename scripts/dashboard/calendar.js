@@ -178,6 +178,23 @@ function populateCalendarView (date, events) {
             
             if (activeDays.includes(current)) {
                 calendarCell.classList.add("dashboard-viewing-calendar-cell-active");
+                calendarCell.addEventListener("click", function () {
+                    // Switch view
+                    var input = document.getElementById("dashboard-viewing-date-switch");
+                    input.checked = false;
+
+                    var checked = input.checked;
+                    var primary = document.getElementById("dashboard-viewing-calendar-primary");
+                    var secondary = document.getElementById("dashboard-viewing-calendar-secondary");
+                
+                    if (checked) {
+                        primary.classList.add("hidden");
+                        secondary.classList.remove("hidden");
+                    } else {
+                        primary.classList.remove("hidden");
+                        secondary.classList.add("hidden");
+                    }                    
+                })
             } else {
                 calendarCell.classList.add("dashboard-viewing-calendar-cell-inactive");
             }

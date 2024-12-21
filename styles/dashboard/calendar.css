@@ -131,6 +131,7 @@ div.dashboard-viewing-calendar-cell-inactive {
 div.dashboard-viewing-calendar-cell-active {
     background: linear-gradient(45deg, rgb(180, 0, 0), rgb(220, 0, 0));
     color: rgb(240, 240, 240);
+    cursor: pointer;
 }
 
 div.dashboard-viewing-calendar-cell-empty {
