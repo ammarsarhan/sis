@@ -1,0 +1,71 @@
+main {
+    height: auto;
+}
+
+/* Main schedule */
+div.dashboard-viewing-schedule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+div.dashboard-viewing-schedule h2 {
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+div#dashboard-viewing-schedule-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 75%;
+}
+
+div#dashboard-viewing-schedule-container > div {
+    width: 100%;
+}
+
+div.dashboard-viewing-schedule-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+    border: 1px solid rgb(220, 220, 220);
+    border-top: 0;
+    background: linear-gradient(45deg, rgb(180, 0, 0), rgb(220, 0, 0));
+    color: white;
+}
+
+div.dashboard-viewing-schedule-day > span {
+    display: block;
+}
+
+div.dashboard-viewing-schedule-header, div.dashboard-viewing-schedule-data-item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+div.dashboard-viewing-schedule-header > span {
+    background-color: rgb(235, 235, 235);
+    font-weight: 500;
+    padding: 1rem !important;
+}
+
+div.dashboard-viewing-schedule-header > span, 
+div.dashboard-viewing-schedule-data-item > span {
+    padding: 1.5rem 1rem;
+    border: 1px solid rgb(220, 220, 220);
+    border-top: 0;
+    text-align: center;
+}
+
+div.dashboard-viewing-schedule-header > span:first-child, 
+div.dashboard-viewing-schedule-data-item > span:first-child {
+    border-right: 0;
+}
+
+div.dashboard-viewing-schedule-data-item-inactive > span:last-child {
+    background-color: rgb(245, 245, 245);
+}
