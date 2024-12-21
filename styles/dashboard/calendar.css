@@ -1,0 +1,194 @@
+main {
+    height: calc(100vh - 1.5rem);
+    row-gap: 1.5rem;
+}
+
+/* Utilities */
+
+div.dashboard-viewing-calendar-utilities {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 4rem;
+    row-gap: 1rem;
+}
+
+div.dashboard-viewing-date-switch {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+div.dashboard-viewing-date-input {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+div.dashboard-viewing-date-input span, div.dashboard-viewing-date-switch span {
+    color: rgb(100, 100, 100);
+}
+
+input#dashboard-viewing-date-input {
+    width: fit-content;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 5px;
+    color: rgb(100, 100, 100);
+    font-family: sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Primary (List) View */
+
+div#dashboard-viewing-calendar-primary {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    row-gap: 1rem;
+}
+
+div#dashboard-viewing-calendar-primary > div {
+    flex: 1;
+}
+
+div#dashboard-viewing-calendar-primary div span {
+    text-wrap: nowrap;
+}
+
+div#dashboard-viewing-calendar-primary div li {
+    text-wrap: nowrap;
+}
+
+div#dashboard-viewing-calendar-primary > div ol {
+    margin: 0.5rem 1.5rem;
+}
+
+div#dashboard-viewing-calendar-primary > div ol li {
+    line-height: 250%;
+}
+
+div#dashboard-viewing-calendar-primary > div ol li span:first-child::after {
+    content: ' -';
+}
+
+div#dashboard-viewing-calendar-primary > div ol li span:last-child {
+    color: rgb(100, 100, 100);
+}
+
+/* Secondary View */
+
+div#dashboard-viewing-calendar-secondary {
+    flex: 1;
+}
+
+/* Calendar Component */
+
+div.dashboard-viewing-calendar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 1rem;
+    height: 100%;
+}
+
+div.dashboard-viewing-calendar-main {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.25rem;
+}
+
+div.dashboard-viewing-calendar-main > span {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+div#dashboard-viewing-calendar-cells {
+    border: 1px solid rgb(220, 220, 220);
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+}
+
+div.dashboard-viewing-calendar-cell {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    border: 1px solid rgb(220, 220, 220);
+    padding: 0.5rem;
+    border-left: 0;
+    border-top: 0;
+}
+
+div.dashboard-viewing-calendar-cell-inactive {
+    color: rgb(100, 100, 100);
+}
+
+div.dashboard-viewing-calendar-cell-active {
+    background: linear-gradient(45deg, rgb(180, 0, 0), rgb(220, 0, 0));
+    color: rgb(240, 240, 240);
+}
+
+div.dashboard-viewing-calendar-cell-empty {
+    background-color: rgb(240, 240, 240);
+}
+
+div.dashboard-viewing-calendar-cell:nth-child(7),
+div.dashboard-viewing-calendar-cell:nth-child(14),
+div.dashboard-viewing-calendar-cell:nth-child(21),
+div.dashboard-viewing-calendar-cell:nth-child(28) {
+    border-right: 0;
+}
+
+div.dashboard-viewing-calendar-cell:nth-child(29),
+div.dashboard-viewing-calendar-cell:nth-child(30),
+div.dashboard-viewing-calendar-cell:nth-child(31),
+div.dashboard-viewing-calendar-cell:nth-child(32),
+div.dashboard-viewing-calendar-cell:nth-child(33),
+div.dashboard-viewing-calendar-cell:nth-child(34),
+div.dashboard-viewing-calendar-cell:nth-child(35) {
+    border-bottom: 0;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 900px) {
+    div.dashboard-wrapper {
+        height: 100vh !important;
+    }
+}
+
+/* Small Tablet/Mobile */
+
+@media screen and (max-width: 500px) {
+    main {
+        row-gap: 0.8rem;
+    }
+
+    div.dashboard-viewing-navigation {
+        row-gap: 0.4rem;
+    }
+
+    div.dashboard-viewing-date-input {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    div.dashboard-viewing-calendar-main {
+        row-gap: 0.6rem;
+    }
+
+    div.dashboard-viewing-calendar-cell {
+        font-size: 0.85rem;
+    }
+
+    div.dashboard-viewing-calendar-utilities {
+        flex-direction: column-reverse;
+        align-items: start;
+        row-gap: 0.4rem;
+    }
+}

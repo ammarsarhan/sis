@@ -45,6 +45,13 @@ button {
     transition: background-color 0.2s;
 }
 
+button.none {
+    background: none;
+    padding: 1rem;
+    border-radius: 0;
+    transition: none;
+}
+
 button.primary {
     background-color: black;
     color: white;
@@ -89,4 +96,8 @@ span.italic {
 .lucide-icon {
     height: 0.9rem;
     width: 0.9rem;
+}
+
+.hidden {
+    display: none !important;
 }

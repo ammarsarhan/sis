@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Available Courses</title>
+    <link rel="stylesheet" href="../../styles/global.css">
+    <link rel="stylesheet" href="../../styles/dashboard/main.css">
+    <link rel="stylesheet" href="../../styles/dashboard/viewing.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../scripts/lucide.js"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside>
+            <div class="flex-center dashboard-aside-primary">
+                <a href="/dashboard">
+                    <img src="../../static/images/logo.png" alt="Logo" class="dashboard-aside-logo">
+                </a>
+                <nav>
+                    <ul class="dashboard-aside-nav-list">
+                        <li>
+                            <a href="/dashboard/search.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="search"></i>
+                                Search
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="home"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/viewing/calendar.html" class="dashboard-aside-nav-item dashboard-aside-nav-item-active flex-center">
+                                <i data-lucide="eye"></i>
+                                Viewing
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/academic.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="book"></i>
+                                Academic Affairs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/records.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="library"></i>
+                                Reports
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/payments.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="credit-card"></i>
+                                Payment & Fees
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-center dashboard-aside-secondary">
+            </div>
+            <div class="flex-center dashboard-aside-secondary">                
+                <a href="/dashboard/account.html" class="dashboard-aside-nav-item flex-center">
+                    <i data-lucide="user"></i>
+                    Your Account
+                </a>
+                <a href="/auth/student/sign-out.html" class="dashboard-aside-nav-item flex-center">
+                    <i data-lucide="log-out"></i>
+                    Log Out
+                </a>
+            </div>
+        </aside>
+        <main>
+            <div class="dashboard-viewing-navigation">
+                <header>
+                    <div class="dashboard-main-title">
+                        <h1>Viewing</h1>
+                        <div class="dashboard-main-title-border"></div>
+                    </div>
+                </header>
+                <nav>
+                    <a href="/dashboard/viewing/calendar.html" class="dashboard-calendar-navlink">Calendar</a>
+                    <a href="/dashboard/viewing/schedule.html" class="dashboard-calendar-navlink">Schedule</a>
+                    <a href="/dashboard/viewing/courses.html" class="dashboard-calendar-navlink dashboard-calendar-navlink-active">Courses</a>
+                </nav>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
