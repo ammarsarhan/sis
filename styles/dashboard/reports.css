@@ -1,0 +1,249 @@
+main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    padding: 1rem 1.8rem !important;
+}
+
+main > span {
+    margin: 0.4rem 0 1rem 0;
+    color: rgb(100, 100, 100);
+}
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+div.dashboard-main-title {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.3rem;
+    width: fit-content;
+    margin: 0.5rem 0;
+}
+
+header div.dashboard-main-title-border {
+    width: 50%;
+    height: 3px;
+    background: red;
+}
+
+h1 {
+    font-size: 1.75rem;
+}
+
+/* Query */
+
+div.dashboard-reports-query > h2 {
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+div.dashboard-reports-query > span {
+    color: rgb(100, 100, 100);
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+div.dashboard-reports-query {
+    padding: 1.75rem;
+    border: 1px solid rgb(200, 200, 200);
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.7rem;
+}
+
+div.dashboard-reports-query-actions {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    column-gap: 4rem;
+}
+
+div.dashboard-reports-query-action {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 0.75rem;
+    column-gap: 1.5rem;
+}
+
+div.dashboard-reports-query-action > input {
+    border: 1px solid rgb(200, 200, 200);
+    width: 50%;
+}
+
+div.dashboard-reports-query-action > div {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+div.dashboard-reports-query-action > div > div {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+div.dashboard-reports-query-action select {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+div.dashboard-reports-query-action span {
+    color: rgb(100, 100, 100);
+    text-wrap: nowrap;
+}
+
+div.dashboard-reports-query-submit {
+    margin-top: 0.75rem;
+}
+
+/* Primary Results */
+div.dashboard-reports-grades {
+    margin-top: 2rem;
+    padding: 1.75rem;
+    border: 1px solid rgb(200, 200, 200);
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.7rem;
+}
+
+div.dashboard-reports-grades > h2 {
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+div.dashboard-reports-grades > span {
+    color: rgb(100, 100, 100);
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+div#dashboard-reports-grades-container {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+}
+
+div#dashboard-reports-grades-container > div.dashboard-reports-grades-data-item {
+    width: 50%;
+}
+
+div.dashboard-reports-grades-data-item > span:last-child {
+    color: rgb(100, 100, 100);
+}
+
+div.dashboard-reports-courses-results {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.75rem;
+}
+
+div.dashboard-reports-courses-results h2 {
+    font-size: 1.25rem;
+}
+
+div.dashboard-reports-courses-results > div > span {
+    color: rgb(100, 100, 100);
+    font-size: 0.9rem;
+}
+
+/* Results Table */
+
+div.dashboard-reports-courses-results-table {
+    border: 1px solid rgb(200, 200, 200);
+    border-bottom: 0;
+    margin-top: 1.2rem;
+}
+
+div.dashboard-reports-courses-results-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+div.dashboard-reports-courses-results-header div {
+    border: 1px solid rgb(200, 200, 200);
+    background: rgb(245, 245, 245);
+    padding: 0.75rem 1rem;
+    border-left: 0;
+    border-top: 0;
+    text-align: center;
+}
+
+div.dashboard-reports-courses-results-header div:last-child {
+    border-right: 0;
+}
+
+div.dashboard-reports-courses-results-item {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+div.dashboard-reports-courses-results-item div {
+    border: 1px solid rgb(200, 200, 200);
+    padding: 0.75rem 1rem;
+    border-left: 0;
+    border-top: 0;
+    text-align: center;
+}
+
+div.dashboard-reports-courses-results-item div:last-child {
+    border-right: 0;
+}
+
+@media screen and (max-width: 900px) {
+    div.dashboard-viewing-courses-query-actions {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    div.dashboard-reports-courses-results-header {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    div.dashboard-reports-courses-results-header div:nth-child(3) {
+        border-right: 0;
+    }
+
+    div.dashboard-reports-courses-results-header div:nth-child(3),
+    div.dashboard-reports-courses-results-header div:nth-child(4) {
+        display: none;
+    }
+
+    div.dashboard-reports-courses-results-item {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    div.dashboard-reports-courses-results-item div:nth-child(3) {
+        border-right: 0;
+    }
+
+    div.dashboard-reports-courses-results-item div:nth-child(3),
+    div.dashboard-reports-courses-results-item div:nth-child(4) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    div.dashboard-viewing-courses-query-action > input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    div#dashboard-reports-grades-container > div.dashboard-reports-grades-data-item {
+        width: 100%;
+    }
+
+    div#dashboard-reports-grades-container {
+        flex-direction: column;
+    }
+}

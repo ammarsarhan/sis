@@ -81,7 +81,6 @@ var results = [
 ];
 
 function populateListView() {
-    var parent = document.querySelector("div.dashboard-viewing-courses-results > div");
     var container = document.getElementById("dashboard-viewing-courses-results-items");
     var count = document.getElementById("dashboard-viewing-courses-results-count");
 

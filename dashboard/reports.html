@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/dashboard/main.css">
+    <link rel="stylesheet" href="../styles/dashboard/reports.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../scripts/lucide.js"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside>
+            <div class="flex-center dashboard-aside-primary">
+                <a href="/dashboard">
+                    <img src="../static/images/logo.png" alt="Logo" class="dashboard-aside-logo">
+                </a>
+                <nav>
+                    <ul class="dashboard-aside-nav-list">
+                        <li>
+                            <a href="/dashboard/search.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="search"></i>
+                                Search
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="home"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/viewing/calendar.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="eye"></i>
+                                Viewing
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/academic.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="book"></i>
+                                Academic Affairs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/reports.html" class="dashboard-aside-nav-item dashboard-aside-nav-item-active flex-center">
+                                <i data-lucide="library"></i>
+                                Reports
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/payments.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="credit-card"></i>
+                                Payment & Fees
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-center dashboard-aside-secondary">
+            </div>
+            <div class="flex-center dashboard-aside-secondary">                
+                <a href="/dashboard/account.html" class="dashboard-aside-nav-item flex-center">
+                    <i data-lucide="user"></i>
+                    Your Account
+                </a>
+                <a href="/auth/student/sign-out.html" class="dashboard-aside-nav-item flex-center">
+                    <i data-lucide="log-out"></i>
+                    Log Out
+                </a>
+            </div>
+        </aside>
+        <main>
+            <header>
+                <div class="dashboard-main-title">
+                    <h1>Reports</h1>
+                    <div class="dashboard-main-title-border"></div>
+                </div>
+            </header>
+            <span>Filter and view your academic records by semester:</span>
+            <div class="dashboard-reports-query">
+                <h2>Filter Records</h2>
+                <span>Pick a specific academic year and semester to view your results</span>
+                <div class="dashboard-reports-query-actions">
+                    <div class="dashboard-reports-query-action">
+                        <span>Academic Year</span>
+                        <select name="">
+                            <option value="">2023/2024</option>
+                        </select>
+                    </div>
+                    <div class="dashboard-reports-query-action">
+                        <span>Semester</span>
+                        <select name="">
+                            <option value="Fall">Fall</option>
+                            <option value="Spring">Spring</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dashboard-reports-query-submit">
+                    <button class="primary">Search</button>
+                </div>
+            </div>
+            <div class="dashboard-reports-grades">
+                <h2>Your Grades</h2>
+                <span>Fall Semester - 2023/2024 Academic Year</span>
+                <div id="dashboard-reports-grades-container">
+                    <div class="dashboard-reports-grades-data-item">
+                        <span>GPA:</span>
+                        <span>2.71</span>
+                    </div>
+                    <div class="dashboard-reports-grades-data-item">
+                        <span>CGPA:</span>
+                        <span>2.91</span>
+                    </div>
+                    <div class="dashboard-reports-grades-data-item">
+                        <span>Passed Credit Hours:</span>
+                        <span>17.00</span>
+                    </div>
+                    <div class="dashboard-reports-grades-data-item">
+                        <span>Total Credit Hours:</span>
+                        <span>34.00</span>
+                    </div>
+                    <div class="dashboard-reports-grades-data-item">
+                        <span>Registered Credit Hours:</span>
+                        <span>17.00</span>
+                    </div>
+                    <div class="dashboard-reports-grades-data-item">
+                        <span>Accumulated Credit Hours:</span>
+                        <span>34.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-reports-courses-results">
+                <h2>Your Courses</h2>
+                <div>
+                    <span id="dashboard-reports-courses-results-count">Set criteria and search to display results.</span>
+                    <div class="dashboard-reports-courses-results-table">
+                        <div class="dashboard-reports-courses-results-header">
+                            <div class="flex-center">
+                                <span>Course Code</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Course Name</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Credit Hours</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Factor</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Grade</span>
+                            </div>
+                        </div>
+                        <div id="dashboard-reports-courses-results-items">
+                            <div class="dashboard-reports-courses-results-item">
+                                <div class="flex-center">
+                                    <span>ACM215</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>Ordinary Differential Equations</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>3.00</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>3.3</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>B+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
