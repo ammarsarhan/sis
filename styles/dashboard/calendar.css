@@ -177,11 +177,7 @@ div.dashboard-viewing-calendar-cell:nth-child(35) {
 
 @media screen and (max-width: 500px) {
     main {
-        row-gap: 0.8rem;
-    }
-
-    div.dashboard-viewing-navigation {
-        row-gap: 0.4rem;
+        row-gap: 1.5rem;
     }
 
     div.dashboard-viewing-date-input {

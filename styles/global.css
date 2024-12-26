@@ -22,6 +22,8 @@ input {
     border: 0;
     font-size: 0.95rem;
     outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
 }
 
 select {
@@ -84,7 +86,7 @@ span.italic {
 }
 
 .text-red {
-    color: red;
+    color: rgb(225, 0, 0);
 }
 
 .flex-center {

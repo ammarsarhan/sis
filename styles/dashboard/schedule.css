@@ -8,12 +8,24 @@ div.dashboard-viewing-schedule {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    row-gap: 2rem;
+}
+
+div.dashboard-viewing-schedule-utilities {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    text-wrap: nowrap;
+}
+
+div.dashboard-viewing-schedule-utilities button {
+    font-size: 0.85rem;
 }
 
 div.dashboard-viewing-schedule h2 {
     width: 100%;
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
 }
 
 div#dashboard-viewing-schedule-container {
@@ -54,18 +66,41 @@ div.dashboard-viewing-schedule-header > span {
 }
 
 div.dashboard-viewing-schedule-header > span, 
-div.dashboard-viewing-schedule-data-item > span {
+div.dashboard-viewing-schedule-data-item > span,
+div.dashboard-viewing-schedule-data-item > div {
     padding: 1.5rem 1rem;
     border: 1px solid rgb(220, 220, 220);
     border-top: 0;
     text-align: center;
 }
 
-div.dashboard-viewing-schedule-header > span:first-child, 
-div.dashboard-viewing-schedule-data-item > span:first-child {
+div.dashboard-viewing-schedule-data-item > div {
+    flex-direction: column;
+    row-gap: 0.2rem;
+}
+
+div.dashboard-viewing-schedule-data-item > div > span:last-child {
+    color: rgb(100, 100, 100);
+}
+
+div.dashboard-viewing-schedule-header > span, 
+div.dashboard-viewing-schedule-data-item > span {
     border-right: 0;
 }
 
-div.dashboard-viewing-schedule-data-item-inactive > span:last-child {
+div.dashboard-viewing-schedule-data-item-inactive > div {
     background-color: rgb(245, 245, 245);
+}
+
+/* Mobile View */
+@media screen and (max-width: 650px) {
+    div#dashboard-viewing-schedule-container {
+        width: 100%;
+    }
+
+    div.dashboard-viewing-schedule-utilities {
+        flex-direction: column;
+        row-gap: 1rem;
+        align-items: start;
+    }
 }

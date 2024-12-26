@@ -21,6 +21,11 @@ var events = [
         type: "Event"
     },
     {
+        name: "Solia's Birthday",
+        date: new Date(2024, 8, 10),
+        type: "Event"
+    },
+    {
         name: "Some Holiday",
         date: new Date(2024, 11, 21),
         type: "Event"

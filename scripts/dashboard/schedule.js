@@ -232,8 +232,11 @@ function populateScheduleView () {
                 element.classList.add("dashboard-viewing-schedule-data-item");
                 
                 element.innerHTML = `
-                    <span>${item.slot}</span>
-                    <span>${item.course}</span>
+                    <span class="flex-center">${item.slot}</span>
+                    <div class="flex-center">
+                        <span>${item.course} ${item.type}</span>
+                        <span>${item.location}</span>
+                    </div>
                 `;
             } else {
                 element.classList.add("dashboard-viewing-schedule-data-item");
@@ -241,7 +244,7 @@ function populateScheduleView () {
                 
                 element.innerHTML = `
                     <span>${item.slot}</span>
-                    <span></span>
+                    <div></div>
                 `;
             }
 

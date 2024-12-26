@@ -56,7 +56,6 @@ div.dashboard-payments-student-information-container {
     column-gap: 3rem;
     row-gap: 1.4rem;
     border: 1px solid rgb(200, 200, 200);
-    border-radius: 5px;
     padding: 2rem;
     width: 75%;
 }
@@ -93,8 +92,7 @@ div.dashboard-payments-primary-information {
 
 div.dashboard-payments-primary-information div.dashboard-payments-primary-information-container {
     border: 1px solid rgb(200, 200, 200);
-    padding: 1.5rem;
-    border-radius: 5px;
+    padding: 2rem;
     display: flex;
     gap: 2rem;
     overflow: hidden;
@@ -175,7 +173,7 @@ div.dashboard-payments-primary-information-voucher-item > span {
 }
 
 div.dashboard-payments-primary-information-voucher-label {
-    margin-top: 0.65rem;
+    margin-top: 0.8rem;
 }
 
 /* Payment Information Term Section */
@@ -256,6 +254,7 @@ div.dashboard-payments-tos p {
     text-align: center;
     color: rgb(100, 100, 100);
     width: 75%;
+    line-height: 150%;
 }
 
 div.dashboard-payments-tos p span {

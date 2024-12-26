@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="../../styles/global.css">
     <link rel="stylesheet" href="../../styles/dashboard/main.css">
     <link rel="stylesheet" href="../../styles/dashboard/viewing.css">
+    <link rel="stylesheet" href="../../styles/dashboard/courses.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../../scripts/lucide.js"></script>
+    <script src="../../scripts/dashboard/courses.js"></script>
 </head>
 <body>
     <div class="dashboard-wrapper">
@@ -84,6 +86,93 @@
                     <a href="/dashboard/viewing/schedule.html" class="dashboard-calendar-navlink">Schedule</a>
                     <a href="/dashboard/viewing/courses.html" class="dashboard-calendar-navlink dashboard-calendar-navlink-active">Courses</a>
                 </nav>
+            </div>
+            <div class="dashboard-viewing-courses">
+                <div class="dashboard-viewing-courses-query">
+                    <h2>Search Courses</h2>
+                    <div class="dashboard-viewing-courses-query-actions">
+                        <div class="dashboard-viewing-courses-query-action">
+                            <span>Academic Year</span>
+                            <select name="">
+                                <option value="">2023/2024</option>
+                            </select>
+                        </div>
+                        <div class="dashboard-viewing-courses-query-action">
+                            <span>Semester</span>
+                            <select name="">
+                                <option value="Fall">Fall</option>
+                                <option value="Spring">Spring</option>
+                            </select>
+                        </div>
+                        <div class="dashboard-viewing-courses-query-action">
+                            <span>University/Faculty</span>
+                            <select name="">
+                                <option value="CSIT">CSIT</option>
+                                <option value="PHARMAD">Pharma D</option>
+                                <option value="BAS">BAS</option>
+                                <option value="FOE">FoE</option>
+                                <option value="AND">AnD</option>
+                                <option value="SARCH">ARCH</option>
+                                <option value="FIBH">FIBH</option>
+                            </select>
+                        </div>
+                        <div class="dashboard-viewing-courses-query-action">
+                            <span>Credit Hours</span>
+                            <input type="number" min="1" max="3" placeholder="Number from 1-3">
+                        </div>
+                        <div class="dashboard-viewing-courses-query-action">
+                            <span>Course Level</span>
+                            <input type="number" min="0" max="4" placeholder="Number from 0-4">   
+                        </div>
+                        <div class="dashboard-viewing-courses-query-action">
+                            <span>Degree</span>
+                            <div>
+                                <div>                                    
+                                    <input type="radio" name="degree">
+                                    <label for="degree">UG</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="degree">
+                                    <label for="degree">PG</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="degree">
+                                    <label for="degree">Both</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-viewing-query-submit">
+                            <button class="primary">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-viewing-courses-results">
+                    <h2>Available Results</h2>
+                    <div>
+                        <span id="dashboard-viewing-courses-results-count"></span>
+                        <div class="dashboard-viewing-courses-results-table">
+                            <div class="dashboard-viewing-courses-results-header">
+                                <div class="flex-center">
+                                    <span>Course Code</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>Course Name</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>Credit Hours</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>Online</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>Minimum Students</span>
+                                </div>
+                            </div>
+                            <div id="dashboard-viewing-courses-results-items">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>

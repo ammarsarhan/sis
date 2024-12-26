@@ -87,15 +87,14 @@ document.addEventListener("DOMContentLoaded", function () {
             voucherItem.innerHTML = `
                 <span>Voucher ${i + 1}</span>
                 <div class="dashboard-payments-primary-information-voucher-label">
-                    <span>Voucher:</span>
                     <span>${vouchers[i].name}</span>
                 </div>
                 <div class="dashboard-payments-primary-information-voucher-label">
-                    <span>Voucher Value:</span>
+                    <span>Value:</span>
                     <span class="text-red">-${vouchers[i].value * 100}%</span>
                 </div>
                 <div class="dashboard-payments-primary-information-voucher-label">
-                    <span>Voucher Description:</span>
+                    <span>Description:</span>
                     <a href="${vouchers[i].description}" target="_blank">${vouchers[i].name}</a>
                 </div>
             `;
