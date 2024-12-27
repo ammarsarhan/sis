@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="../../styles/global.css">
     <link rel="stylesheet" href="../../styles/dashboard/main.css">
     <link rel="stylesheet" href="../../styles/dashboard/affairs.css">
+    <link rel="stylesheet" href="../../styles/dashboard/affairs/registration.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../../scripts/lucide.js"></script>
+    <script src="../../scripts/dashboard/registration.js"></script>
 </head>
 <body>
     <div class="dashboard-wrapper">
@@ -72,6 +74,98 @@
             </div>
         </aside>
         <main>
+            <div class="dashboard-affairs-registration-overlay flex-center hidden">
+                <div class="dashboard-affairs-registration-overlay-content">
+                    <div class="dashboard-affairs-registration-overlay-content-header">
+                        <h2>Course Details</h2>
+                        <button id="dashboard-affairs-attendance-overlay-toggle" class="flex-center">
+                            <i data-lucide="x"></i>
+                        </button>
+                    </div>
+                    <div class="dashboard-affairs-registration-overlay-content-data" id="dashboard-overlay-data">
+                        <!-- <div>
+                            <span>Section Information</span>
+                            <div class="dashboard-affairs-registration-overlay-content-data-subsection">
+                                <div>
+                                    <span>Name</span>
+                                    <span>Programming On The Web</span>
+                                </div>
+                                <div>
+                                    <span>Credit Hours</span>
+                                    <span>1.00</span>
+                                </div>
+                                <div>
+                                    <span>Type</span>
+                                    <span>Lecture</span>
+                                </div>
+                                <div>
+                                    <span>Code</span>
+                                    <span>LRA403-S2-CSIT</span>
+                                </div>
+                                <div>
+                                    <span>Building</span>
+                                    <span>B10</span>
+                                </div>
+                                <div>
+                                    <span>Room</span>
+                                    <span>F1.R20</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Course Status</span>
+                            <div class="dashboard-affairs-registration-overlay-content-data-subsection">
+                                <div>
+                                    <span>Status</span>
+                                    <span>Active</span>
+                                </div>
+                                <div>
+                                    <span>Registered</span>
+                                    <span>Yes</span>
+                                </div>
+                                <div>
+                                    <span>Course Paid</span>
+                                    <span>Yes</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Dates</span>
+                            <div class="dashboard-affairs-registration-overlay-content-data-subsection">
+                                <div>
+                                    <span>Day</span>
+                                    <span>Thursday</span>
+                                </div>
+                                <div>
+                                    <span>Start Time</span>
+                                    <span>10:30</span>
+                                </div>
+                                <div>
+                                    <span>End Time</span>
+                                    <span>12:30</span>
+                                </div>
+                                <div>
+                                    <span>Exams</span>
+                                    <span>24/1/2024, 22/8/2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Instructors</span>
+                            <div class="dashboard-affairs-registration-overlay-content-data-subsection">
+                                <div>
+                                    <span>Instructor 1</span>
+                                    <span>Dr. Ammar Yasser</span>
+                                </div>
+                                <div>
+                                    <span>Instructor 2</span>
+                                    <span>Dr. Nasser Hossam</span>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
             <div class="dashboard-affairs-navigation">
                 <header>
                     <div class="dashboard-main-title">
@@ -83,6 +177,106 @@
                     <a href="/dashboard/affairs/attendance.html" class="dashboard-affairs-navlink">Attendance</a>
                     <a href="/dashboard/affairs/registration.html" class="dashboard-affairs-navlink dashboard-affairs-navlink-active">Registration</a>
                 </nav>
+            </div>
+            <div class="dashboard-affairs-registration-status">
+                <div>
+                    <h2>Registration Status</h2>
+                    <span>Your current registration status as co-ordinated with your academic advisor</span>
+                </div>
+                <div class="dashboard-affairs-registration-status-content">
+                    <div class="dashboard-affairs-registration-status-content-item">
+                        <span>Name:</span>
+                        <span>Ammar Yasser Gaber Elsawy Sarhan</span>
+                    </div>
+                    <div class="dashboard-affairs-registration-status-content-item">
+                        <span>ID:</span>
+                        <span>320230031</span>
+                    </div>
+                    <div class="dashboard-affairs-registration-status-content-item">
+                        <span>Year:</span>
+                        <span>Second Year</span>
+                    </div>
+                    <div class="dashboard-affairs-registration-status-content-item">
+                        <span>Group:</span>
+                        <span>1</span>
+                    </div>
+                    <div class="dashboard-affairs-registration-status-content-item">
+                        <span>Section:</span>
+                        <span>2</span>
+                    </div>
+                    <div class="dashboard-affairs-registration-status-content-item">
+                        <span>Academic Advisor:</span>
+                        <span>Mohamed Issa</span>
+                    </div>
+                    <div class="dashboard-affairs-registration-status-content-item">
+                        <span>Allowed Load:</span>
+                        <span>12 - 18 Credit Hours</span>
+                    </div>
+                    <div class="dashboard-affairs-registration-status-content-item">
+                        <span>Registered CHs:</span>
+                        <span>18 Credit Hours</span>
+                    </div>
+                    <div class="dashboard-affairs-registration-status-content-item">
+                        <span>Registration Approved:</span>
+                        <span>Yes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-affairs-registration-courses">
+                <h2>Current Courses</h2>
+                <div class="dashboard-affairs-registration-courses-utilities">
+
+                </div>
+                <div class="dashboard-affairs-registration-courses-table">
+                    <div class="dashboard-affairs-registration-courses-table-header">
+                        <div class="flex-center">
+                            <span>Course Code</span>
+                        </div>
+                        <div class="flex-center">
+                            <span>Course Title</span>
+                        </div>
+                        <div class="flex-center">
+                            <span>CHs</span>
+                        </div>
+                        <div class="flex-center">
+                            <span>Status</span>
+                        </div>
+                        <div class="flex-center">
+                            <span>Paid</span>
+                        </div>
+                        <div class="flex-center">
+                            <span>Class Type</span>
+                        </div>
+                        <div class="flex-center">
+                            <span>Section Code</span>
+                        </div>
+                    </div>
+                    <div id="dashboard-affairs-registration-courses-table-items">
+                        <!-- <div class="dashboard-affairs-registration-courses-table-item">
+                            <div class="flex-center">
+                                <span>LRA 403</span>
+                            </div>
+                            <div class="flex-center">
+                                <span class="dashboard-affairs-registration-courses-table-item-active">Japanese Language (3)</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>1.00</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Active</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Yes</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Lab</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>LRA403-S2-CSIT</span>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
             </div>
         </main>
     </div>

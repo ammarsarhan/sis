@@ -1,0 +1,207 @@
+/* Registration Overlay */
+
+div.dashboard-affairs-registration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 99;
+}
+
+div.dashboard-affairs-registration-overlay-content {
+    background-color: white;
+    padding: 1.75rem;
+    max-width: 75%;
+}
+
+div.dashboard-affairs-registration-overlay-content-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+div.dashboard-affairs-registration-overlay-content-header > h2 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+div.dashboard-affairs-registration-overlay-content-header > button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+div.dashboard-affairs-registration-overlay-content-data {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+div.dashboard-affairs-registration-overlay-content-data-subsection {
+    padding: 1.25rem 0 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3rem;
+    row-gap: 1rem;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+div.dashboard-affairs-registration-overlay-content-data-subsection > div {
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25rem;
+}
+
+div.dashboard-affairs-registration-overlay-content-data-subsection > div > span:last-child {
+    color: rgb(100, 100, 100);
+}
+
+div.dashboard-affairs-registration-overlay-content-data > div > span {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+div.dashboard-affairs-registration-overlay-content-data > div > span::before {
+    content: '';
+    display: inline-block;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: linear-gradient(45deg, rgb(225, 0, 0), rgb(255, 0, 0));
+    border-radius: 100%;
+}
+
+div.dashboard-affairs-registration-overlay-content-data > div > div > * {
+    font-size: inherit;
+}
+
+/* Registration Status */
+
+div.dashboard-affairs-registration-status {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+div.dashboard-affairs-registration-status-content {
+    padding: 1.75rem;
+    border: 1px solid rgb(200, 200, 200);
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1.25rem;
+}
+
+div.dashboard-affairs-registration-status-content-item:first-child,
+div.dashboard-affairs-registration-status-content-item:nth-child(6) {
+    width: 100%;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+div.dashboard-affairs-registration-status-content-item:nth-child(6) {
+    margin-top: 1.25rem;
+}
+
+div.dashboard-affairs-registration-status-content-item {
+    width: 50%;
+}
+
+div.dashboard-affairs-registration-status > div > h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+div.dashboard-affairs-registration-status > div > span {
+    font-size: 0.9rem;
+    color: rgb(100, 100, 100);
+}
+
+div.dashboard-affairs-registration-status > div:first-child {
+    margin-bottom: 0.5rem;
+}
+
+/* Utilities */
+
+/* Courses Table */
+
+div.dashboard-affairs-registration-courses > h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+div.dashboard-affairs-registration-courses-table {
+    margin: 1.5rem 0;
+    border: 1px solid rgb(200, 200, 200);
+    border-right: 0;
+    border-bottom: 0;
+    text-align: center;
+}
+
+div.dashboard-affairs-registration-courses-table-header,
+div.dashboard-affairs-registration-courses-table-item {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+div.dashboard-affairs-registration-courses-table-header > div,
+div.dashboard-affairs-registration-courses-table-item > div {
+    border: 1px solid rgb(200, 200, 200);
+    border-left: 0;
+    border-top: 0;
+    padding: 0.5rem 0.2rem;
+}
+
+div.dashboard-affairs-registration-courses-table-header > div {
+    background: rgb(245, 245, 245);
+}
+
+div.dashboard-affairs-registration-courses-table-item > div {
+    height: 100%;
+}
+
+span.dashboard-affairs-registration-courses-table-item-active {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    div.dashboard-affairs-registration-status-content {
+        flex-direction: column;
+    }
+
+    div.dashboard-affairs-registration-status-content-item {
+        width: 100%;
+    }
+
+    div.dashboard-affairs-registration-courses-table-header,
+    div.dashboard-affairs-registration-courses-table-item {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    div.dashboard-affairs-registration-courses-table-header > div:nth-child(3),
+    div.dashboard-affairs-registration-courses-table-item > div:nth-child(3),
+    div.dashboard-affairs-registration-courses-table-header > div:nth-child(5),
+    div.dashboard-affairs-registration-courses-table-item > div:nth-child(5),
+    div.dashboard-affairs-registration-courses-table-header > div:nth-child(6),
+    div.dashboard-affairs-registration-courses-table-item> div:nth-child(6) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    div.dashboard-affairs-registration-overlay-content {
+        max-width: 90%;
+    }
+
+    div.dashboard-affairs-registration-overlay-content-data-subsection {
+        row-gap: 0.75rem;
+    }
+}

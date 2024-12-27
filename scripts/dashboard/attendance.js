@@ -69,7 +69,43 @@ let records = [
         ],
         absenceCount: 2,
         warningCount: 0
-    }
+    },
+    {
+        courseCode: "CS 103",
+        courseName: "Discrete Mathematics",
+        absences: [
+            {
+                courseType: "Lecture",
+                absenceDate: new Date("2020-10-05"),
+                excuse: false
+            },
+            {
+                courseType: "Lab",
+                absenceDate: new Date("2020-10-06"),
+                excuse: false
+            }
+        ],
+        absenceCount: 2,
+        warningCount: 0
+    },
+    {
+        courseCode: "CS 103",
+        courseName: "Discrete Mathematics",
+        absences: [
+            {
+                courseType: "Lecture",
+                absenceDate: new Date("2020-10-05"),
+                excuse: false
+            },
+            {
+                courseType: "Lab",
+                absenceDate: new Date("2020-10-06"),
+                excuse: false
+            }
+        ],
+        absenceCount: 2,
+        warningCount: 0
+    },
 ]
 
 function handleOpenOverlay(data) {

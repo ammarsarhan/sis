@@ -31,6 +31,10 @@ div.dashboard-affairs-attendance-table-header > div {
     background: rgb(245, 245, 245);
 }
 
+div.dashboard-affairs-attendance-table-item {
+    background: white;
+}
+
 div.dashboard-affairs-attendance-table-item:hover {
     background-color: rgb(245, 245, 245);
     cursor: pointer;
@@ -77,8 +81,8 @@ div.dashboard-affairs-attendance-overlay-header {
 }
 
 div.dashboard-affairs-attendance-overlay-header > div > h2 {
-    font-size: 1.2rem;
     margin-bottom: 0.4rem;
+    font-weight: 500;
 }
 
 div.dashboard-affairs-attendance-overlay-header > div > span {
@@ -89,12 +93,6 @@ div.dashboard-affairs-attendance-overlay-header > div > span {
 div.dashboard-affairs-attendance-overlay-header > button {
     background: none;
     padding: 0;
-    color: rgb(100, 100, 100)
-}
-
-div.dashboard-affairs-attendance-overlay-header > button > .lucide-icon {
-    width: 1.15rem;
-    height: 1.15rem;
 }
 
 div.dashboard-affairs-attendance-overlay-data {
@@ -134,8 +132,8 @@ div.dashboard-affairs-attendance-overlay-data-header > div {
         padding: 0.75rem 0.5rem;
     }
 
-    div.dashboard-affairs-attendance-table-item > div:last-child,
-    div.dashboard-affairs-attendance-table-header > div:last-child {
+    div.dashboard-affairs-attendance-table-item > div:first-child,
+    div.dashboard-affairs-attendance-table-header > div:first-child {
         display: none;
     }
 
