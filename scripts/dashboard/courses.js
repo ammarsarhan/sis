@@ -7,7 +7,7 @@
 //     minimumStudents: number
 // }
 
-var results = [
+let results = [
     {
         courseCode: "ACM215",
         courseName: "Ordinary Differential Equations",
@@ -81,16 +81,16 @@ var results = [
 ];
 
 function populateListView() {
-    var container = document.getElementById("dashboard-viewing-courses-results-items");
-    var count = document.getElementById("dashboard-viewing-courses-results-count");
+    let container = document.getElementById("dashboard-viewing-courses-results-items");
+    let count = document.getElementById("dashboard-viewing-courses-results-count");
 
     count.innerText = `Found ${results.length} available courses in system.`;
     container.innerHTML = "";
 
     // Map through each result item and create a list element for it
-    for (var i = 0; i <= results.length - 1; i++) {
-        var item = results[i];
-        var itemElement = document.createElement("div");
+    for (let i = 0; i <= results.length - 1; i++) {
+        let item = results[i];
+        let itemElement = document.createElement("div");
         itemElement.classList.add("dashboard-viewing-courses-results-item");
 
         itemElement.innerHTML = `

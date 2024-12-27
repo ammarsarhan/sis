@@ -74,11 +74,33 @@
             </div>
         </aside>
         <main>
-            <div id="dashboard-affairs-attendance-overlay">
+            <div id="dashboard-affairs-attendance-overlay" class="flex-center hidden">
                 <div class="dashboard-affairs-attendance-overlay-content">
-                    <button id="dashboard-affairs-attendance-overlay-toggle">
-                        <i data-lucide="x"></i>
-                    </button>
+                    <div class="dashboard-affairs-attendance-overlay-header">
+                        <div>
+                            <h2>Absence Details</h2>
+                            <span id="dashboard-affairs-attendance-overlay-header-label"></span>
+                        </div>
+                        <button id="dashboard-affairs-attendance-overlay-toggle" class="flex-center">
+                            <i data-lucide="x"></i>
+                        </button>
+                    </div>
+                    <div class="dashboard-affairs-attendance-overlay-data">
+                        <div class="dashboard-affairs-attendance-overlay-data-header">
+                            <div class="flex-center">
+                                <span>Class Type</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Date</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Excuse Provided</span>
+                            </div>
+                        </div>
+                        <div id="dashboard-affairs-attendance-overlay-data-items">
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="dashboard-affairs-navigation">
@@ -140,7 +162,7 @@
                                 <div class="flex-center">
                                     <span>0</span>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                 </div>

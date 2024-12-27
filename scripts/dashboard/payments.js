@@ -1,4 +1,4 @@
-var options = [
+let options = [
     {
         installment: "First Installment",
         semester: "Fall",
@@ -25,7 +25,7 @@ var options = [
     }
 ];
 
-var vouchers = [
+let vouchers = [
     {
         name: "Sibling Discount",
         value: 0.2,
@@ -40,8 +40,8 @@ var vouchers = [
 
 // Event Handlers
 function handleInstallmentChanged (e) {
-    var value = e.target.value;
-    var selection = options[0];
+    let value = e.target.value;
+    let selection = options[0];
     
     switch (value) {
         case "First":
@@ -58,10 +58,10 @@ function handleInstallmentChanged (e) {
             break;
     };
 
-    var installmentLabel = document.getElementById("dashboard-installment-label");
-    var semesterLabel = document.getElementById("dashboard-semester-label");
-    var termLabel = document.getElementById("dashboard-term-label");
-    var yearLabel = document.getElementById("dashboard-year-label");
+    let installmentLabel = document.getElementById("dashboard-installment-label");
+    let semesterLabel = document.getElementById("dashboard-semester-label");
+    let termLabel = document.getElementById("dashboard-term-label");
+    let yearLabel = document.getElementById("dashboard-year-label");
 
     installmentLabel.innerText = selection.installment;
     semesterLabel.innerText = selection.semester;
@@ -72,16 +72,16 @@ function handleInstallmentChanged (e) {
 // Handle Initial Page Load
 document.addEventListener("DOMContentLoaded", function () {
     // Add Event Listeners
-    var selector = document.getElementById("dashboard-installment-select");
+    let selector = document.getElementById("dashboard-installment-select");
     selector.addEventListener("change", handleInstallmentChanged);
 
     // Add Voucher Items & Calculate Discount
     if (vouchers.length > 0) {
-        var voucherContainer = document.getElementById("dashboard-payments-vouchers-container");
-        var discountFactor = 0;
+        let voucherContainer = document.getElementById("dashboard-payments-vouchers-container");
+        let discountFactor = 0;
 
-        for (var i = 0; i <= vouchers.length - 1; i++) {
-            var voucherItem = document.createElement("div");
+        for (let i = 0; i <= vouchers.length - 1; i++) {
+            let voucherItem = document.createElement("div");
             voucherItem.classList.add("dashboard-payments-primary-information-voucher-item");
 
             voucherItem.innerHTML = `
@@ -103,22 +103,22 @@ document.addEventListener("DOMContentLoaded", function () {
             discountFactor = discountFactor + vouchers[i].value;
         }
 
-        var initialFee = 18500;
-        var discount = initialFee * discountFactor;
-        var paid = 0;
-        var postDiscount = initialFee - discount;
-        var remaining = postDiscount - paid;
+        let initialFee = 18500;
+        let discount = initialFee * discountFactor;
+        let paid = 0;
+        let postDiscount = initialFee - discount;
+        let remaining = postDiscount - paid;
 
-        var currency = new Intl.NumberFormat('en-US', {
+        let currency = new Intl.NumberFormat('en-US', {
             style: "currency",
             currency: "EGP"
         })
 
-        var feeLabel = document.getElementById("dashboard-payments-fee");
-        var discountLabel = document.getElementById("dashboard-payments-discount");
-        var dueLabel = document.getElementById("dashboard-payments-due");
-        var paidLabel = document.getElementById("dashboard-payments-paid");
-        var remainingLabel = document.getElementById("dashboard-payments-remaining");
+        let feeLabel = document.getElementById("dashboard-payments-fee");
+        let discountLabel = document.getElementById("dashboard-payments-discount");
+        let dueLabel = document.getElementById("dashboard-payments-due");
+        let paidLabel = document.getElementById("dashboard-payments-paid");
+        let remainingLabel = document.getElementById("dashboard-payments-remaining");
 
         feeLabel.innerText = currency.format(initialFee);
         discountLabel.innerText = currency.format(discount);

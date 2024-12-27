@@ -32,7 +32,7 @@ div.dashboard-affairs-attendance-table-header > div {
 }
 
 div.dashboard-affairs-attendance-table-item:hover {
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(245, 245, 245);
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
 }
@@ -59,32 +59,68 @@ div#dashboard-affairs-attendance-overlay {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.1);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 div.dashboard-affairs-attendance-overlay-content {
     position: relative;
     background: white;
-    width: 75%;
-    height: 90%;
     border-radius: 0.25rem;
+    padding: 1.75rem;
+    max-width: 75%;
 }
 
-div.dashboard-affairs-attendance-overlay-content > button {
-    position: absolute;
+div.dashboard-affairs-attendance-overlay-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+div.dashboard-affairs-attendance-overlay-header > div > h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+div.dashboard-affairs-attendance-overlay-header > div > span {
+    font-size: 0.9rem;
+    color: rgb(100, 100, 100);
+}
+
+div.dashboard-affairs-attendance-overlay-header > button {
     background: none;
-    top: 1.2rem;
-    right: 1.2rem;
     padding: 0;
     color: rgb(100, 100, 100)
 }
 
-div.dashboard-affairs-attendance-overlay-content > button > .lucide-icon {
-    width: 1.25rem;
-    height: 1.25rem;
+div.dashboard-affairs-attendance-overlay-header > button > .lucide-icon {
+    width: 1.15rem;
+    height: 1.15rem;
+}
+
+div.dashboard-affairs-attendance-overlay-data {
+    margin-top: 1.5rem;
+    border: 1px solid rgb(200, 200, 200);
+    border-right: 0;
+    border-bottom: 0;
+    text-align: center;
+}
+
+div.dashboard-affairs-attendance-overlay-data-header, 
+div.dashboard-affairs-attendance-overlay-data-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+div.dashboard-affairs-attendance-overlay-data-header > div,
+div.dashboard-affairs-attendance-overlay-data-item > div {
+    padding: 0.75rem 2.5rem;
+    border: 1px solid rgb(200, 200, 200);
+    border-left: 0;
+    border-top: 0;
+}
+
+div.dashboard-affairs-attendance-overlay-data-header > div {
+    background: rgb(245, 245, 245);
 }
 
 @media screen and (max-width: 700px) {
@@ -93,8 +129,17 @@ div.dashboard-affairs-attendance-overlay-content > button > .lucide-icon {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    div.dashboard-affairs-attendance-overlay-data-header > div, 
+    div.dashboard-affairs-attendance-overlay-data-item > div {
+        padding: 0.75rem 0.5rem;
+    }
+
     div.dashboard-affairs-attendance-table-item > div:last-child,
     div.dashboard-affairs-attendance-table-header > div:last-child {
         display: none;
+    }
+
+    div.dashboard-affairs-attendance-overlay-content {
+        max-width: 90%;
     }
 }

@@ -7,7 +7,7 @@
 //     type: string
 // }
 
-var schedule = [
+let schedule = [
     [
         {
             slot: "9:00-9:45",
@@ -197,12 +197,12 @@ var schedule = [
 ]
 
 function populateScheduleView () {
-    var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
-    var scheduleContainer = document.getElementById("dashboard-viewing-schedule-container");
+    let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
+    let scheduleContainer = document.getElementById("dashboard-viewing-schedule-container");
 
     // Loop through schedule and create elements
-    for (var i = 0; i <= schedule.length - 1; i++) {
-        var scheduleItem = document.createElement("div");
+    for (let i = 0; i <= schedule.length - 1; i++) {
+        let scheduleItem = document.createElement("div");
         scheduleItem.classList.add("dashboard-viewing-schedule-item");
 
         // Create day preceeding data
@@ -217,15 +217,15 @@ function populateScheduleView () {
         `;
 
         // Create data container
-        var scheduleItemDataContainer = document.createElement("div");
+        let scheduleItemDataContainer = document.createElement("div");
         scheduleItemDataContainer.classList.add("dashboard-viewing-schedule-data");
 
         scheduleItemDataContainer.appendChild(scheduleItem);
 
-        for (var x = 0; x <= schedule[i].length - 1; x++) {
-            var item = schedule[i][x];
+        for (let x = 0; x <= schedule[i].length - 1; x++) {
+            let item = schedule[i][x];
 
-            var element = document.createElement("div");
+            let element = document.createElement("div");
 
             // Render schedule item based on whether there is a class or not
             if (item.course) {
