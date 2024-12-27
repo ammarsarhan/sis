@@ -4,6 +4,10 @@ main {
     row-gap: 2rem;
 }
 
+div.dashboard-main-label {
+    margin: 0.75rem 0 0.25rem 0;
+}
+
 /* Header */
 
 header {

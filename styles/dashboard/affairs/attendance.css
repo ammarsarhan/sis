@@ -1,0 +1,100 @@
+/* Main Attendance */
+
+div.dashboard-affairs-attendance {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.75rem;
+}
+
+div.dashboard-affairs-attendance > h2 {
+    font-size: 1.2rem;
+}
+
+div.dashboard-affairs-attendance > div > span {
+    font-size: 0.9rem;
+    color: rgb(100, 100, 100);
+}
+
+div.dashboard-affairs-attendance-table {
+    margin-top: 1.5rem;
+    border: 1px solid rgb(200, 200, 200);
+    border-bottom: 0;
+    border-right: 0;
+}
+
+div.dashboard-affairs-attendance-table-header {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+div.dashboard-affairs-attendance-table-header > div {
+    background: rgb(245, 245, 245);
+}
+
+div.dashboard-affairs-attendance-table-item:hover {
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+div.dashboard-affairs-attendance-table-item > div,
+div.dashboard-affairs-attendance-table-header > div {
+    border: 1px solid rgb(200, 200, 200);
+    padding: 0.75rem 1rem;
+    border-left: 0;
+    border-top: 0;
+    text-align: center;
+}
+
+div.dashboard-affairs-attendance-table-item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);   
+}
+
+/* Overlay */
+div#dashboard-affairs-attendance-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.dashboard-affairs-attendance-overlay-content {
+    position: relative;
+    background: white;
+    width: 75%;
+    height: 90%;
+    border-radius: 0.25rem;
+}
+
+div.dashboard-affairs-attendance-overlay-content > button {
+    position: absolute;
+    background: none;
+    top: 1.2rem;
+    right: 1.2rem;
+    padding: 0;
+    color: rgb(100, 100, 100)
+}
+
+div.dashboard-affairs-attendance-overlay-content > button > .lucide-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+@media screen and (max-width: 700px) {
+    div.dashboard-affairs-attendance-table-header,
+    div.dashboard-affairs-attendance-table-item {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    div.dashboard-affairs-attendance-table-item > div:last-child,
+    div.dashboard-affairs-attendance-table-header > div:last-child {
+        display: none;
+    }
+}

@@ -7,7 +7,7 @@ main {
 
 /* Viewing Container */
 
-div.dashboard-viewing-navigation {
+div.dashboard-affairs-navigation {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
@@ -63,7 +63,7 @@ main nav {
     margin: 0.25rem 0;
 }
 
-main nav a.dashboard-viewing-navlink {
+main nav a.dashboard-affairs-navlink {
     color: rgb(100, 100, 100);
     text-decoration: none;
     display: flex;
@@ -72,11 +72,11 @@ main nav a.dashboard-viewing-navlink {
     column-gap: 0.65rem;
 }
 
-main nav a.dashboard-viewing-navlink-active {
+main nav a.dashboard-affairs-navlink-active {
     color: black;
 }
 
-main nav a.dashboard-viewing-navlink-active:before {
+main nav a.dashboard-affairs-navlink-active:before {
     content: '';
     display: block;
     width: 0.4rem;

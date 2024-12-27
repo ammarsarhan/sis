@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Affairs</title>
+    <link rel="stylesheet" href="../../styles/global.css">
+    <link rel="stylesheet" href="../../styles/dashboard/main.css">
+    <link rel="stylesheet" href="../../styles/dashboard/affairs.css">
+    <link rel="stylesheet" href="../../styles/dashboard/affairs/attendance.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../scripts/lucide.js"></script>
+    <script src="../../scripts/dashboard/attendance.js"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside>
+            <div class="flex-center dashboard-aside-primary">
+                <a href="/dashboard">
+                    <img src="../../static/images/logo.png" alt="Logo" class="dashboard-aside-logo">
+                </a>
+                <nav>
+                    <ul class="dashboard-aside-nav-list">
+                        <li>
+                            <a href="/dashboard/search.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="search"></i>
+                                Search
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="home"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/viewing/calendar.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="eye"></i>
+                                Viewing
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/affairs/attendance.html" class="dashboard-aside-nav-item dashboard-aside-nav-item-active flex-center">
+                                <i data-lucide="book"></i>
+                                Academic Affairs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/reports.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="library"></i>
+                                Reports
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/dashboard/payments.html" class="dashboard-aside-nav-item flex-center">
+                                <i data-lucide="credit-card"></i>
+                                Payment & Fees
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-center dashboard-aside-secondary">
+            </div>
+            <div class="flex-center dashboard-aside-secondary">                
+                <a href="/dashboard/account.html" class="dashboard-aside-nav-item flex-center">
+                    <i data-lucide="user"></i>
+                    Your Account
+                </a>
+                <a href="/auth/student/sign-out.html" class="dashboard-aside-nav-item flex-center">
+                    <i data-lucide="log-out"></i>
+                    Log Out
+                </a>
+            </div>
+        </aside>
+        <main>
+            <div id="dashboard-affairs-attendance-overlay">
+                <div class="dashboard-affairs-attendance-overlay-content">
+                    <button id="dashboard-affairs-attendance-overlay-toggle">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="dashboard-affairs-navigation">
+                <header>
+                    <div class="dashboard-main-title">
+                        <h1>Academic Affairs</h1>
+                        <div class="dashboard-main-title-border"></div>
+                    </div>
+                </header>
+                <nav>
+                    <a href="/dashboard/affairs/attendance.html" class="dashboard-affairs-navlink dashboard-affairs-navlink-active">Attendance</a>
+                    <a href="/dashboard/affairs/registration.html" class="dashboard-affairs-navlink">Registration</a>
+                </nav>
+            </div>
+            <div class="dashboard-affairs-attendance">
+                <h2>Your Attendance</h2>
+                <div>
+                    <span>View your attendance for the ongoing semester.</span>
+                    <div class="dashboard-affairs-attendance-table">
+                        <div class="dashboard-affairs-attendance-table-header">
+                            <div class="flex-center">
+                                <span>Course Code</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Course Name</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Absence Times</span>
+                            </div>
+                            <div class="flex-center">
+                                <span>Warning Number</span>
+                            </div>
+                        </div>
+                        <div id="dashboard-affairs-attendance-table-items">
+                            <div class="dashboard-affairs-attendance-table-item">
+                                <div class="flex-center">
+                                    <span>LRA 403</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>Japanese Language (3)</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>1</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>0</span>
+                                </div>
+                            </div>
+                            <div class="dashboard-affairs-attendance-table-item">
+                                <div class="flex-center">
+                                    <span>LRA 403</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>Japanese Language (3)</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>1</span>
+                                </div>
+                                <div class="flex-center">
+                                    <span>0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
