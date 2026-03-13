@@ -1,2 +1,10 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+
+@theme {
+    --text-xxs: 0.8rem;
+}
+
+.flex-center {
+    @apply flex items-center justify-center;
+}
