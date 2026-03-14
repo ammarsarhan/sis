@@ -5,10 +5,10 @@ import { Field, FieldGroup, FieldLabel, FieldSet } from '#/components/ui/field';
 import { InputGroup, InputGroupAddon, InputGroupInput } from '#/components/ui/input-group';
 import { Checkbox } from '#/components/ui/checkbox';
 import { Label } from '#/components/ui/label';
-
-import logo from "#/assets/logo.png";
 import { Button } from '#/components/ui/button';
 import { Separator } from '#/components/ui/separator';
+
+import logo from "#/assets/logo.png";
 
 export const Route = createFileRoute('/auth/sign-in')({
   component: SignIn,
@@ -52,7 +52,7 @@ function SignIn() {
                   <Checkbox />
                   <Label className='text-xxs font-normal'>Remember me</Label>
                 </div>
-                <Link to="/" className='text-xxs text-nowrap hover:underline'>Forgot Password?</Link>
+                <Link to="/auth/forgot-password" className='text-xxs text-nowrap hover:underline'>Forgot Password?</Link>
               </div>
             </Field>
             <Button className='bg-black hover:bg-black/80 cursor-pointer my-2'>
@@ -63,7 +63,7 @@ function SignIn() {
               <span className='text-gray-500 text-xxs'>Or</span>
               <Separator className='flex-1 bg-gray-200'/>
             </div>
-            <div className='flex-center gap-x-1.5'>
+            <div className='flex-center gap-x-1'>
               <span className='text-xxs text-gray-500'>New Applicant?</span>
               <Link to="/" className='text-xxs hover:underline'>Apply Now</Link>
             </div>
