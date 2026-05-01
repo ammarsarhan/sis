@@ -1,0 +1,28 @@
+- No refresh token revocation.
+- System settings structure is ridiculously bland and terrible.
+- The fees are split into a separate model which makes no sense.
+- What stops a user model from being both a system admin and an applicant -> This needs to be converted into a many-to-many relationship with the system.
+- Why does guardian live on both the applicant and application model. This doesn't make sense it needs to live on the applicant model.
+- Modify the applicant model such that it includes all the field names in both English and Arabic.
+- Why can you create an application for an applicant that already exists? Keep it but rename it such that it doesn't conflict with making a new application.
+- Create new application doesn't even have the full steps required for an application.
+- Payment step is non-existant yet.
+- Integrate Whatsapp API for phone number based notifications.
+- The phone number must be in the standard international format.
+- The dashboard is very inconsistent with the layout standards.
+- I think each application cycle needs to be tied in a many-to-many relationship with the user where their permissions and their role is recorded per year. Such that every year the superadmin can create more and invite more and remove admins and manage his system.
+- THERE IS NO SOFT DELETE ON ANY MODELS. If an officer decides to delete a faculty instead of deactivate it, we are royally fucked.
+- There is no notification model, which means there is no record of what was sent where by who through what pipeline.
+- Department capacity is literally never enforced. It's just there.
+- The audit log for an application's changes needs to be modified per step. We can keep track but the current model is very weak.
+- All the reviewedBy and changedBy strings have literally no referential integrity. They just exist as raw optional strings.
+- DocumentType has no description field if it's an OTHER type. There's no way to understand what type of document an OTHER document is.
+- SystemSettings is literally a singleton across all AdmissionCycles. This doesn't make any sense at all.
+- There's absolutely no way to track the waitlist situation of the student. If a seat opens up, how does one get promoted?
+- And to extend upon that there's no way to track who gets enrolled into their faculty.
+- There's no place to store the interview results, entrance exam results, or results. There needs to be an intermediate model between the submission and enrollment steps.
+- No communication preference model on Applicant. There's no opt-in/opt-out per channel. An applicant may want WhatsApp but not email, or may have unsubscribed from SMS. GDPR and Egypt's data protection law both require consent records per channel.
+- University admissions in Egypt are subject to NAQAAA audit requirements. If an accreditation body asks you to produce the full document history for a given application, a single current-state record tells them nothing.
+- How the fuck can a Superadmin edit their own User record into an email that isn't theirs without some sort of validation?
+- And editing their user makes them an admin not a superadmin somehow?
+- Implement transferring superadmin ownership later on, not a key requirement at all.
