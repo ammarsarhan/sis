@@ -18,6 +18,13 @@ enum UserStatus {
   DELETED
 }
 
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  REVOKED
+  EXPIRED
+}
+
 enum Gender {
   MALE
   FEMALE
@@ -92,6 +99,12 @@ enum AdmissionCycleStatus {
   DRAFT
   OPEN
   CLOSED
+}
+
+enum AdmissionCycleEventDomain {
+  SETTINGS
+  FACULTIES
+  USERS
 }
 
 enum NotificationChannel {
@@ -193,13 +206,27 @@ model Staff {
   cycleId String
   cycle   AdmissionCycle @relation(fields: [cycleId], references: [id])
 
-  role        AdmissionStaffRole @default(OFFICER)
+  role        AdmissionStaffRole    @default(OFFICER)
   permissions Json
+  events      AdmissionCycleEvent[]
 
-  events    AdmissionCycleEvent[]
-  documents Document[]
+  documents   Document[]
+  invitations Invitation[]
 
   @@unique([userId, cycleId])
+}
+
+model Invitation {
+  id           String             @id @default(cuid())
+  token        String             @unique
+  intendedRole AdmissionStaffRole @default(OFFICER)
+  email        String
+  inviterId    String
+  inviter      Staff              @relation(fields: [inviterId], references: [id])
+  status       InvitationStatus   @default(PENDING)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model AdmissionCycle {
@@ -229,6 +256,8 @@ model AdmissionCycleEvent {
 
   previousStatus   AdmissionCycleStatus
   currentStatus    AdmissionCycleStatus
+  domain           AdmissionCycleEventDomain
+  payload          Json
   transitionReason String?
 
   actorId String
@@ -250,6 +279,7 @@ model AdmissionCycleSettings {
   foreignFee           Int
   onlineFee            Int
   inPersonFee          Int
+  targetRevenue        Int              @default(10)
 
   // Todo: Add more admission cycle settings options.
 }
@@ -332,12 +362,13 @@ model Document {
   acceptedAt      DateTime?
   rejectedAt      DateTime?
   rejectionReason String?
-  
+
   reviewerId String?
   reviewer   Staff?  @relation(fields: [reviewerId], references: [id])
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
 
 model Faculty {

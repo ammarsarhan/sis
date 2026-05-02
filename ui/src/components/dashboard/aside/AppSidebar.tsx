@@ -50,40 +50,40 @@ const data = {
     main: [
         {
             title: "Home",
-            url: "/dashboard/:cycleId/overview",
+            url: "/dashboard/cycle-id/overview",
             icon: LayoutDashboard
         },
         {
             title: "Applications",
-            url: "/dashboard/:cycleId/applications",
+            url: "/dashboard/cycle-id/applications",
             icon: FileText,
             items: [
-                { title: "All Applications", url: "/dashboard/:cycleId/applications" },
-                { title: "Pending Review", url: "/dashboard/:cycleId/applications?status=SUBMITTED" },
-                { title: "Accepted", url: "/dashboard/:cycleId/applications?status=ACCEPTED" },
-                { title: "Rejected", url: "/dashboard/:cycleId/applications?status=REJECTED" },
+                { title: "All Applications", url: "/dashboard/cycle-id/applications" },
+                { title: "Pending Review", url: "/dashboard/cycle-id/applications?status=SUBMITTED" },
+                { title: "Accepted", url: "/dashboard/cycle-id/applications?status=ACCEPTED" },
+                { title: "Rejected", url: "/dashboard/cycle-id/applications?status=REJECTED" },
             ],
         },
         {
             title: "Documents",
-            url: "/dashboard/:cycleId/documents",
+            url: "/dashboard/cycle-id/documents",
             icon: FolderOpen,
             items: [
-                { title: "Review Queue", url: "/dashboard/:cycleId/documents" },
-                { title: "Accepted", url: "/dashboard/:cycleId/documents?status=ACCEPTED" },
-                { title: "Rejected", url: "/dashboard/:cycleId/documents?status=REJECTED" },
+                { title: "Review Queue", url: "/dashboard/cycle-id/documents" },
+                { title: "Accepted", url: "/dashboard/cycle-id/documents?status=ACCEPTED" },
+                { title: "Rejected", url: "/dashboard/cycle-id/documents?status=REJECTED" },
             ],
         },
         {
             title: "Applicants",
-            url: "/dashboard/:cycleId/applicants",
+            url: "/dashboard/cycle-id/applicants",
             icon: Users,
         },
     ],
     configuration: [
         {
             title: "Notifications",
-            url: "/dashboard/:cycleId/notifications",
+            url: "/dashboard/cycle-id/notifications",
             icon: Bell
         },
         {
@@ -97,13 +97,13 @@ const data = {
         },
         {
             title: "Settings",
-            url: "/dashboard/:cycleId/settings",
+            url: "/dashboard/cycle-id/settings",
             icon: Settings,
             items: [
-                { title: "Cycle Settings", url: "/dashboard/:cycleId/settings" },
-                { title: "Faculty Offerings", url: "/dashboard/:cycleId/settings/offerings" },
-                { title: "Event Log", url: "/dashboard/:cycleId/settings/logs" },
-                { title: "Users & Permissions", url: "/dashboard/:cycleId/settings/users" },
+                { title: "Cycle Settings", url: "/dashboard/cycle-id/settings" },
+                { title: "Faculty Offerings", url: "/dashboard/cycle-id/settings/offerings" },
+                { title: "Event Log", url: "/dashboard/cycle-id/settings/events" },
+                { title: "Users & Permissions", url: "/dashboard/cycle-id/settings/users" },
             ],
         },
     ],

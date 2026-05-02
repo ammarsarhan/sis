@@ -7,5 +7,9 @@ export const Route = createFileRoute('/dashboard/$cycleId/settings/offerings/')(
 )
 
 function RouteComponent() {
-  return <div>Hello "/dashboard/$cycleId/settings/offerings/"!</div>
+  return (
+    <div>
+      
+    </div>
+  )
 }

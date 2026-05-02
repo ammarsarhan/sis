@@ -1,4 +1,4 @@
-import { Outlet, createFileRoute } from '@tanstack/react-router';
+import { Outlet, createFileRoute, useParams } from '@tanstack/react-router';
 
 import {
   Breadcrumb,
@@ -19,6 +19,8 @@ export const Route = createFileRoute('/dashboard/$cycleId/settings')({
 })
 
 function RouteComponent() {
+  const { cycleId } = useParams({ strict: false });
+
   return (
     <>
         <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
@@ -31,9 +33,7 @@ function RouteComponent() {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="/dashboard">
-                    Dashboard
-                  </BreadcrumbLink>
+                  Dashboard
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem className="hidden md:block">
@@ -49,7 +49,7 @@ function RouteComponent() {
             </Breadcrumb>
           </div>
         </header>
-        <SettingsNavigation/>
+        <SettingsNavigation cycleId={cycleId!} />
         <Outlet />
     </>
   )

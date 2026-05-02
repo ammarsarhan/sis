@@ -6,7 +6,7 @@
 - Modify the applicant model such that it includes all the field names in both English and Arabic.
 - Why can you create an application for an applicant that already exists? Keep it but rename it such that it doesn't conflict with making a new application.
 - Create new application doesn't even have the full steps required for an application.
-- Payment step is non-existant yet.
+- Payment step is non-existent yet.
 - Integrate Whatsapp API for phone number based notifications.
 - The phone number must be in the standard international format.
 - The dashboard is very inconsistent with the layout standards.
@@ -25,4 +25,4 @@
 - University admissions in Egypt are subject to NAQAAA audit requirements. If an accreditation body asks you to produce the full document history for a given application, a single current-state record tells them nothing.
 - How the fuck can a Superadmin edit their own User record into an email that isn't theirs without some sort of validation?
 - And editing their user makes them an admin not a superadmin somehow?
-- Implement transferring superadmin ownership later on, not a key requirement at all.
+- Implement transferring superadmin ownership later on, not a key requirement right now.
