@@ -10,59 +10,112 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as DashboardSettingsIndexRouteImport } from './routes/dashboard/settings/index'
+import { Route as DashboardCycleIdSettingsRouteRouteImport } from './routes/dashboard/$cycleId/settings/route'
+import { Route as DashboardCycleIdSettingsIndexRouteImport } from './routes/dashboard/$cycleId/settings/index'
+import { Route as DashboardCycleIdOverviewIndexRouteImport } from './routes/dashboard/$cycleId/overview/index'
+import { Route as DashboardCycleIdSettingsUsersIndexRouteImport } from './routes/dashboard/$cycleId/settings/users/index'
+import { Route as DashboardCycleIdSettingsOfferingsIndexRouteImport } from './routes/dashboard/$cycleId/settings/offerings/index'
+import { Route as DashboardCycleIdSettingsEventsIndexRouteImport } from './routes/dashboard/$cycleId/settings/events/index'
 
 const DashboardRouteRoute = DashboardRouteRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardIndexRoute = DashboardIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => DashboardRouteRoute,
-} as any)
-const DashboardSettingsIndexRoute = DashboardSettingsIndexRouteImport.update({
-  id: '/settings/',
-  path: '/settings/',
-  getParentRoute: () => DashboardRouteRoute,
-} as any)
+const DashboardCycleIdSettingsRouteRoute =
+  DashboardCycleIdSettingsRouteRouteImport.update({
+    id: '/$cycleId/settings',
+    path: '/$cycleId/settings',
+    getParentRoute: () => DashboardRouteRoute,
+  } as any)
+const DashboardCycleIdSettingsIndexRoute =
+  DashboardCycleIdSettingsIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => DashboardCycleIdSettingsRouteRoute,
+  } as any)
+const DashboardCycleIdOverviewIndexRoute =
+  DashboardCycleIdOverviewIndexRouteImport.update({
+    id: '/$cycleId/overview/',
+    path: '/$cycleId/overview/',
+    getParentRoute: () => DashboardRouteRoute,
+  } as any)
+const DashboardCycleIdSettingsUsersIndexRoute =
+  DashboardCycleIdSettingsUsersIndexRouteImport.update({
+    id: '/users/',
+    path: '/users/',
+    getParentRoute: () => DashboardCycleIdSettingsRouteRoute,
+  } as any)
+const DashboardCycleIdSettingsOfferingsIndexRoute =
+  DashboardCycleIdSettingsOfferingsIndexRouteImport.update({
+    id: '/offerings/',
+    path: '/offerings/',
+    getParentRoute: () => DashboardCycleIdSettingsRouteRoute,
+  } as any)
+const DashboardCycleIdSettingsEventsIndexRoute =
+  DashboardCycleIdSettingsEventsIndexRouteImport.update({
+    id: '/events/',
+    path: '/events/',
+    getParentRoute: () => DashboardCycleIdSettingsRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteRouteWithChildren
-  '/dashboard/': typeof DashboardIndexRoute
-  '/dashboard/settings/': typeof DashboardSettingsIndexRoute
+  '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsRouteRouteWithChildren
+  '/dashboard/$cycleId/overview/': typeof DashboardCycleIdOverviewIndexRoute
+  '/dashboard/$cycleId/settings/': typeof DashboardCycleIdSettingsIndexRoute
+  '/dashboard/$cycleId/settings/events/': typeof DashboardCycleIdSettingsEventsIndexRoute
+  '/dashboard/$cycleId/settings/offerings/': typeof DashboardCycleIdSettingsOfferingsIndexRoute
+  '/dashboard/$cycleId/settings/users/': typeof DashboardCycleIdSettingsUsersIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/dashboard': typeof DashboardIndexRoute
-  '/dashboard/settings': typeof DashboardSettingsIndexRoute
+  '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/dashboard/$cycleId/overview': typeof DashboardCycleIdOverviewIndexRoute
+  '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsIndexRoute
+  '/dashboard/$cycleId/settings/events': typeof DashboardCycleIdSettingsEventsIndexRoute
+  '/dashboard/$cycleId/settings/offerings': typeof DashboardCycleIdSettingsOfferingsIndexRoute
+  '/dashboard/$cycleId/settings/users': typeof DashboardCycleIdSettingsUsersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteRouteWithChildren
-  '/dashboard/': typeof DashboardIndexRoute
-  '/dashboard/settings/': typeof DashboardSettingsIndexRoute
+  '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsRouteRouteWithChildren
+  '/dashboard/$cycleId/overview/': typeof DashboardCycleIdOverviewIndexRoute
+  '/dashboard/$cycleId/settings/': typeof DashboardCycleIdSettingsIndexRoute
+  '/dashboard/$cycleId/settings/events/': typeof DashboardCycleIdSettingsEventsIndexRoute
+  '/dashboard/$cycleId/settings/offerings/': typeof DashboardCycleIdSettingsOfferingsIndexRoute
+  '/dashboard/$cycleId/settings/users/': typeof DashboardCycleIdSettingsUsersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/dashboard/' | '/dashboard/settings/'
+  fullPaths:
+    | '/dashboard'
+    | '/dashboard/$cycleId/settings'
+    | '/dashboard/$cycleId/overview/'
+    | '/dashboard/$cycleId/settings/'
+    | '/dashboard/$cycleId/settings/events/'
+    | '/dashboard/$cycleId/settings/offerings/'
+    | '/dashboard/$cycleId/settings/users/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/dashboard/settings'
-  id: '__root__' | '/' | '/dashboard' | '/dashboard/' | '/dashboard/settings/'
+  to:
+    | '/dashboard'
+    | '/dashboard/$cycleId/overview'
+    | '/dashboard/$cycleId/settings'
+    | '/dashboard/$cycleId/settings/events'
+    | '/dashboard/$cycleId/settings/offerings'
+    | '/dashboard/$cycleId/settings/users'
+  id:
+    | '__root__'
+    | '/dashboard'
+    | '/dashboard/$cycleId/settings'
+    | '/dashboard/$cycleId/overview/'
+    | '/dashboard/$cycleId/settings/'
+    | '/dashboard/$cycleId/settings/events/'
+    | '/dashboard/$cycleId/settings/offerings/'
+    | '/dashboard/$cycleId/settings/users/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   DashboardRouteRoute: typeof DashboardRouteRouteWithChildren
 }
 
@@ -75,38 +128,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard/': {
-      id: '/dashboard/'
-      path: '/'
-      fullPath: '/dashboard/'
-      preLoaderRoute: typeof DashboardIndexRouteImport
+    '/dashboard/$cycleId/settings': {
+      id: '/dashboard/$cycleId/settings'
+      path: '/$cycleId/settings'
+      fullPath: '/dashboard/$cycleId/settings'
+      preLoaderRoute: typeof DashboardCycleIdSettingsRouteRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
-    '/dashboard/settings/': {
-      id: '/dashboard/settings/'
-      path: '/settings'
-      fullPath: '/dashboard/settings/'
-      preLoaderRoute: typeof DashboardSettingsIndexRouteImport
+    '/dashboard/$cycleId/settings/': {
+      id: '/dashboard/$cycleId/settings/'
+      path: '/'
+      fullPath: '/dashboard/$cycleId/settings/'
+      preLoaderRoute: typeof DashboardCycleIdSettingsIndexRouteImport
+      parentRoute: typeof DashboardCycleIdSettingsRouteRoute
+    }
+    '/dashboard/$cycleId/overview/': {
+      id: '/dashboard/$cycleId/overview/'
+      path: '/$cycleId/overview'
+      fullPath: '/dashboard/$cycleId/overview/'
+      preLoaderRoute: typeof DashboardCycleIdOverviewIndexRouteImport
       parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/$cycleId/settings/users/': {
+      id: '/dashboard/$cycleId/settings/users/'
+      path: '/users'
+      fullPath: '/dashboard/$cycleId/settings/users/'
+      preLoaderRoute: typeof DashboardCycleIdSettingsUsersIndexRouteImport
+      parentRoute: typeof DashboardCycleIdSettingsRouteRoute
+    }
+    '/dashboard/$cycleId/settings/offerings/': {
+      id: '/dashboard/$cycleId/settings/offerings/'
+      path: '/offerings'
+      fullPath: '/dashboard/$cycleId/settings/offerings/'
+      preLoaderRoute: typeof DashboardCycleIdSettingsOfferingsIndexRouteImport
+      parentRoute: typeof DashboardCycleIdSettingsRouteRoute
+    }
+    '/dashboard/$cycleId/settings/events/': {
+      id: '/dashboard/$cycleId/settings/events/'
+      path: '/events'
+      fullPath: '/dashboard/$cycleId/settings/events/'
+      preLoaderRoute: typeof DashboardCycleIdSettingsEventsIndexRouteImport
+      parentRoute: typeof DashboardCycleIdSettingsRouteRoute
     }
   }
 }
 
+interface DashboardCycleIdSettingsRouteRouteChildren {
+  DashboardCycleIdSettingsIndexRoute: typeof DashboardCycleIdSettingsIndexRoute
+  DashboardCycleIdSettingsEventsIndexRoute: typeof DashboardCycleIdSettingsEventsIndexRoute
+  DashboardCycleIdSettingsOfferingsIndexRoute: typeof DashboardCycleIdSettingsOfferingsIndexRoute
+  DashboardCycleIdSettingsUsersIndexRoute: typeof DashboardCycleIdSettingsUsersIndexRoute
+}
+
+const DashboardCycleIdSettingsRouteRouteChildren: DashboardCycleIdSettingsRouteRouteChildren =
+  {
+    DashboardCycleIdSettingsIndexRoute: DashboardCycleIdSettingsIndexRoute,
+    DashboardCycleIdSettingsEventsIndexRoute:
+      DashboardCycleIdSettingsEventsIndexRoute,
+    DashboardCycleIdSettingsOfferingsIndexRoute:
+      DashboardCycleIdSettingsOfferingsIndexRoute,
+    DashboardCycleIdSettingsUsersIndexRoute:
+      DashboardCycleIdSettingsUsersIndexRoute,
+  }
+
+const DashboardCycleIdSettingsRouteRouteWithChildren =
+  DashboardCycleIdSettingsRouteRoute._addFileChildren(
+    DashboardCycleIdSettingsRouteRouteChildren,
+  )
+
 interface DashboardRouteRouteChildren {
-  DashboardIndexRoute: typeof DashboardIndexRoute
-  DashboardSettingsIndexRoute: typeof DashboardSettingsIndexRoute
+  DashboardCycleIdSettingsRouteRoute: typeof DashboardCycleIdSettingsRouteRouteWithChildren
+  DashboardCycleIdOverviewIndexRoute: typeof DashboardCycleIdOverviewIndexRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
-  DashboardIndexRoute: DashboardIndexRoute,
-  DashboardSettingsIndexRoute: DashboardSettingsIndexRoute,
+  DashboardCycleIdSettingsRouteRoute:
+    DashboardCycleIdSettingsRouteRouteWithChildren,
+  DashboardCycleIdOverviewIndexRoute: DashboardCycleIdOverviewIndexRoute,
 }
 
 const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
@@ -114,7 +212,6 @@ const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   DashboardRouteRoute: DashboardRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport

@@ -10,9 +10,9 @@ import {
   Users,
 } from "lucide-react"
 
-import AsideGroup from "@/components/dashboard/AsideGroup";
-import CycleDropdown from "@/components/dashboard/CycleDropdown";
-import UserDropdown from "@/components/dashboard/UserDropdown";
+import AsideGroup from "@/components/dashboard/aside/AsideGroup";
+import CycleDropdown from "@/components/dashboard/aside/CycleDropdown";
+import UserDropdown from "@/components/dashboard/aside/UserDropdown";
 
 import {
   Sidebar,
@@ -50,7 +50,7 @@ const data = {
     main: [
         {
             title: "Home",
-            url: "/dashboard/:cycleId/home",
+            url: "/dashboard/:cycleId/overview",
             icon: LayoutDashboard
         },
         {
@@ -88,7 +88,7 @@ const data = {
         },
         {
             title: "Faculties",
-            url: "/faculties",
+            url: "/dashboard/faculties",
             icon: GraduationCap,
             items: [
                 { title: "All Faculties", url: "/dashboard/faculties" },
@@ -100,18 +100,18 @@ const data = {
             url: "/dashboard/:cycleId/settings",
             icon: Settings,
             items: [
-                { title: "Cycle Settings", url: "/dashboard/:cycleId/settings/general" },
+                { title: "Cycle Settings", url: "/dashboard/:cycleId/settings" },
                 { title: "Faculty Offerings", url: "/dashboard/:cycleId/settings/offerings" },
-                { title: "Event Log", url: "/dashboard/:cycleId/settings/log" },
+                { title: "Event Log", url: "/dashboard/:cycleId/settings/logs" },
                 { title: "Users & Permissions", url: "/dashboard/:cycleId/settings/users" },
             ],
         },
     ],
 }
 
-export default function Aside({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export default function AppSidebar() {
     return (
-        <Sidebar collapsible="icon" {...props}>
+        <Sidebar collapsible="icon">
             <SidebarHeader>
                 <div className="flex items-center size-7 m-2 group-data-[collapsible=icon]:ml-0.5 transition-all">
                     <img src={Logo} alt="" className="size-full brightness-0 shrink-0 object-cover"/>
