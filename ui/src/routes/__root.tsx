@@ -2,6 +2,8 @@ import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
 
 import appCss from "../styles.css?url"
 
+import { TooltipProvider } from "@/components/ui/tooltip"
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -13,7 +15,7 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "TanStack Start Starter",
+        title: "E-JUST Student Information System",
       },
     ],
     links: [
@@ -39,7 +41,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        <TooltipProvider>
+          {children}
+        </TooltipProvider>
         <Scripts />
       </body>
     </html>
