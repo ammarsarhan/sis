@@ -95,6 +95,7 @@ enum AdmissionCycleStatus {
 }
 
 enum NotificationChannel {
+  PUSH
   SMS
   WHATSAPP
   EMAIL
@@ -118,14 +119,15 @@ model Session {
 model User {
   id String @id @default(cuid())
 
-  name     String
-  email    String @unique
-  password String
-
-  sessions   Session[]
+  name       String
+  email      String     @unique
+  password   String
   isVerified Boolean    @default(false)
   status     UserStatus @default(ACTIVE)
-  preferences   UserPreferences?
+  isRoot     Boolean    @default(false)
+
+  sessions    Session[]
+  preferences UserPreferences?
 
   applicant Applicant?
   staff     Staff[]
@@ -135,7 +137,7 @@ model User {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 
-  sentNotifications Notification[] @relation(name: "sent")
+  sentNotifications     Notification[] @relation(name: "sent")
   receivedNotifications Notification[] @relation(name: "recieved")
 }
 
@@ -172,10 +174,10 @@ model Applicant {
   governorateAr String
   governorateEn String
 
-  userId    String @unique
-  user User @relation(fields: [userId], references: [id])
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
 
-  guardians Guardian[]
+  guardians    Guardian[]
   applications Application[]
 
   deletedAt DateTime?
@@ -191,10 +193,10 @@ model Staff {
   cycleId String
   cycle   AdmissionCycle @relation(fields: [cycleId], references: [id])
 
-  role              AdmissionStaffRole @default(OFFICER)
-  permissions       Json
+  role        AdmissionStaffRole @default(OFFICER)
+  permissions Json
 
-  events AdmissionCycleEvent[]
+  events    AdmissionCycleEvent[]
   documents Document[]
 
   @@unique([userId, cycleId])
@@ -230,7 +232,7 @@ model AdmissionCycleEvent {
   transitionReason String?
 
   actorId String
-  actor   Staff @relation(fields: [actorId], references: [id])
+  actor   Staff  @relation(fields: [actorId], references: [id])
 
   createdAt DateTime @default(now())
 }
@@ -253,7 +255,7 @@ model AdmissionCycleSettings {
 }
 
 model Guardian {
-  id          String    @id @default(cuid())
+  id String @id @default(cuid())
 
   name         String
   phone        String
@@ -264,7 +266,7 @@ model Guardian {
   isPrimary Boolean @default(false)
 
   applicantId String
-  applicant Applicant @relation(fields: [applicantId], references: [id])
+  applicant   Applicant @relation(fields: [applicantId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -306,10 +308,10 @@ model ApplicationEvent {
 
   currentStep  ApplicationStep
   previousStep ApplicationStep
-  payload Json
+  payload      Json
 
   actorId String
-  actor   User @relation(fields: [actorId], references: [id])
+  actor   User   @relation(fields: [actorId], references: [id])
 
   createdAt DateTime @default(now())
 }
@@ -319,23 +321,23 @@ model Document {
   applicationId String
   application   Application @relation(fields: [applicationId], references: [id])
 
-  fileName        String
-  fileSize        Int
-  fileUrl         String
-  description     String?
-  type            DocumentType
-  format          DocumentFormat
+  fileName    String
+  fileSize    Int
+  fileUrl     String
+  description String?
+  type        DocumentType
+  format      DocumentFormat
 
-  status        DocumentStatus @default(UPLOADED)
-  acceptedAt    DateTime?
-  rejectedAt    DateTime?
+  status          DocumentStatus @default(UPLOADED)
+  acceptedAt      DateTime?
+  rejectedAt      DateTime?
   rejectionReason String?
-
-  reviewerId    String?
-  reviewer      Staff? @relation(fields: [reviewerId], references: [id])
+  
+  reviewerId String?
+  reviewer   Staff?  @relation(fields: [reviewerId], references: [id])
 
   createdAt DateTime @default(now())
-  updatedAt DateTime  @updatedAt
+  updatedAt DateTime @updatedAt
 }
 
 model Faculty {
@@ -378,8 +380,8 @@ model FacultyOffering {
   cycleId   String
   cycle     AdmissionCycle @relation(fields: [cycleId], references: [id])
 
-  isActive  Boolean @default(true)
-  
+  isActive Boolean @default(true)
+
   @@unique([facultyId, cycleId])
 }
 
@@ -390,17 +392,17 @@ model SeriesNotification {
 }
 
 model Notification {
-  id          String              @id @default(cuid())
-  
-  senderId    String?
-  sender      User?                @relation(name: "sent", fields: [senderId], references: [id])
-  recipientId String
-  recipient   User                @relation(name: "recieved", fields: [recipientId], references: [id])
+  id String @id @default(cuid())
 
-  seriesId    String?
-  series      SeriesNotification? @relation(fields: [seriesId], references: [id])
-  channel     NotificationChannel
-  payload     Json
+  senderId    String?
+  sender      User?   @relation(name: "sent", fields: [senderId], references: [id])
+  recipientId String
+  recipient   User    @relation(name: "recieved", fields: [recipientId], references: [id])
+
+  seriesId String?
+  series   SeriesNotification? @relation(fields: [seriesId], references: [id])
+  channel  NotificationChannel
+  payload  Json
 
   readAt    DateTime?
   createdAt DateTime  @default(now())
