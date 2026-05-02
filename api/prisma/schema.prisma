@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -12,6 +7,401 @@ datasource db {
   provider = "postgresql"
 }
 
+enum Language {
+  EN
+  AR
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum AdmissionStaffRole {
+  OFFICER
+  ADMIN
+}
+
+enum ApplicationStatus {
+  DRAFT
+  SUBMITTED
+  ACCEPTED
+  REJECTED
+}
+
+enum ApplicationStep {
+  PERSONAL
+  ACADEMIC
+  GUARDIAN
+  DOCUMENTS
+  PAYMENT
+}
+
+enum ApplicationChannel {
+  ONLINE
+  IN_PERSON
+}
+
+enum DocumentFormat {
+  JPEG
+  PNG
+  PDF
+  DOCX
+  OTHER
+}
+
+enum DocumentType {
+  PERSONAL_PHOTO
+  NATIONAL_ID
+  BIRTH_CERTIFICATE
+  CERTIFICATE
+  TRANSCRIPT
+  OTHER
+}
+
+enum DocumentStatus {
+  UPLOADED
+  ACCEPTED
+  REJECTED
+}
+
+enum GuardianRelationship {
+  FATHER
+  MOTHER
+  GUARDIAN
+  OTHER
+}
+
+enum AcademicSystem {
+  THANAWIYA_AMMA
+  IGCSE
+  AMERICAN_DIPLOMA
+  STEM
+  INTERNATIONAL_BACCALAUREATE
+  ABITUR
+  OTHER
+}
+
+enum AdmissionCycleStatus {
+  DRAFT
+  OPEN
+  CLOSED
+}
+
+enum NotificationChannel {
+  SMS
+  WHATSAPP
+  EMAIL
+}
+
+model Session {
+  id String @id @default(cuid())
+
+  refreshToken String @unique
+  userId       String
+  user         User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime  @default(now())
+  expiresAt DateTime
+  revokedAt DateTime?
+
+  ipAddress String?
+  userAgent String?
+}
+
 model User {
   id String @id @default(cuid())
+
+  name     String
+  email    String @unique
+  password String
+
+  sessions   Session[]
+  isVerified Boolean    @default(false)
+  status     UserStatus @default(ACTIVE)
+  preferences   UserPreferences?
+
+  applicant Applicant?
+  staff     Staff[]
+  events    ApplicationEvent[]
+
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  sentNotifications Notification[] @relation(name: "sent")
+  receivedNotifications Notification[] @relation(name: "recieved")
+}
+
+model UserPreferences {
+  id String @id @default(cuid())
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+
+  language      Language              @default(EN)
+  notifications NotificationChannel[] @default([WHATSAPP])
+  timezone      String                @default("Africa/Cairo")
+}
+
+model Applicant {
+  id          String @id @default(cuid())
+  nameAr      String
+  nameEn      String
+  nationality String @db.Char(2)
+
+  nationalId             String?   @unique
+  passportNumber         String?
+  passportIssueDate      DateTime?
+  passportExpirationDate DateTime?
+
+  phone       String   @unique
+  dateOfBirth DateTime
+  gender      Gender
+
+  streetEn      String
+  streetAr      String
+  cityAr        String
+  cityEn        String
+  governorateAr String
+  governorateEn String
+
+  userId    String @unique
+  user User @relation(fields: [userId], references: [id])
+
+  guardians Guardian[]
+  applications Application[]
+
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Staff {
+  id String @id @default(cuid())
+
+  userId  String
+  user    User           @relation(fields: [userId], references: [id])
+  cycleId String
+  cycle   AdmissionCycle @relation(fields: [cycleId], references: [id])
+
+  role              AdmissionStaffRole @default(OFFICER)
+  permissions       Json
+
+  events AdmissionCycleEvent[]
+  documents Document[]
+
+  @@unique([userId, cycleId])
+}
+
+model AdmissionCycle {
+  id        String   @id @default(cuid())
+  startDate DateTime
+  endDate   DateTime
+  name      String
+
+  settings AdmissionCycleSettings?
+  staff    Staff[]
+  events   AdmissionCycleEvent[]
+
+  applications Application[]
+
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  faculties FacultyOffering[]
+}
+
+model AdmissionCycleEvent {
+  id String @id @default(cuid())
+
+  cycleId String
+  cycle   AdmissionCycle @relation(fields: [cycleId], references: [id])
+
+  previousStatus   AdmissionCycleStatus
+  currentStatus    AdmissionCycleStatus
+  transitionReason String?
+
+  actorId String
+  actor   Staff @relation(fields: [actorId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model AdmissionCycleSettings {
+  id String @id @default(cuid())
+
+  cycleId String         @unique
+  cycle   AdmissionCycle @relation(fields: [cycleId], references: [id])
+
+  maximumFileSize      Int              @default(5242880)
+  allowedDocumentTypes DocumentFormat[]
+  requiredDocuments    DocumentType[]
+  maximumApplications  Int              @default(20000)
+  foreignFee           Int
+  onlineFee            Int
+  inPersonFee          Int
+
+  // Todo: Add more admission cycle settings options.
+}
+
+model Guardian {
+  id          String    @id @default(cuid())
+
+  name         String
+  phone        String
+  relationship GuardianRelationship
+  occupation   String
+  description  String?
+
+  isPrimary Boolean @default(false)
+
+  applicantId String
+  applicant Applicant @relation(fields: [applicantId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Application {
+  id      String             @id @default(cuid())
+  code    String             @unique
+  status  ApplicationStatus  @default(DRAFT)
+  channel ApplicationChannel
+
+  cycleId     String
+  cycle       AdmissionCycle @relation(fields: [cycleId], references: [id])
+  applicantId String
+  applicant   Applicant      @relation(fields: [applicantId], references: [id])
+
+  departmentId   String
+  department     Department     @relation(fields: [departmentId], references: [id])
+  facultyId      String
+  faculty        Faculty        @relation(fields: [facultyId], references: [id])
+  academicSystem AcademicSystem
+  school         String
+  grade          Int
+  documents      Document[]
+
+  events ApplicationEvent[]
+
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@unique([applicantId, cycleId])
+}
+
+model ApplicationEvent {
+  id            String      @id @default(cuid())
+  applicationId String
+  application   Application @relation(fields: [applicationId], references: [id])
+
+  currentStep  ApplicationStep
+  previousStep ApplicationStep
+  payload Json
+
+  actorId String
+  actor   User @relation(fields: [actorId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model Document {
+  id            String      @id @default(cuid())
+  applicationId String
+  application   Application @relation(fields: [applicationId], references: [id])
+
+  fileName        String
+  fileSize        Int
+  fileUrl         String
+  description     String?
+  type            DocumentType
+  format          DocumentFormat
+
+  status        DocumentStatus @default(UPLOADED)
+  acceptedAt    DateTime?
+  rejectedAt    DateTime?
+  rejectionReason String?
+
+  reviewerId    String?
+  reviewer      Staff? @relation(fields: [reviewerId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Faculty {
+  id          String @id @default(cuid())
+  code        String @unique
+  nameEn      String
+  nameAr      String
+  description String
+
+  applications Application[]
+  departments  Department[]
+  offerings    FacultyOffering[]
+
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Department {
+  id          String @id @default(cuid())
+  nameEn      String
+  nameAr      String
+  description String
+
+  applications Application[]
+  facultyId    String
+  faculty      Faculty       @relation(fields: [facultyId], references: [id])
+
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model FacultyOffering {
+  id       String @id @default(cuid())
+  capacity Int    @default(1000)
+
+  facultyId String
+  faculty   Faculty        @relation(fields: [facultyId], references: [id])
+  cycleId   String
+  cycle     AdmissionCycle @relation(fields: [cycleId], references: [id])
+
+  isActive  Boolean @default(true)
+  
+  @@unique([facultyId, cycleId])
+}
+
+model SeriesNotification {
+  id            String         @id @default(cuid())
+  notifications Notification[]
+  createdAt     DateTime       @default(now())
+}
+
+model Notification {
+  id          String              @id @default(cuid())
+  
+  senderId    String?
+  sender      User?                @relation(name: "sent", fields: [senderId], references: [id])
+  recipientId String
+  recipient   User                @relation(name: "recieved", fields: [recipientId], references: [id])
+
+  seriesId    String?
+  series      SeriesNotification? @relation(fields: [seriesId], references: [id])
+  channel     NotificationChannel
+  payload     Json
+
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
 }
