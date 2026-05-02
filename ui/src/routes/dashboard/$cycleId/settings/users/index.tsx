@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import { Plus } from 'lucide-react';
 
@@ -10,6 +11,8 @@ export const Route = createFileRoute('/dashboard/$cycleId/settings/users/')({
 })
 
 function RouteComponent() {
+  const [payload, setPayload] = useState<string | null>(null);
+
   return (
     <main className='px-6 mt-4 mb-12 flex flex-col gap-y-6'>
       <div className='flex flex-col gap-y-0.5'>
@@ -22,12 +25,12 @@ function RouteComponent() {
           <h2 className='font-medium'>Invitations</h2>
           <p className='text-gray-500 text-[0.8125rem]'>Check the status of all outbound invitations sent to provide access to the system.</p>
         </div>  
-        <Button variant="ghost" size="sm" className="font-normal">
+        <Button variant="ghost" size="sm" className="font-normal" onClick={() => setPayload("ammaryasser6.2006@gmail.com")}>
           <Plus className='size-4' />
           <span className='text-[0.825rem]'>Add invitation</span>
         </Button>
       </div>
-      <InvitationsTable />
+      <InvitationsTable payload={payload} setPayload={setPayload}/>
     </main>
   )
 }

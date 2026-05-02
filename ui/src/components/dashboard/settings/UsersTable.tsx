@@ -1,4 +1,6 @@
-import { useState } from "react"
+import { useState } from "react";
+import { MoreHorizontalIcon } from "lucide-react";
+
 import {
   Table,
   TableBody,
@@ -7,15 +9,19 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
+
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { parseType } from "@/lib/string"
+} from "@/components/ui/dialog";
+
+import { Button } from "@/components/ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+
+import { parseType } from "@/lib/string";
 
 type AdmissionStaffRole = "OFFICER" | "ADMIN"
 type AdmissionCycleEventDomain = "SETTINGS" | "FACULTIES" | "USERS"
@@ -124,10 +130,23 @@ export default function UsersTable() {
                             <TableCell className="text-muted-foreground">{member.user.email}</TableCell>
                             <TableCell>{parseType(member.role)}</TableCell>
                             <TableCell className="text-muted-foreground">{parseLatestAction(member.events)}</TableCell>
-                            <TableCell>
-                                <Button variant="ghost" size="sm" className="font-normal" onClick={() => setPermissions(member.permissions)}>
-                                    View permissions
-                                </Button>
+                            <TableCell className="text-right">
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        <Button variant="ghost" size="icon" className="size-8">
+                                            <MoreHorizontalIcon />
+                                            <span className="sr-only">Actions</span>
+                                        </Button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent align="end">
+                                        <DropdownMenuItem className="text-[0.8rem] text-nowrap cursor-pointer" onClick={() => setPermissions(member.permissions)}>Edit Permissions</DropdownMenuItem>
+                                        <DropdownMenuItem className="text-[0.8rem] cursor-pointer">View Actions</DropdownMenuItem>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuItem variant="destructive" className="text-[0.8rem] cursor-pointer">
+                                            Remove
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
                             </TableCell>
                         </TableRow>
                     ))

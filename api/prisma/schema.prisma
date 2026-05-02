@@ -225,6 +225,7 @@ model Invitation {
   inviter      Staff              @relation(fields: [inviterId], references: [id])
   status       InvitationStatus   @default(PENDING)
 
+  expiresAt DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
