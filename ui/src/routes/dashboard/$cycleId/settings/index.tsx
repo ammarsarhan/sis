@@ -5,6 +5,7 @@ import { Separator } from '@/components/ui/separator'
 import { Input } from '@/components/ui/input'
 import { MultiSelect } from '@/components/shared/MultiSelect'
 import SettingsBlock from '@/components/dashboard/settings/SettingsBlock'
+import { Button } from '@/components/ui/button'
 
 export const Route = createFileRoute('/dashboard/$cycleId/settings/')({
   component: RouteComponent,
@@ -26,7 +27,7 @@ const documentFormats = [
 
 function RouteComponent() {
   return (
-    <main className='px-6'>
+    <main className='px-6 mb-8'>
       <SettingsBlock title="Intake Settings">
         <SettingsRow label={'Maximum Applications'} description={'The most amount of allowed submitted applications for this cycle intake.'}>
           <Input placeholder='10,000' className='w-80'/>
@@ -65,6 +66,9 @@ function RouteComponent() {
         </SettingsRow>
         <Separator />
       </SettingsBlock>
+      <Button className='font-normal float-right mt-2 px-4'>
+        Save changes
+      </Button>
     </main>
   )
 }

@@ -81,9 +81,9 @@ const invitations: Array<Invitation> = [
     },
 ]
 
-const statusStyles: Record<InvitationStatus, string> = {
+const styles: Record<InvitationStatus, string> = {
     PENDING: "bg-amber-100 text-amber-700",
-    ACCEPTED: "bg-green-100 text-green-700",
+    ACCEPTED: "bg-red-100 text-red-700",
     EXPIRED: "bg-gray-100 text-gray-500",
 }
 
@@ -107,7 +107,7 @@ export default function InvitationsTable() {
                             <TableCell>{parseType(invitation.intendedRole)}</TableCell>
                             <TableCell className="text-muted-foreground">{invitation.inviter.name}</TableCell>
                             <TableCell>
-                            <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs ${statusStyles[invitation.status]}`}>
+                            <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs ${styles[invitation.status]}`}>
                                 {parseType(invitation.status)}
                             </span>
                             </TableCell>
