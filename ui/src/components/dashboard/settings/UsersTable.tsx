@@ -139,10 +139,10 @@ export default function UsersTable() {
                                         </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end">
-                                        <DropdownMenuItem className="text-[0.8rem] text-nowrap cursor-pointer" onClick={() => setPermissions(member.permissions)}>Edit Permissions</DropdownMenuItem>
-                                        <DropdownMenuItem className="text-[0.8rem] cursor-pointer">View Actions</DropdownMenuItem>
+                                        <DropdownMenuItem className="text-[0.8125rem] text-nowrap cursor-pointer" onClick={() => setPermissions(member.permissions)}>Edit Permissions</DropdownMenuItem>
+                                        <DropdownMenuItem className="text-[0.8125rem] cursor-pointer">View Actions</DropdownMenuItem>
                                         <DropdownMenuSeparator />
-                                        <DropdownMenuItem variant="destructive" className="text-[0.8rem] cursor-pointer">
+                                        <DropdownMenuItem variant="destructive" className="text-[0.8125rem] cursor-pointer">
                                             Remove
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>

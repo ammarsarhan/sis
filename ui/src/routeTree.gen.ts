@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
 import { Route as DashboardCycleIdSettingsRouteRouteImport } from './routes/dashboard/$cycleId/settings/route'
+import { Route as DashboardCycleIdApplicationsRouteRouteImport } from './routes/dashboard/$cycleId/applications/route'
 import { Route as DashboardCycleIdSettingsIndexRouteImport } from './routes/dashboard/$cycleId/settings/index'
 import { Route as DashboardCycleIdOverviewIndexRouteImport } from './routes/dashboard/$cycleId/overview/index'
+import { Route as DashboardCycleIdApplicationsIndexRouteImport } from './routes/dashboard/$cycleId/applications/index'
 import { Route as DashboardCycleIdSettingsUsersIndexRouteImport } from './routes/dashboard/$cycleId/settings/users/index'
 import { Route as DashboardCycleIdSettingsOfferingsIndexRouteImport } from './routes/dashboard/$cycleId/settings/offerings/index'
 import { Route as DashboardCycleIdSettingsEventsIndexRouteImport } from './routes/dashboard/$cycleId/settings/events/index'
@@ -28,6 +30,12 @@ const DashboardCycleIdSettingsRouteRoute =
     path: '/$cycleId/settings',
     getParentRoute: () => DashboardRouteRoute,
   } as any)
+const DashboardCycleIdApplicationsRouteRoute =
+  DashboardCycleIdApplicationsRouteRouteImport.update({
+    id: '/$cycleId/applications',
+    path: '/$cycleId/applications',
+    getParentRoute: () => DashboardRouteRoute,
+  } as any)
 const DashboardCycleIdSettingsIndexRoute =
   DashboardCycleIdSettingsIndexRouteImport.update({
     id: '/',
@@ -39,6 +47,12 @@ const DashboardCycleIdOverviewIndexRoute =
     id: '/$cycleId/overview/',
     path: '/$cycleId/overview/',
     getParentRoute: () => DashboardRouteRoute,
+  } as any)
+const DashboardCycleIdApplicationsIndexRoute =
+  DashboardCycleIdApplicationsIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => DashboardCycleIdApplicationsRouteRoute,
   } as any)
 const DashboardCycleIdSettingsUsersIndexRoute =
   DashboardCycleIdSettingsUsersIndexRouteImport.update({
@@ -61,7 +75,9 @@ const DashboardCycleIdSettingsEventsIndexRoute =
 
 export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/dashboard/$cycleId/applications': typeof DashboardCycleIdApplicationsRouteRouteWithChildren
   '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsRouteRouteWithChildren
+  '/dashboard/$cycleId/applications/': typeof DashboardCycleIdApplicationsIndexRoute
   '/dashboard/$cycleId/overview/': typeof DashboardCycleIdOverviewIndexRoute
   '/dashboard/$cycleId/settings/': typeof DashboardCycleIdSettingsIndexRoute
   '/dashboard/$cycleId/settings/events/': typeof DashboardCycleIdSettingsEventsIndexRoute
@@ -70,6 +86,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/dashboard/$cycleId/applications': typeof DashboardCycleIdApplicationsIndexRoute
   '/dashboard/$cycleId/overview': typeof DashboardCycleIdOverviewIndexRoute
   '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsIndexRoute
   '/dashboard/$cycleId/settings/events': typeof DashboardCycleIdSettingsEventsIndexRoute
@@ -79,7 +96,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/dashboard/$cycleId/applications': typeof DashboardCycleIdApplicationsRouteRouteWithChildren
   '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsRouteRouteWithChildren
+  '/dashboard/$cycleId/applications/': typeof DashboardCycleIdApplicationsIndexRoute
   '/dashboard/$cycleId/overview/': typeof DashboardCycleIdOverviewIndexRoute
   '/dashboard/$cycleId/settings/': typeof DashboardCycleIdSettingsIndexRoute
   '/dashboard/$cycleId/settings/events/': typeof DashboardCycleIdSettingsEventsIndexRoute
@@ -90,7 +109,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/dashboard'
+    | '/dashboard/$cycleId/applications'
     | '/dashboard/$cycleId/settings'
+    | '/dashboard/$cycleId/applications/'
     | '/dashboard/$cycleId/overview/'
     | '/dashboard/$cycleId/settings/'
     | '/dashboard/$cycleId/settings/events/'
@@ -99,6 +120,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/dashboard'
+    | '/dashboard/$cycleId/applications'
     | '/dashboard/$cycleId/overview'
     | '/dashboard/$cycleId/settings'
     | '/dashboard/$cycleId/settings/events'
@@ -107,7 +129,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/dashboard'
+    | '/dashboard/$cycleId/applications'
     | '/dashboard/$cycleId/settings'
+    | '/dashboard/$cycleId/applications/'
     | '/dashboard/$cycleId/overview/'
     | '/dashboard/$cycleId/settings/'
     | '/dashboard/$cycleId/settings/events/'
@@ -135,6 +159,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardCycleIdSettingsRouteRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
+    '/dashboard/$cycleId/applications': {
+      id: '/dashboard/$cycleId/applications'
+      path: '/$cycleId/applications'
+      fullPath: '/dashboard/$cycleId/applications'
+      preLoaderRoute: typeof DashboardCycleIdApplicationsRouteRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/dashboard/$cycleId/settings/': {
       id: '/dashboard/$cycleId/settings/'
       path: '/'
@@ -148,6 +179,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/dashboard/$cycleId/overview/'
       preLoaderRoute: typeof DashboardCycleIdOverviewIndexRouteImport
       parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/$cycleId/applications/': {
+      id: '/dashboard/$cycleId/applications/'
+      path: '/'
+      fullPath: '/dashboard/$cycleId/applications/'
+      preLoaderRoute: typeof DashboardCycleIdApplicationsIndexRouteImport
+      parentRoute: typeof DashboardCycleIdApplicationsRouteRoute
     }
     '/dashboard/$cycleId/settings/users/': {
       id: '/dashboard/$cycleId/settings/users/'
@@ -173,6 +211,21 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface DashboardCycleIdApplicationsRouteRouteChildren {
+  DashboardCycleIdApplicationsIndexRoute: typeof DashboardCycleIdApplicationsIndexRoute
+}
+
+const DashboardCycleIdApplicationsRouteRouteChildren: DashboardCycleIdApplicationsRouteRouteChildren =
+  {
+    DashboardCycleIdApplicationsIndexRoute:
+      DashboardCycleIdApplicationsIndexRoute,
+  }
+
+const DashboardCycleIdApplicationsRouteRouteWithChildren =
+  DashboardCycleIdApplicationsRouteRoute._addFileChildren(
+    DashboardCycleIdApplicationsRouteRouteChildren,
+  )
+
 interface DashboardCycleIdSettingsRouteRouteChildren {
   DashboardCycleIdSettingsIndexRoute: typeof DashboardCycleIdSettingsIndexRoute
   DashboardCycleIdSettingsEventsIndexRoute: typeof DashboardCycleIdSettingsEventsIndexRoute
@@ -197,11 +250,14 @@ const DashboardCycleIdSettingsRouteRouteWithChildren =
   )
 
 interface DashboardRouteRouteChildren {
+  DashboardCycleIdApplicationsRouteRoute: typeof DashboardCycleIdApplicationsRouteRouteWithChildren
   DashboardCycleIdSettingsRouteRoute: typeof DashboardCycleIdSettingsRouteRouteWithChildren
   DashboardCycleIdOverviewIndexRoute: typeof DashboardCycleIdOverviewIndexRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
+  DashboardCycleIdApplicationsRouteRoute:
+    DashboardCycleIdApplicationsRouteRouteWithChildren,
   DashboardCycleIdSettingsRouteRoute:
     DashboardCycleIdSettingsRouteRouteWithChildren,
   DashboardCycleIdOverviewIndexRoute: DashboardCycleIdOverviewIndexRoute,

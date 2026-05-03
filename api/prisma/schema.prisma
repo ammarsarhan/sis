@@ -85,7 +85,7 @@ enum GuardianRelationship {
   OTHER
 }
 
-enum AcademicSystem {
+enum Curriculum {
   THANAWIYA_AMMA
   IGCSE
   AMERICAN_DIPLOMA
@@ -318,7 +318,7 @@ model Application {
   department     Department     @relation(fields: [departmentId], references: [id])
   facultyId      String
   faculty        Faculty        @relation(fields: [facultyId], references: [id])
-  academicSystem AcademicSystem
+  curriculum     Curriculum
   school         String
   grade          Int
   documents      Document[]

@@ -91,8 +91,8 @@ const data = {
             url: "/dashboard/faculties",
             icon: GraduationCap,
             items: [
-                { title: "All Faculties", url: "/dashboard/faculties" },
-                { title: "Departments", url: "/dashboard/faculties/departments" },
+                { title: "Browse Faculties", url: "/dashboard/faculties" },
+                { title: "View Departments", url: "/dashboard/faculties/departments" },
             ],
         },
         {
