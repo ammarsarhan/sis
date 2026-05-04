@@ -3,7 +3,6 @@ import { createFileRoute } from '@tanstack/react-router'
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -11,10 +10,10 @@ import {
 
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import AnalyticsCard from '@/components/dashboard/hero/AnalyticsCard';
-import ApplicationsChart from '@/components/dashboard/hero/ApplicationsChart';
-import { ApplicationsTable } from '@/components/dashboard/hero/ApplicationsTable';
-import { RevenueChart } from '@/components/dashboard/hero/RevenueChart';
+import AnalyticsCard from '@/components/dashboard/overview/AnalyticsCard';
+import ApplicationsChart from '@/components/dashboard/overview/ApplicationsChart';
+import { ApplicationsTable } from '@/components/dashboard/overview/ApplicationsTable';
+import { RevenueChart } from '@/components/dashboard/overview/RevenueChart';
 
 export const Route = createFileRoute('/dashboard/$cycleId/overview/')({
   component: RouteComponent,

@@ -521,7 +521,7 @@ export default function ApplicationsTable({ applications: data = applications, s
         </div>
       </div>
       <Dialog open={filtersOpen} onOpenChange={setFiltersOpen}>
-        <DialogContent className="sm:max-w-sm">
+        <DialogContent className="w-full!">
           <DialogHeader>
             <DialogTitle>Filter Applications</DialogTitle>
           </DialogHeader>

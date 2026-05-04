@@ -26,8 +26,8 @@ import Logo from '@/assets/logo.png';
 
 const data = {
     user: {
-        name: "shadcn",
-        email: "m@example.com",
+        name: "Ammar",
+        email: "admin@admin.com",
         avatar: "/avatars/shadcn.jpg",
     },
     cycles: [
@@ -69,7 +69,7 @@ const data = {
             url: "/dashboard/cycle-id/documents",
             icon: FolderOpen,
             items: [
-                { title: "Review Queue", url: "/dashboard/cycle-id/documents" },
+                { title: "Review Queue", url: "/dashboard/cycle-id/documents?status=UPLOADED" },
                 { title: "Accepted", url: "/dashboard/cycle-id/documents?status=ACCEPTED" },
                 { title: "Rejected", url: "/dashboard/cycle-id/documents?status=REJECTED" },
             ],

@@ -2,11 +2,9 @@ import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
 import ApplicationsTable from '@/components/dashboard/applications/ApplicationsTable'
 
-const applicationStatusSchema = z.enum(['DRAFT', 'SUBMITTED', 'ACCEPTED', 'REJECTED']).optional()
-
 export const Route = createFileRoute('/dashboard/$cycleId/applications/')({
   validateSearch: z.object({
-    status: applicationStatusSchema,
+    status: z.enum(['DRAFT', 'SUBMITTED', 'ACCEPTED', 'REJECTED']).optional(),
   }),
   component: RouteComponent,
 })
