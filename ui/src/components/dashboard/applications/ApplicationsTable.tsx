@@ -595,7 +595,7 @@ export default function ApplicationsTable({ applications: data = applications, s
                 <span className="text-muted-foreground">Phone</span>
                 <span>{selectedApp.applicant.phone}</span>
                 <span className="text-muted-foreground">Nationality</span>
-                <span className="font-mono">{selectedApp.applicant.nationality}</span>
+                <span>{selectedApp.applicant.nationality}</span>
                 <span className="text-muted-foreground">Faculty</span>
                 <span>{selectedApp.faculty.nameEn}</span>
                 <span className="text-muted-foreground">Department</span>
