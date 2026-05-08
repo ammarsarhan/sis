@@ -496,24 +496,13 @@ export default function ApplicantsTable({ applicants: data = applicants, cycleId
                                     View Details
                                 </DropdownMenuItem>
                                 {
-                                    applicant.application && (
-                                        <DropdownMenuItem className="text-[0.8125rem] cursor-pointer" asChild>
-                                            <Link
-                                                to="/dashboard/$cycleId/applications/$applicationId"
-                                                params={{ cycleId: "cycle-id", applicationId: applicant.application.id }}
-                                            >
-                                                View Application
-                                            </Link>
-                                        </DropdownMenuItem>
-                                    )
-                                }
-                                {
                                     applicant.previousApplications.length > 0 && (
                                         <>
                                             <DropdownMenuSeparator />
                                             <DropdownMenuItem className="text-[0.8125rem] cursor-pointer" asChild>
                                                 <Link
-                                                    to="/dashboard/applicants/$applicantId/applications"
+                                                    to="/dashboard/applicants/$applicantId"
+                                                    hash="applications"
                                                     params={{ applicantId: applicant.id }}
                                                 >
                                                     All Applications
@@ -869,7 +858,8 @@ export default function ApplicantsTable({ applicants: data = applicants, cycleId
                                         selectedApplicant.previousApplications.length > 0 && (
                                             <div className="mt-4 pt-3 border-t">
                                                 <Link
-                                                    to="/dashboard/applicants/$applicantId/applications"
+                                                    to="/dashboard/applicants/$applicantId"
+                                                    hash="applications"
                                                     params={{ applicantId: selectedApplicant.id }}
                                                     className="inline-flex items-center gap-1.5 group"
                                                     onClick={() => setSelectedApplicant(null)}
