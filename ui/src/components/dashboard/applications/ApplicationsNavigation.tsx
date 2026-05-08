@@ -17,7 +17,7 @@ export default function ApplicationsNavigation({ cycleId }: { cycleId: string })
   }
 
   return (
-    <div className="mx-6">
+    <div className="mx-6 pt-4">
       <div className="flex flex-col gap-y-0.5 mb-4">
         <h1 className="text-xl font-medium">Applications</h1>
         <p className="text-gray-500 text-sm">View and track applications with advanced filtering to bulk accept applicants.</p>

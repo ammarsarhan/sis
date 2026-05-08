@@ -1,20 +1,28 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { z } from 'zod'
+import { createFileRoute, useParams } from '@tanstack/react-router'
 import ApplicationsTable from '@/components/dashboard/applications/ApplicationsTable'
+import ApplicationsNavigation from '@/components/dashboard/applications/ApplicationsNavigation';
+
+type ApplicationStatus = "DRAFT" | "SUBMITTED" | "ACCEPTED" | "REJECTED";
 
 export const Route = createFileRoute('/dashboard/$cycleId/applications/')({
-  validateSearch: z.object({
-    status: z.enum(['DRAFT', 'SUBMITTED', 'ACCEPTED', 'REJECTED']).optional(),
+  validateSearch: (search) => ({
+    status: search.status as ApplicationStatus | undefined,
+    page: Number(search.page ?? 1),
+    limit: Number(search.limit ?? 10),
   }),
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  const { status } = Route.useSearch()
+  const { cycleId } = useParams({ strict: false });
+  const { status } = Route.useSearch();
 
   return (
-    <main className='p-6'>
-      <ApplicationsTable status={status} />
-    </main>
+    <>
+      <ApplicationsNavigation cycleId={cycleId!} />
+      <main className='p-6'>
+        <ApplicationsTable status={status} />
+      </main>
+    </>
   )
 }

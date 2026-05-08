@@ -15,7 +15,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-import { useNavigate, useSearch } from "@tanstack/react-router";
+import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import type { ColumnDef, PaginationState, RowSelectionState, SortingState, VisibilityState } from "@tanstack/react-table";
 import { Route } from "@/routes/dashboard/$cycleId/applications";
 
@@ -109,13 +109,13 @@ const applications: Array<Application> = [
 ];
 
 const CURRICULUM_OPTIONS: Array<{ value: Curriculum; label: string }> = [
-  { value: "THANAWIYA_AMMA",              label: "Thanawiya Amma" },
-  { value: "IGCSE",                       label: "IGCSE" },
-  { value: "AMERICAN_DIPLOMA",            label: "American Diploma" },
-  { value: "STEM",                        label: "STEM" },
+  { value: "THANAWIYA_AMMA", label: "Thanawiya Amma" },
+  { value: "IGCSE", label: "IGCSE" },
+  { value: "AMERICAN_DIPLOMA", label: "American Diploma" },
+  { value: "STEM", label: "STEM" },
   { value: "INTERNATIONAL_BACCALAUREATE", label: "International Baccalaureate" },
-  { value: "ABITUR",                      label: "Abitur" },
-  { value: "OTHER",                       label: "Other" },
+  { value: "ABITUR", label: "Abitur" },
+  { value: "OTHER", label: "Other" },
 ];
 
 const NATIONALITY_OPTIONS = (nationalities: Array<string>) =>
@@ -213,7 +213,7 @@ export default function ApplicationsTable({ applications: data = applications, s
   const selectedIds = Object.keys(rowSelection).filter((k) => rowSelection[k]);
   const selectedRows = filtered.filter((_, i) => rowSelection[i]);
   const bulkAcceptable = selectedRows.filter(
-    (a) => a.status !== "ACCEPTED" && a.status !== "REJECTED"
+    (a) => a.status !== "ACCEPTED" && a.status !== "REJECTED" && a.status != "DRAFT"
   );
 
   function handleBulkAccept() {
@@ -334,18 +334,22 @@ export default function ApplicationsTable({ applications: data = applications, s
                   <DropdownMenuItem className="text-[0.8125rem] cursor-pointer" onClick={() => setSelectedApp(app)}>
                     View Details
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="text-[0.8125rem] cursor-pointer">
-                    Review Documents
-                  </DropdownMenuItem>
-                  {canDecide && (
-                    <>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem className="text-[0.8125rem] cursor-pointer">Accept</DropdownMenuItem>
-                      <DropdownMenuItem variant="destructive" className="text-[0.8125rem] cursor-pointer">
-                        Reject
-                      </DropdownMenuItem>
-                    </>
-                  )}
+                  <Link to="/dashboard/$cycleId/applications/$applicationId" params={{ cycleId: "cycle-id", applicationId: "application-id" }} >
+                    <DropdownMenuItem className="text-[0.8125rem] cursor-pointer">
+                        Review Documents
+                    </DropdownMenuItem>
+                  </Link>
+                  {
+                    canDecide && (
+                      <>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem className="text-[0.8125rem] cursor-pointer">Accept</DropdownMenuItem>
+                        <DropdownMenuItem variant="destructive" className="text-[0.8125rem] cursor-pointer">
+                          Reject
+                        </DropdownMenuItem>
+                      </>
+                    )
+                  }
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -397,17 +401,19 @@ export default function ApplicationsTable({ applications: data = applications, s
           className="h-8 w-64 text-[0.8125rem]"
         />
         <div className="flex items-center gap-2">
-          {selectedIds.length > 0 && status !== "ACCEPTED" && status !== "REJECTED" && (
-            <Button
-              size="sm"
-              className="h-8 text-[0.8125rem] gap-x-1.5 font-normal"
-              onClick={handleBulkAccept}
-              disabled={bulkAcceptable.length === 0}
-            >
-              <CheckSquare className="size-3.5" />
-              Accept {bulkAcceptable.length} selected
-            </Button>
-          )}
+          {
+            selectedIds.length > 0 && status !== "ACCEPTED" && status !== "REJECTED" && (
+              <Button
+                size="sm"
+                className="h-8 text-[0.8125rem] gap-x-1.5 font-normal"
+                onClick={handleBulkAccept}
+                disabled={bulkAcceptable.length === 0}
+              >
+                <CheckSquare className="size-3.5" />
+                Accept {bulkAcceptable.length} selected
+              </Button>
+            )
+          }
           <Button
             variant="outline" size="sm"
             className="h-8 text-[0.8125rem] gap-x-1.5 font-normal"
@@ -415,7 +421,9 @@ export default function ApplicationsTable({ applications: data = applications, s
           >
             <SlidersHorizontal className="size-3.5" />
             Filters
-            {activeFilterCount > 0 && (<> ({activeFilterCount})</>)}
+            {
+              activeFilterCount > 0 && (<> ({activeFilterCount})</>)
+            }
           </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -425,19 +433,21 @@ export default function ApplicationsTable({ applications: data = applications, s
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48!">
-              {table
-                .getAllColumns()
-                .filter((col) => col.getCanHide())
-                .map((col) => (
-                  <DropdownMenuCheckboxItem
-                    key={col.id}
-                    className="text-[0.8125rem] capitalize cursor-pointer"
-                    checked={col.getIsVisible()}
-                    onCheckedChange={(val) => col.toggleVisibility(val)}
-                  >
-                    {col.id}
-                  </DropdownMenuCheckboxItem>
-                ))}
+              {
+                table
+                  .getAllColumns()
+                  .filter((col) => col.getCanHide())
+                  .map((col) => (
+                    <DropdownMenuCheckboxItem
+                      key={col.id}
+                      className="text-[0.8125rem] capitalize cursor-pointer"
+                      checked={col.getIsVisible()}
+                      onCheckedChange={(val) => col.toggleVisibility(val)}
+                    >
+                      {col.id}
+                    </DropdownMenuCheckboxItem>
+                  ))
+                }
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
@@ -585,34 +595,45 @@ export default function ApplicationsTable({ applications: data = applications, s
           <DialogHeader>
             <DialogTitle>Application Details</DialogTitle>
           </DialogHeader>
-          {selectedApp && (
-            <div className="space-y-3 text-[0.8125rem]">
-              <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-                <span className="text-muted-foreground">Code</span>
-                <span className="font-mono">{selectedApp.code}</span>
-                <span className="text-muted-foreground">Applicant</span>
-                <span>{selectedApp.applicant.nameEn}</span>
-                <span className="text-muted-foreground">Phone</span>
-                <span>{selectedApp.applicant.phone}</span>
-                <span className="text-muted-foreground">Nationality</span>
-                <span>{selectedApp.applicant.nationality}</span>
-                <span className="text-muted-foreground">Faculty</span>
-                <span>{selectedApp.faculty.nameEn}</span>
-                <span className="text-muted-foreground">Department</span>
-                <span>{selectedApp.department.nameEn}</span>
-                <span className="text-muted-foreground">Curriculum</span>
-                <span>{CURRICULUM_OPTIONS.find((opt) => opt.value === selectedApp.curriculum)!.label}</span>
-                <span className="text-muted-foreground">School</span>
-                <span>{selectedApp.school}</span>
-                <span className="text-muted-foreground">Grade</span>
-                <span>{selectedApp.grade}%</span>
-                <span className="text-muted-foreground">Channel</span>
-                <span>{parseType(selectedApp.channel.replace("_", "-"))}</span>
-                <span className="text-muted-foreground">Status</span>
-                <span>{parseType(selectedApp.status)}</span>
-              </div>
-            </div>
-          )}
+          {
+            selectedApp && (
+              <>
+                <div className="space-y-3 text-[0.8125rem]">
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                    <span className="text-muted-foreground">Code</span>
+                    <span className="font-mono">{selectedApp.code}</span>
+                    <span className="text-muted-foreground">Applicant</span>
+                    <span>{selectedApp.applicant.nameEn}</span>
+                    <span className="text-muted-foreground">Phone</span>
+                    <span>{selectedApp.applicant.phone}</span>
+                    <span className="text-muted-foreground">Nationality</span>
+                    <span>{selectedApp.applicant.nationality}</span>
+                    <span className="text-muted-foreground">Faculty</span>
+                    <span>{selectedApp.faculty.nameEn}</span>
+                    <span className="text-muted-foreground">Department</span>
+                    <span>{selectedApp.department.nameEn}</span>
+                    <span className="text-muted-foreground">Curriculum</span>
+                    <span>{CURRICULUM_OPTIONS.find((opt) => opt.value === selectedApp.curriculum)!.label}</span>
+                    <span className="text-muted-foreground">School</span>
+                    <span>{selectedApp.school}</span>
+                    <span className="text-muted-foreground">Grade</span>
+                    <span>{selectedApp.grade}%</span>
+                    <span className="text-muted-foreground">Channel</span>
+                    <span>{parseType(selectedApp.channel.replace("_", "-"))}</span>
+                    <span className="text-muted-foreground">Status</span>
+                    <span>{parseType(selectedApp.status)}</span>
+                  </div>
+                </div>
+                <div className="mt-1">
+                  <Link to="/dashboard/$cycleId/applications/$applicationId" params={{ cycleId: "cycle-id", applicationId: selectedApp.id }}>
+                    <Button className="text-[0.8125rem] gap-1.5! font-normal">
+                      View Application
+                    </Button>
+                  </Link>
+                </div>
+              </>
+            )
+          }
         </DialogContent>
       </Dialog>
     </>

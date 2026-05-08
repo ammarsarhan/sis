@@ -10,23 +10,39 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
+import { Route as DashboardNotificationsIndexRouteImport } from './routes/dashboard/notifications/index'
+import { Route as DashboardApplicantsIndexRouteImport } from './routes/dashboard/applicants/index'
 import { Route as DashboardCycleIdSettingsRouteRouteImport } from './routes/dashboard/$cycleId/settings/route'
 import { Route as DashboardCycleIdDocumentsRouteRouteImport } from './routes/dashboard/$cycleId/documents/route'
 import { Route as DashboardCycleIdApplicationsRouteRouteImport } from './routes/dashboard/$cycleId/applications/route'
+import { Route as DashboardApplicantsApplicantIdIndexRouteImport } from './routes/dashboard/applicants/$applicantId/index'
 import { Route as DashboardCycleIdSettingsIndexRouteImport } from './routes/dashboard/$cycleId/settings/index'
 import { Route as DashboardCycleIdOverviewIndexRouteImport } from './routes/dashboard/$cycleId/overview/index'
 import { Route as DashboardCycleIdDocumentsIndexRouteImport } from './routes/dashboard/$cycleId/documents/index'
 import { Route as DashboardCycleIdApplicationsIndexRouteImport } from './routes/dashboard/$cycleId/applications/index'
+import { Route as DashboardApplicantsApplicantIdApplicationsIndexRouteImport } from './routes/dashboard/applicants/$applicantId/applications/index'
 import { Route as DashboardCycleIdSettingsUsersIndexRouteImport } from './routes/dashboard/$cycleId/settings/users/index'
 import { Route as DashboardCycleIdSettingsOfferingsIndexRouteImport } from './routes/dashboard/$cycleId/settings/offerings/index'
 import { Route as DashboardCycleIdSettingsEventsIndexRouteImport } from './routes/dashboard/$cycleId/settings/events/index'
-import { Route as DashboardCycleIdDocumentsReviewIndexRouteImport } from './routes/dashboard/$cycleId/documents/review/index'
+import { Route as DashboardCycleIdApplicationsApplicationIdIndexRouteImport } from './routes/dashboard/$cycleId/applications/$applicationId/index'
 
 const DashboardRouteRoute = DashboardRouteRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardNotificationsIndexRoute =
+  DashboardNotificationsIndexRouteImport.update({
+    id: '/notifications/',
+    path: '/notifications/',
+    getParentRoute: () => DashboardRouteRoute,
+  } as any)
+const DashboardApplicantsIndexRoute =
+  DashboardApplicantsIndexRouteImport.update({
+    id: '/applicants/',
+    path: '/applicants/',
+    getParentRoute: () => DashboardRouteRoute,
+  } as any)
 const DashboardCycleIdSettingsRouteRoute =
   DashboardCycleIdSettingsRouteRouteImport.update({
     id: '/$cycleId/settings',
@@ -43,6 +59,12 @@ const DashboardCycleIdApplicationsRouteRoute =
   DashboardCycleIdApplicationsRouteRouteImport.update({
     id: '/$cycleId/applications',
     path: '/$cycleId/applications',
+    getParentRoute: () => DashboardRouteRoute,
+  } as any)
+const DashboardApplicantsApplicantIdIndexRoute =
+  DashboardApplicantsApplicantIdIndexRouteImport.update({
+    id: '/applicants/$applicantId/',
+    path: '/applicants/$applicantId/',
     getParentRoute: () => DashboardRouteRoute,
   } as any)
 const DashboardCycleIdSettingsIndexRoute =
@@ -69,6 +91,12 @@ const DashboardCycleIdApplicationsIndexRoute =
     path: '/',
     getParentRoute: () => DashboardCycleIdApplicationsRouteRoute,
   } as any)
+const DashboardApplicantsApplicantIdApplicationsIndexRoute =
+  DashboardApplicantsApplicantIdApplicationsIndexRouteImport.update({
+    id: '/applicants/$applicantId/applications/',
+    path: '/applicants/$applicantId/applications/',
+    getParentRoute: () => DashboardRouteRoute,
+  } as any)
 const DashboardCycleIdSettingsUsersIndexRoute =
   DashboardCycleIdSettingsUsersIndexRouteImport.update({
     id: '/users/',
@@ -87,11 +115,11 @@ const DashboardCycleIdSettingsEventsIndexRoute =
     path: '/events/',
     getParentRoute: () => DashboardCycleIdSettingsRouteRoute,
   } as any)
-const DashboardCycleIdDocumentsReviewIndexRoute =
-  DashboardCycleIdDocumentsReviewIndexRouteImport.update({
-    id: '/review/',
-    path: '/review/',
-    getParentRoute: () => DashboardCycleIdDocumentsRouteRoute,
+const DashboardCycleIdApplicationsApplicationIdIndexRoute =
+  DashboardCycleIdApplicationsApplicationIdIndexRouteImport.update({
+    id: '/$applicationId/',
+    path: '/$applicationId/',
+    getParentRoute: () => DashboardCycleIdApplicationsRouteRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -99,25 +127,33 @@ export interface FileRoutesByFullPath {
   '/dashboard/$cycleId/applications': typeof DashboardCycleIdApplicationsRouteRouteWithChildren
   '/dashboard/$cycleId/documents': typeof DashboardCycleIdDocumentsRouteRouteWithChildren
   '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsRouteRouteWithChildren
+  '/dashboard/applicants/': typeof DashboardApplicantsIndexRoute
+  '/dashboard/notifications/': typeof DashboardNotificationsIndexRoute
   '/dashboard/$cycleId/applications/': typeof DashboardCycleIdApplicationsIndexRoute
   '/dashboard/$cycleId/documents/': typeof DashboardCycleIdDocumentsIndexRoute
   '/dashboard/$cycleId/overview/': typeof DashboardCycleIdOverviewIndexRoute
   '/dashboard/$cycleId/settings/': typeof DashboardCycleIdSettingsIndexRoute
-  '/dashboard/$cycleId/documents/review/': typeof DashboardCycleIdDocumentsReviewIndexRoute
+  '/dashboard/applicants/$applicantId/': typeof DashboardApplicantsApplicantIdIndexRoute
+  '/dashboard/$cycleId/applications/$applicationId/': typeof DashboardCycleIdApplicationsApplicationIdIndexRoute
   '/dashboard/$cycleId/settings/events/': typeof DashboardCycleIdSettingsEventsIndexRoute
   '/dashboard/$cycleId/settings/offerings/': typeof DashboardCycleIdSettingsOfferingsIndexRoute
   '/dashboard/$cycleId/settings/users/': typeof DashboardCycleIdSettingsUsersIndexRoute
+  '/dashboard/applicants/$applicantId/applications/': typeof DashboardApplicantsApplicantIdApplicationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/dashboard/applicants': typeof DashboardApplicantsIndexRoute
+  '/dashboard/notifications': typeof DashboardNotificationsIndexRoute
   '/dashboard/$cycleId/applications': typeof DashboardCycleIdApplicationsIndexRoute
   '/dashboard/$cycleId/documents': typeof DashboardCycleIdDocumentsIndexRoute
   '/dashboard/$cycleId/overview': typeof DashboardCycleIdOverviewIndexRoute
   '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsIndexRoute
-  '/dashboard/$cycleId/documents/review': typeof DashboardCycleIdDocumentsReviewIndexRoute
+  '/dashboard/applicants/$applicantId': typeof DashboardApplicantsApplicantIdIndexRoute
+  '/dashboard/$cycleId/applications/$applicationId': typeof DashboardCycleIdApplicationsApplicationIdIndexRoute
   '/dashboard/$cycleId/settings/events': typeof DashboardCycleIdSettingsEventsIndexRoute
   '/dashboard/$cycleId/settings/offerings': typeof DashboardCycleIdSettingsOfferingsIndexRoute
   '/dashboard/$cycleId/settings/users': typeof DashboardCycleIdSettingsUsersIndexRoute
+  '/dashboard/applicants/$applicantId/applications': typeof DashboardApplicantsApplicantIdApplicationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,14 +161,18 @@ export interface FileRoutesById {
   '/dashboard/$cycleId/applications': typeof DashboardCycleIdApplicationsRouteRouteWithChildren
   '/dashboard/$cycleId/documents': typeof DashboardCycleIdDocumentsRouteRouteWithChildren
   '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsRouteRouteWithChildren
+  '/dashboard/applicants/': typeof DashboardApplicantsIndexRoute
+  '/dashboard/notifications/': typeof DashboardNotificationsIndexRoute
   '/dashboard/$cycleId/applications/': typeof DashboardCycleIdApplicationsIndexRoute
   '/dashboard/$cycleId/documents/': typeof DashboardCycleIdDocumentsIndexRoute
   '/dashboard/$cycleId/overview/': typeof DashboardCycleIdOverviewIndexRoute
   '/dashboard/$cycleId/settings/': typeof DashboardCycleIdSettingsIndexRoute
-  '/dashboard/$cycleId/documents/review/': typeof DashboardCycleIdDocumentsReviewIndexRoute
+  '/dashboard/applicants/$applicantId/': typeof DashboardApplicantsApplicantIdIndexRoute
+  '/dashboard/$cycleId/applications/$applicationId/': typeof DashboardCycleIdApplicationsApplicationIdIndexRoute
   '/dashboard/$cycleId/settings/events/': typeof DashboardCycleIdSettingsEventsIndexRoute
   '/dashboard/$cycleId/settings/offerings/': typeof DashboardCycleIdSettingsOfferingsIndexRoute
   '/dashboard/$cycleId/settings/users/': typeof DashboardCycleIdSettingsUsersIndexRoute
+  '/dashboard/applicants/$applicantId/applications/': typeof DashboardApplicantsApplicantIdApplicationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,39 +181,51 @@ export interface FileRouteTypes {
     | '/dashboard/$cycleId/applications'
     | '/dashboard/$cycleId/documents'
     | '/dashboard/$cycleId/settings'
+    | '/dashboard/applicants/'
+    | '/dashboard/notifications/'
     | '/dashboard/$cycleId/applications/'
     | '/dashboard/$cycleId/documents/'
     | '/dashboard/$cycleId/overview/'
     | '/dashboard/$cycleId/settings/'
-    | '/dashboard/$cycleId/documents/review/'
+    | '/dashboard/applicants/$applicantId/'
+    | '/dashboard/$cycleId/applications/$applicationId/'
     | '/dashboard/$cycleId/settings/events/'
     | '/dashboard/$cycleId/settings/offerings/'
     | '/dashboard/$cycleId/settings/users/'
+    | '/dashboard/applicants/$applicantId/applications/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/dashboard'
+    | '/dashboard/applicants'
+    | '/dashboard/notifications'
     | '/dashboard/$cycleId/applications'
     | '/dashboard/$cycleId/documents'
     | '/dashboard/$cycleId/overview'
     | '/dashboard/$cycleId/settings'
-    | '/dashboard/$cycleId/documents/review'
+    | '/dashboard/applicants/$applicantId'
+    | '/dashboard/$cycleId/applications/$applicationId'
     | '/dashboard/$cycleId/settings/events'
     | '/dashboard/$cycleId/settings/offerings'
     | '/dashboard/$cycleId/settings/users'
+    | '/dashboard/applicants/$applicantId/applications'
   id:
     | '__root__'
     | '/dashboard'
     | '/dashboard/$cycleId/applications'
     | '/dashboard/$cycleId/documents'
     | '/dashboard/$cycleId/settings'
+    | '/dashboard/applicants/'
+    | '/dashboard/notifications/'
     | '/dashboard/$cycleId/applications/'
     | '/dashboard/$cycleId/documents/'
     | '/dashboard/$cycleId/overview/'
     | '/dashboard/$cycleId/settings/'
-    | '/dashboard/$cycleId/documents/review/'
+    | '/dashboard/applicants/$applicantId/'
+    | '/dashboard/$cycleId/applications/$applicationId/'
     | '/dashboard/$cycleId/settings/events/'
     | '/dashboard/$cycleId/settings/offerings/'
     | '/dashboard/$cycleId/settings/users/'
+    | '/dashboard/applicants/$applicantId/applications/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -188,6 +240,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/notifications/': {
+      id: '/dashboard/notifications/'
+      path: '/notifications'
+      fullPath: '/dashboard/notifications/'
+      preLoaderRoute: typeof DashboardNotificationsIndexRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/applicants/': {
+      id: '/dashboard/applicants/'
+      path: '/applicants'
+      fullPath: '/dashboard/applicants/'
+      preLoaderRoute: typeof DashboardApplicantsIndexRouteImport
+      parentRoute: typeof DashboardRouteRoute
     }
     '/dashboard/$cycleId/settings': {
       id: '/dashboard/$cycleId/settings'
@@ -208,6 +274,13 @@ declare module '@tanstack/react-router' {
       path: '/$cycleId/applications'
       fullPath: '/dashboard/$cycleId/applications'
       preLoaderRoute: typeof DashboardCycleIdApplicationsRouteRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/applicants/$applicantId/': {
+      id: '/dashboard/applicants/$applicantId/'
+      path: '/applicants/$applicantId'
+      fullPath: '/dashboard/applicants/$applicantId/'
+      preLoaderRoute: typeof DashboardApplicantsApplicantIdIndexRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
     '/dashboard/$cycleId/settings/': {
@@ -238,6 +311,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardCycleIdApplicationsIndexRouteImport
       parentRoute: typeof DashboardCycleIdApplicationsRouteRoute
     }
+    '/dashboard/applicants/$applicantId/applications/': {
+      id: '/dashboard/applicants/$applicantId/applications/'
+      path: '/applicants/$applicantId/applications'
+      fullPath: '/dashboard/applicants/$applicantId/applications/'
+      preLoaderRoute: typeof DashboardApplicantsApplicantIdApplicationsIndexRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/dashboard/$cycleId/settings/users/': {
       id: '/dashboard/$cycleId/settings/users/'
       path: '/users'
@@ -259,24 +339,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardCycleIdSettingsEventsIndexRouteImport
       parentRoute: typeof DashboardCycleIdSettingsRouteRoute
     }
-    '/dashboard/$cycleId/documents/review/': {
-      id: '/dashboard/$cycleId/documents/review/'
-      path: '/review'
-      fullPath: '/dashboard/$cycleId/documents/review/'
-      preLoaderRoute: typeof DashboardCycleIdDocumentsReviewIndexRouteImport
-      parentRoute: typeof DashboardCycleIdDocumentsRouteRoute
+    '/dashboard/$cycleId/applications/$applicationId/': {
+      id: '/dashboard/$cycleId/applications/$applicationId/'
+      path: '/$applicationId'
+      fullPath: '/dashboard/$cycleId/applications/$applicationId/'
+      preLoaderRoute: typeof DashboardCycleIdApplicationsApplicationIdIndexRouteImport
+      parentRoute: typeof DashboardCycleIdApplicationsRouteRoute
     }
   }
 }
 
 interface DashboardCycleIdApplicationsRouteRouteChildren {
   DashboardCycleIdApplicationsIndexRoute: typeof DashboardCycleIdApplicationsIndexRoute
+  DashboardCycleIdApplicationsApplicationIdIndexRoute: typeof DashboardCycleIdApplicationsApplicationIdIndexRoute
 }
 
 const DashboardCycleIdApplicationsRouteRouteChildren: DashboardCycleIdApplicationsRouteRouteChildren =
   {
     DashboardCycleIdApplicationsIndexRoute:
       DashboardCycleIdApplicationsIndexRoute,
+    DashboardCycleIdApplicationsApplicationIdIndexRoute:
+      DashboardCycleIdApplicationsApplicationIdIndexRoute,
   }
 
 const DashboardCycleIdApplicationsRouteRouteWithChildren =
@@ -286,14 +369,11 @@ const DashboardCycleIdApplicationsRouteRouteWithChildren =
 
 interface DashboardCycleIdDocumentsRouteRouteChildren {
   DashboardCycleIdDocumentsIndexRoute: typeof DashboardCycleIdDocumentsIndexRoute
-  DashboardCycleIdDocumentsReviewIndexRoute: typeof DashboardCycleIdDocumentsReviewIndexRoute
 }
 
 const DashboardCycleIdDocumentsRouteRouteChildren: DashboardCycleIdDocumentsRouteRouteChildren =
   {
     DashboardCycleIdDocumentsIndexRoute: DashboardCycleIdDocumentsIndexRoute,
-    DashboardCycleIdDocumentsReviewIndexRoute:
-      DashboardCycleIdDocumentsReviewIndexRoute,
   }
 
 const DashboardCycleIdDocumentsRouteRouteWithChildren =
@@ -328,7 +408,11 @@ interface DashboardRouteRouteChildren {
   DashboardCycleIdApplicationsRouteRoute: typeof DashboardCycleIdApplicationsRouteRouteWithChildren
   DashboardCycleIdDocumentsRouteRoute: typeof DashboardCycleIdDocumentsRouteRouteWithChildren
   DashboardCycleIdSettingsRouteRoute: typeof DashboardCycleIdSettingsRouteRouteWithChildren
+  DashboardApplicantsIndexRoute: typeof DashboardApplicantsIndexRoute
+  DashboardNotificationsIndexRoute: typeof DashboardNotificationsIndexRoute
   DashboardCycleIdOverviewIndexRoute: typeof DashboardCycleIdOverviewIndexRoute
+  DashboardApplicantsApplicantIdIndexRoute: typeof DashboardApplicantsApplicantIdIndexRoute
+  DashboardApplicantsApplicantIdApplicationsIndexRoute: typeof DashboardApplicantsApplicantIdApplicationsIndexRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
@@ -338,7 +422,13 @@ const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
     DashboardCycleIdDocumentsRouteRouteWithChildren,
   DashboardCycleIdSettingsRouteRoute:
     DashboardCycleIdSettingsRouteRouteWithChildren,
+  DashboardApplicantsIndexRoute: DashboardApplicantsIndexRoute,
+  DashboardNotificationsIndexRoute: DashboardNotificationsIndexRoute,
   DashboardCycleIdOverviewIndexRoute: DashboardCycleIdOverviewIndexRoute,
+  DashboardApplicantsApplicantIdIndexRoute:
+    DashboardApplicantsApplicantIdIndexRoute,
+  DashboardApplicantsApplicantIdApplicationsIndexRoute:
+    DashboardApplicantsApplicantIdApplicationsIndexRoute,
 }
 
 const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(

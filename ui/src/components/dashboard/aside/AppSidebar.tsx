@@ -76,14 +76,14 @@ const data = {
         },
         {
             title: "Applicants",
-            url: "/dashboard/cycle-id/applicants",
+            url: "/dashboard/applicants",
             icon: Users,
         },
     ],
     configuration: [
         {
             title: "Notifications",
-            url: "/dashboard/cycle-id/notifications",
+            url: "/dashboard/notifications",
             icon: Bell
         },
         {

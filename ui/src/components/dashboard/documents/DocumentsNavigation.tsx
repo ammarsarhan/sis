@@ -48,12 +48,6 @@ export default function DocumentsNavigation({ cycleId }: { cycleId: string }) {
                     Rejected
                 </Link>
             </div>
-            <Link to={"/dashboard/$cycleId/documents/review"} params={{ cycleId: "cycle-id" }}>
-                <Button className="font-normal mb-2 px-3">
-                    <span className="text-[0.8125rem] font-normal">Review Per-document</span>
-                    <ArrowRight className="size-4" />
-                </Button>
-            </Link>
         </nav>
     </div>
   );
