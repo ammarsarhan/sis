@@ -1,3 +1,5 @@
+import { useNavigate } from "@tanstack/react-router"
+
 import {
   Table,
   TableBody,
@@ -9,6 +11,7 @@ import {
 
 const applications = [
   {
+    id: "application-id",
     code: "APP-1001",
     name: "Amina Hassan",
     faculty: "Computer Science",
@@ -16,6 +19,7 @@ const applications = [
     submittedAt: "2026-04-28",
   },
   {
+    id: "application-id",
     code: "APP-1002",
     name: "Omar El-Sayed",
     faculty: "Engineering",
@@ -23,6 +27,7 @@ const applications = [
     submittedAt: "2026-04-27",
   },
   {
+    id: "application-id",
     code: "APP-1003",
     name: "Sara Mohamed",
     faculty: "Business Administration",
@@ -30,6 +35,7 @@ const applications = [
     submittedAt: "2026-04-26",
   },
   {
+    id: "application-id",
     code: "APP-1004",
     name: "Youssef Ali",
     faculty: "Medicine",
@@ -37,6 +43,7 @@ const applications = [
     submittedAt: "2026-04-25",
   },
   {
+    id: "application-id",
     code: "APP-1005",
     name: "Layla Ahmed",
     faculty: "Architecture",
@@ -44,6 +51,7 @@ const applications = [
     submittedAt: "2026-04-24",
   },
   {
+    id: "application-id",
     code: "APP-1006",
     name: "Khaled Ibrahim",
     faculty: "Information Systems",
@@ -51,6 +59,7 @@ const applications = [
     submittedAt: "2026-04-23",
   },
   {
+    id: "application-id",
     code: "APP-1007",
     name: "Mariam Tarek",
     faculty: "Pharmacy",
@@ -58,6 +67,7 @@ const applications = [
     submittedAt: "2026-04-22",
   },
   {
+    id: "application-id",
     code: "APP-1008",
     name: "Hassan Nasser",
     faculty: "Law",
@@ -65,6 +75,7 @@ const applications = [
     submittedAt: "2026-04-21",
   },
   {
+    id: "application-id",
     code: "APP-1009",
     name: "Nour El-Din",
     faculty: "Data Science",
@@ -72,6 +83,7 @@ const applications = [
     submittedAt: "2026-04-20",
   },
   {
+    id: "application-id",
     code: "APP-1010",
     name: "Fatima Zahra",
     faculty: "Design",
@@ -81,36 +93,49 @@ const applications = [
 ]
 
 export function ApplicationsTable() {
-    return (
-        <div className="flex flex-col gap-y-5 mt-2 mb-6">
-            <div className='flex flex-col gap-y-0.5'>
-            <h1 className="font-medium">Recent Applicants</h1>
-            <p className='text-[0.8125rem] text-gray-500'>A quick glance at the most recent applications submitted for review by the committee.</p>
-            </div>
-            <Table>
-                <TableHeader>
-                    <TableRow>
-                        <TableHead className="w-25">Code</TableHead>
-                        <TableHead>Name</TableHead>
-                        <TableHead>Faculty</TableHead>
-                        <TableHead>Country</TableHead>
-                        <TableHead>Submitted At</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {
-                        applications.map((application) => (
-                            <TableRow key={application.code}>
-                                <TableCell className="font-medium">{application.code}</TableCell>
-                                <TableCell>{application.name}</TableCell>
-                                <TableCell>{application.faculty}</TableCell>
-                                <TableCell>{application.country}</TableCell>
-                                <TableCell>{application.submittedAt}</TableCell>
-                            </TableRow>
-                        ))
-                    }
-                </TableBody>
-            </Table>
-        </div>
-    )
+  const navigate = useNavigate();
+  
+  return (
+    <div className="flex flex-col gap-y-5 mt-2 mb-6">
+      <div className='flex flex-col gap-y-0.5'>
+        <h1 className="font-medium">Recent Applicants</h1>
+        <p className='text-[0.8125rem] text-gray-500'>A quick glance at the most recent applications submitted for review by the committee.</p>
+      </div>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-25">Code</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead>Faculty</TableHead>
+            <TableHead>Country</TableHead>
+            <TableHead>Submitted At</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+            {
+              applications.map((application) => (
+                <TableRow
+                  onClick={() => {
+                    navigate({
+                      to: '/dashboard/$cycleId/applications/$applicationId',
+                      params: {
+                        cycleId: "cycle-id",
+                        applicationId: application.id,
+                      },
+                    })
+                  }}
+                  className="cursor-pointer"
+                >
+                  <TableCell className="font-medium">{application.code}</TableCell>
+                  <TableCell>{application.name}</TableCell>
+                  <TableCell>{application.faculty}</TableCell>
+                  <TableCell>{application.country}</TableCell>
+                  <TableCell>{application.submittedAt}</TableCell>
+                </TableRow>
+              ))
+            }
+        </TableBody>
+      </Table>
+    </div>
+  )
 }
