@@ -91,19 +91,12 @@ const documents = [
   { id: 'd-3', type: 'BIRTH_CERTIFICATE', fileName: 'birth_cert.pdf', fileSize: 2097152, format: 'PDF', status: 'UPLOADED' as const },
   { id: 'd-4', type: 'TRANSCRIPT', fileName: 'transcript_2025.pdf', fileSize: 3145728, format: 'PDF', status: 'REJECTED' as const, rejectionReason: 'Document is blurry and unreadable.' },
   { id: 'd-5', type: 'CERTIFICATE', fileName: 'certificate.pdf', fileSize: 1572864, format: 'PDF', status: 'UPLOADED' as const },
-]
-
-type AppStatus = 'DRAFT' | 'SUBMITTED' | 'ACCEPTED' | 'REJECTED'
-type DocStatus = 'UPLOADED' | 'ACCEPTED' | 'REJECTED'
+];
 
 function formatBytes(bytes: number) {
   if (bytes < 1024) return `${bytes} B`
   if (bytes < 1048576) return `${(bytes / 1024).toFixed(0)} KB`
   return `${(bytes / 1048576).toFixed(1)} MB`
-}
-
-function formatDate(d: Date) {
-  return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
 }
 
 function RouteComponent() {
