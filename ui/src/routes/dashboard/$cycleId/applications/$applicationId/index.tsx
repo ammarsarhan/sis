@@ -267,7 +267,7 @@ function RouteComponent() {
             }
           </div>
         </section>
-        <section className='p-6 rounded-xl bg-muted'>
+        <section className='p-6 rounded-xl bg-muted scroll-mt-40' id="documents">
           <div className='flex items-center justify-between mb-4'>
             <div className="flex flex-col gap-y-0.5">
               <h1 className="font-medium">Documents</h1>

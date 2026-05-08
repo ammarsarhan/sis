@@ -36,7 +36,7 @@ function RouteComponent() {
             </Breadcrumb>
           </div>
         </header>
-        <div className="flex flex-col gap-y-0.5 mb-4 mx-6">
+        <div className="flex flex-col gap-y-0.5 mb-2 mx-6">
             <h1 className="text-xl font-medium">Documents</h1>
             <p className="text-gray-500 text-sm">Track uploaded documents and verify them to finalize submitted applications.</p>
         </div>

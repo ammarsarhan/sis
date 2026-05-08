@@ -20,7 +20,7 @@ function RouteComponent() {
   return (
     <>
       <ApplicationsNavigation cycleId={cycleId!} />
-      <main className='p-6'>
+      <main className='px-6 pb-6 pt-3'>
         <ApplicationsTable status={status} />
       </main>
     </>

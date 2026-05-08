@@ -1,7 +1,5 @@
 import { Link, useSearch } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
 import { Route } from "@/routes/dashboard/$cycleId/documents";
-import { Button } from "@/components/ui/button";
 
 export default function DocumentsNavigation({ cycleId }: { cycleId: string }) {
   const search = useSearch({ from: Route.id });
@@ -11,7 +9,7 @@ export default function DocumentsNavigation({ cycleId }: { cycleId: string }) {
   function tabClass(targetStatus: string) {
     const isActive = currentStatus === targetStatus;
 
-    return `px-4 pt-2 pb-3.5 border-b-[1.5px] ${
+    return `px-4 py-2 border-b-[1.5px] ${
       isActive
         ? "border-black font-medium text-black"
         : "border-transparent text-gray-500"

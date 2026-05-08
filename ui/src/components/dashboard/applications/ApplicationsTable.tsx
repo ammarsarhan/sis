@@ -334,7 +334,7 @@ export default function ApplicationsTable({ applications: data = applications, s
                   <DropdownMenuItem className="text-[0.8125rem] cursor-pointer" onClick={() => setSelectedApp(app)}>
                     View Details
                   </DropdownMenuItem>
-                  <Link to="/dashboard/$cycleId/applications/$applicationId" params={{ cycleId: "cycle-id", applicationId: "application-id" }} >
+                  <Link to="/dashboard/$cycleId/applications/$applicationId" hash="documents" params={{ cycleId: "cycle-id", applicationId: "application-id" }} >
                     <DropdownMenuItem className="text-[0.8125rem] cursor-pointer">
                         Review Documents
                     </DropdownMenuItem>

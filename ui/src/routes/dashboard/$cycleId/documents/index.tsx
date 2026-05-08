@@ -20,7 +20,7 @@ function RouteComponent() {
   return (
     <div className='h-screen flex flex-col'>
       <DocumentsNavigation cycleId={cycleId!}/>
-      <main className='p-6'>
+      <main className='px-6 pb-6 pt-3'>
         <DocumentsTable status={status} />
       </main>
     </div>

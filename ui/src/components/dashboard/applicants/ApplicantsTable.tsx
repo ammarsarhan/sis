@@ -500,7 +500,7 @@ export default function ApplicantsTable({ applicants: data = applicants, cycleId
                                         <DropdownMenuItem className="text-[0.8125rem] cursor-pointer" asChild>
                                             <Link
                                                 to="/dashboard/$cycleId/applications/$applicationId"
-                                                params={{ cycleId, applicationId: applicant.application.id }}
+                                                params={{ cycleId: "cycle-id", applicationId: applicant.application.id }}
                                             >
                                                 View Application
                                             </Link>
