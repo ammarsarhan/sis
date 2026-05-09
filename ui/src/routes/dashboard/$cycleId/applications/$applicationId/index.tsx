@@ -112,7 +112,7 @@ function RouteComponent() {
 
   return (
     <>
-      <div className={`sticky top-0 px-6 bg-white z-99 transition-all ${scrolled ? 'pt-6' : 'pt-4'}`}>
+      <div className={`sticky top-0 px-6 bg-white z-10 transition-all ${scrolled ? 'pt-6' : 'pt-4'}`}>
         <div className='mb-4 flex items-start justify-between'>
             <div className="flex flex-col gap-y-0.5">
                 <h1 className="text-xl font-medium">View Application</h1>
