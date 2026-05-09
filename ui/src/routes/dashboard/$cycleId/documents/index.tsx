@@ -18,7 +18,7 @@ function RouteComponent() {
   const { status } = Route.useSearch();
   
   return (
-    <div className='h-screen flex flex-col'>
+    <div className='flex flex-col'>
       <DocumentsNavigation cycleId={cycleId!}/>
       <main className='px-6 pb-6 pt-3'>
         <DocumentsTable status={status} />

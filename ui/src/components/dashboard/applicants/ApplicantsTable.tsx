@@ -493,22 +493,28 @@ export default function ApplicantsTable({ applicants: data = applicants, cycleId
                                     className="text-[0.8125rem] cursor-pointer"
                                     onClick={() => setSelectedApplicant(applicant)}
                                 >
-                                    View Details
+                                    Quick View
+                                </DropdownMenuItem>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem className="text-[0.8125rem] cursor-pointer" asChild>
+                                    <Link
+                                        to="/dashboard/applicants/$applicantId"
+                                        params={{ applicantId: applicant.id }}
+                                    >
+                                        View Details
+                                    </Link>
                                 </DropdownMenuItem>
                                 {
                                     applicant.previousApplications.length > 0 && (
-                                        <>
-                                            <DropdownMenuSeparator />
-                                            <DropdownMenuItem className="text-[0.8125rem] cursor-pointer" asChild>
-                                                <Link
-                                                    to="/dashboard/applicants/$applicantId"
-                                                    hash="applications"
-                                                    params={{ applicantId: applicant.id }}
-                                                >
-                                                    All Applications
-                                                </Link>
-                                            </DropdownMenuItem>
-                                        </>
+                                        <DropdownMenuItem className="text-[0.8125rem] cursor-pointer" asChild>
+                                            <Link
+                                                to="/dashboard/applicants/$applicantId"
+                                                hash="applications"
+                                                params={{ applicantId: applicant.id }}
+                                            >
+                                                Show History
+                                            </Link>
+                                        </DropdownMenuItem>
                                     )
                                 }
                             </DropdownMenuContent>
@@ -831,22 +837,12 @@ export default function ApplicantsTable({ applicants: data = applicants, cycleId
                                                 >
                                                     {parseType(selectedApplicant.application.status)}
                                                 </Badge>
-                                                <span className="text-muted-foreground">Channel</span>
-                                                <span>{parseType(selectedApplicant.application.channel.replace("_", "-"))}</span>
                                                 <span className="text-muted-foreground">Faculty</span>
                                                 <span>{selectedApplicant.application.faculty.nameEn}</span>
                                                 <span className="text-muted-foreground">Department</span>
                                                 <span>{selectedApplicant.application.department.nameEn}</span>
                                                 <span className="text-muted-foreground">Grade</span>
                                                 <span>{selectedApplicant.application.grade}%</span>
-                                                <span className="text-muted-foreground">Submitted</span>
-                                                <span>
-                                                {
-                                                    selectedApplicant.application.createdAt.toLocaleDateString("en-GB", {
-                                                        day: "2-digit", month: "short", year: "numeric",
-                                                    })
-                                                }
-                                                </span>
                                             </div>
                                             ) : (
                                             <p className="text-[0.8125rem] text-muted-foreground/60 mt-1">
