@@ -188,7 +188,7 @@ function RouteComponent() {
         <section className='p-6 rounded-xl bg-muted'>
           <div className="flex flex-col gap-y-0.5 mb-6">
             <h1 className="font-medium">Application Details</h1>
-            <p className="text-gray-500 text-[0.8125rem]">An applicant may have mutiple applications across cycles. Make sure that you are viewing the intended one.</p>
+            <p className="text-gray-500 text-[0.8125rem]">An applicant may have multiple applications across cycles. Make sure that you are viewing the intended one.</p>
           </div>
           <div className='grid grid-cols-3 gap-x-6 gap-y-4 text-[0.8125rem] mb-8'>
             {[

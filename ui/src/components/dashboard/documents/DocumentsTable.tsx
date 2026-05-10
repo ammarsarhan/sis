@@ -350,7 +350,7 @@ export default function DocumentsTable({ documents: data = documents, status }: 
                         className="text-[0.8125rem] cursor-pointer"
                         onClick={() => window.open(doc.fileUrl, "_blank")}
                     >
-                        Open File
+                        Download File
                     </DropdownMenuItem>
                     {canDecide && (
                         <>
@@ -666,7 +666,7 @@ export default function DocumentsTable({ documents: data = documents, status }: 
                 className="text-[0.8125rem] font-normal!"
                 onClick={() => window.open(selectedDoc?.fileUrl, "_blank")}
                 >
-                Open File
+                    Download File
                 </Button>
             </DialogFooter>
             </DialogContent>
