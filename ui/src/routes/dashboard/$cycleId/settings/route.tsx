@@ -1,4 +1,4 @@
-import { Outlet, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, Outlet, createFileRoute, useParams } from '@tanstack/react-router';
 
 import {
   Breadcrumb,
@@ -40,8 +40,10 @@ function RouteComponent() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href={`/dashboard/${cycle.id}/overview`}>
-                    {cycle.name}
+                  <BreadcrumbLink asChild>
+                    <Link to={`/dashboard/$cycleId/overview`} params={{ cycleId: cycle.id }}>
+                      {cycle.name}
+                    </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
