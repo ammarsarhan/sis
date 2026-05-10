@@ -8,10 +8,12 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-import { Separator } from "@/components/ui/separator";
-import { SidebarTrigger } from "@/components/ui/sidebar";
+import { useAuth } from '@/providers/AuthProvider';
+
 import AnalyticsCard from '@/components/dashboard/overview/AnalyticsCard';
 import ApplicationsChart from '@/components/dashboard/overview/ApplicationsChart';
+import { Separator } from "@/components/ui/separator";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ApplicationsTable } from '@/components/dashboard/overview/ApplicationsTable';
 import { RevenueChart } from '@/components/dashboard/overview/RevenueChart';
 
@@ -20,6 +22,8 @@ export const Route = createFileRoute('/dashboard/$cycleId/overview/')({
 })
 
 function RouteComponent() {
+  const { user } = useAuth();
+
   return (
     <>
       <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
@@ -44,7 +48,7 @@ function RouteComponent() {
       </header>
       <main className='flex flex-col gap-y-6 px-6 py-2'>
         <div className='flex flex-col gap-y-0.5'>
-          <h1 className="font-medium text-2xl">Welcome back, Ammar</h1>
+          <h1 className="font-medium text-2xl">Welcome back, {user?.name.split(" ")[0]}</h1>
           <p className='text-sm text-gray-500'>Here's an overview of this cycle's performance analytics and recently active applicants.</p>
         </div>
         <div className="flex flex-1 flex-col gap-4">

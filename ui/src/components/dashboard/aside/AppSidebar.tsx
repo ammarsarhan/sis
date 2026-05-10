@@ -10,6 +10,8 @@ import {
   Users,
 } from "lucide-react"
 
+import type User from "@/lib/types/user";
+
 import AsideGroup from "@/components/dashboard/aside/AsideGroup";
 import CycleDropdown from "@/components/dashboard/aside/CycleDropdown";
 import UserDropdown from "@/components/dashboard/aside/UserDropdown";
@@ -25,11 +27,6 @@ import {
 import Logo from '@/assets/logo.png';
 
 const data = {
-    user: {
-        name: "Ammar",
-        email: "admin@admin.com",
-        avatar: "/avatars/shadcn.jpg",
-    },
     cycles: [
         {
             name: "Fall 2027",
@@ -109,7 +106,7 @@ const data = {
     ],
 }
 
-export default function AppSidebar() {
+export default function AppSidebar({ user }: { user: User }) {
     return (
         <Sidebar collapsible="icon">
             <SidebarHeader>
@@ -123,7 +120,7 @@ export default function AppSidebar() {
                 <AsideGroup title={"Configuration"} items={data.configuration} />
             </SidebarContent>
             <SidebarFooter>
-                <UserDropdown user={data.user} />
+                <UserDropdown user={user} />
             </SidebarFooter>
             <SidebarRail/>
         </Sidebar>

@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import type User from "@/lib/types/user";
 import { deleteSession, fetchUser } from "@/lib/api/user";
 import { Spinner } from "@/components/ui/spinner";
+import { AdmissionStaffRole } from "@/lib/types/user";
 
 export interface AuthContextType {
     isLoading: boolean;
@@ -32,7 +33,15 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         retry: false,
     });
 
-    const user = error ? null : data ?? null;
+    // Todo: Uncomment this when the API returns data properly.
+    // const user = error ? null : data ?? null;
+
+    const user = {
+        name: "Ammar Yasser",
+        email: "superadmin@ejust.edu.eg",
+        isVerified: true,
+        isRoot: true
+    };
 
     const signOut = async () => {
         await deleteSession();

@@ -5,6 +5,8 @@ import {
     LogOut,
 } from "lucide-react";
 
+import type User from "@/lib/types/user";
+
 import {
     Avatar,
     AvatarFallback,
@@ -28,8 +30,11 @@ import {
     useSidebar,
 } from "@/components/ui/sidebar";
 
-export default function UserDropdown({ user }: { user: { name: string, email: string, avatar: string }}) {
+import { useAuth } from "@/providers/AuthProvider";
+
+export default function UserDropdown({ user } : { user: User }) {
     const { isMobile } = useSidebar();
+    const { signOut } = useAuth();
 
     return (
         <SidebarMenu>
@@ -49,8 +54,9 @@ export default function UserDropdown({ user }: { user: { name: string, email: st
                             "
                         >
                         <Avatar className="h-8 w-8 rounded-lg">
-                            <AvatarImage src={user.avatar} alt={user.name} />
-                            <AvatarFallback className="rounded-lg">AY</AvatarFallback>
+                            {/* Todo: Add profile picture support in the future */}
+                            {/* <AvatarImage src={user?.avatar} alt={user?.name} /> */}
+                            <AvatarFallback className="rounded-lg">{user.name[0]}</AvatarFallback>
                         </Avatar>
                         <div className="grid flex-1 text-left text-sm leading-tight">
                             <span className="truncate font-medium">{user.name}</span>
@@ -68,8 +74,9 @@ export default function UserDropdown({ user }: { user: { name: string, email: st
                         <DropdownMenuLabel className="p-0 font-normal">
                         <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                             <Avatar className="h-8 w-8 rounded-lg">
-                                <AvatarImage src={user.avatar} alt={user.name} />
-                                <AvatarFallback className="rounded-lg">AY</AvatarFallback>
+                                {/* Todo: Add profile picture support in the future */}
+                                {/* <AvatarImage src={user.avatar} alt={user.name} /> */}
+                                <AvatarFallback className="rounded-lg">{user.name[0]}</AvatarFallback>
                             </Avatar>
                             <div className="grid flex-1 text-left text-sm leading-tight">
                                 <span className="truncate font-medium">{user.name}</span>
@@ -89,7 +96,7 @@ export default function UserDropdown({ user }: { user: { name: string, email: st
                             </DropdownMenuItem>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => signOut()}>
                             <LogOut />
                             Log out
                         </DropdownMenuItem>

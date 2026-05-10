@@ -27,9 +27,9 @@ export type AdmissionStaffPermissions = Record<AdmissionStaffPermissionsDomain, 
 export default interface User {
     name: string;
     email: string;
-    isVerified: string;
+    isVerified: boolean;
     isRoot: boolean;
-    staff: Array<{
+    staff?: Array<{
         cycleId: string;
         role: AdmissionStaffRole;
         permissions: AdmissionStaffPermissions;
