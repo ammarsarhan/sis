@@ -2,6 +2,8 @@ import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
 
 import appCss from "../styles.css?url"
 
+import AuthProvider from "@/providers/AuthProvider"
+import QueryProvider from "@/providers/QueryProvider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 
 export const Route = createRootRoute({
@@ -41,9 +43,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
+        <QueryProvider>
+          <AuthProvider>
+            <TooltipProvider>
+              {children}
+            </TooltipProvider>
+          </AuthProvider>
+        </QueryProvider>
         <Scripts />
       </body>
     </html>

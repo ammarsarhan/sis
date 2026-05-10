@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import ProgressionChart from "@/components/dashboard/applicants/ProgressionChart";
 import StrengthChart from "@/components/dashboard/applicants/StrengthChart";
 import ApplicationsTable from "@/components/dashboard/applicants/ApplicationsTable";
+import { parseType } from "@/lib/string";
 
 export const Route = createFileRoute("/dashboard/applicants/$applicantId/")({
   component: RouteComponent,
@@ -168,7 +169,7 @@ function RouteComponent() {
           {
             applicant.guardians.map(guardian => (
               <>
-                <h2 className="font-medium text-sm mb-2.5">{guardian.relationship[0] + guardian.relationship.slice(1).toLowerCase()}</h2>
+                <h2 className="font-medium text-sm mb-2.5">{parseType(guardian.relationship)}</h2>
                 <div className="grid grid-cols-4 gap-x-6 gap-y-5 text-sm mb-6 last:mb-0">
                   {[
                     { label: "Name", value: guardian.name },

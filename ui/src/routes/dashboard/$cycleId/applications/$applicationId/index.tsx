@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { ArrowLeft, ArrowRight, Check, Download, Printer, X } from 'lucide-react'
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
+import { parseType } from '@/lib/string'
 
 export const Route = createFileRoute(
   '/dashboard/$cycleId/applications/$applicationId/',
@@ -232,7 +233,7 @@ function RouteComponent() {
               {[
                 { label: 'Name', value: primaryGuardian.name },
                 { label: 'Phone', value: primaryGuardian.phone },
-                { label: 'Relationship', value: `${primaryGuardian.relationship[0]}${primaryGuardian.relationship.slice(1).toLowerCase()}` },
+                { label: 'Relationship', value: `${parseType(primaryGuardian.relationship)}` },
                 { label: 'Occupation', value: primaryGuardian.occupation },
                 { label: 'Is Primary?', value: primaryGuardian.isPrimary ? "Yes" : "No" },
                 { label: 'Additional Notes', value: primaryGuardian.description ? primaryGuardian.description : "None" },
@@ -252,7 +253,7 @@ function RouteComponent() {
                   {[
                     { label: 'Name', value: guardian.name },
                     { label: 'Phone', value: guardian.phone },
-                    { label: 'Relationship', value: `${guardian.relationship[0]}${guardian.relationship.slice(1).toLowerCase()}` },
+                    { label: 'Relationship', value: `${parseType(primaryGuardian.relationship)}` },
                     { label: 'Occupation', value: guardian.occupation },
                     { label: 'Is Primary?', value: guardian.isPrimary ? "Yes" : "No" },
                     { label: 'Additional Notes', value: guardian.description ? guardian.description : "None" },
@@ -283,7 +284,7 @@ function RouteComponent() {
                   { label: 'File Name', value: doc.fileName },
                   { label: 'File Size', value: formatBytes(doc.fileSize) },
                   { label: 'Format', value: doc.format },
-                  { label: 'Status', value: `${doc.status[0]}${doc.status.slice(1).toLowerCase()}` },
+                  { label: 'Status', value: `${parseType(doc.status)}` },
                   { label: 'Rejection Reason', value: 'rejectionReason' in doc && doc.rejectionReason ? doc.rejectionReason : 'N/A' },
                 ].map(({ label, value }) => (
                   <div key={label} className='flex flex-col gap-y-0.5'>
