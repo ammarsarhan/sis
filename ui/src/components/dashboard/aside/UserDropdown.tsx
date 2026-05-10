@@ -5,12 +5,12 @@ import {
     LogOut,
 } from "lucide-react";
 
-import type User from "@/lib/types/user";
+import type User from "@/lib/types/User";
 
 import {
     Avatar,
     AvatarFallback,
-    AvatarImage,
+    // AvatarImage,
 } from "@/components/ui/avatar";
 
 import {
@@ -32,9 +32,11 @@ import {
 
 import { useAuth } from "@/providers/AuthProvider";
 
-export default function UserDropdown({ user } : { user: User }) {
+export default function UserDropdown() {
     const { isMobile } = useSidebar();
-    const { signOut } = useAuth();
+    const { user, signOut } = useAuth();
+
+    if (!user) return null;
 
     return (
         <SidebarMenu>

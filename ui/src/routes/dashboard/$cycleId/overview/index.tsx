@@ -16,6 +16,7 @@ import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ApplicationsTable } from '@/components/dashboard/overview/ApplicationsTable';
 import { RevenueChart } from '@/components/dashboard/overview/RevenueChart';
+import { useDashboard } from '@/providers/DashboardProvider';
 
 export const Route = createFileRoute('/dashboard/$cycleId/overview/')({
   component: RouteComponent,
@@ -23,6 +24,7 @@ export const Route = createFileRoute('/dashboard/$cycleId/overview/')({
 
 function RouteComponent() {
   const { user } = useAuth();
+  const { cycle } = useDashboard();
 
   return (
     <>
@@ -40,7 +42,7 @@ function RouteComponent() {
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
-                <BreadcrumbPage>Fall 2027</BreadcrumbPage>
+                <BreadcrumbPage>{cycle.name}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

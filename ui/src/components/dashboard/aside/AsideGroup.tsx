@@ -1,6 +1,5 @@
-"use client"
-
 import { ChevronRight } from "lucide-react"
+import { Link } from "@tanstack/react-router"
 import type { LucideIcon } from "lucide-react";
 
 import {
@@ -35,10 +34,10 @@ function AsideItemLeaf({ item }: { item: AsideItem }) {
   return (
     <SidebarMenuItem>
       <SidebarMenuButton asChild tooltip={item.title}>
-        <a href={item.url}>
+        <Link to={item.url}>
           {item.icon && <item.icon />}
           <span>{item.title}</span>
-        </a>
+        </Link>
       </SidebarMenuButton>
     </SidebarMenuItem>
   )
@@ -64,9 +63,9 @@ function AsideItemCollapsible({ item }: { item: AsideItem }) {
             {item.items?.map((subItem) => (
               <SidebarMenuSubItem key={subItem.title}>
                 <SidebarMenuSubButton asChild>
-                  <a href={subItem.url}>
+                  <Link to={subItem.url}>
                     <span>{subItem.title}</span>
-                  </a>
+                  </Link>
                 </SidebarMenuSubButton>
               </SidebarMenuSubItem>
             ))}

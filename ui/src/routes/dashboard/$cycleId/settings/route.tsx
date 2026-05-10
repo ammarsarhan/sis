@@ -13,6 +13,7 @@ import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 
 import SettingsNavigation from '@/components/dashboard/settings/SettingsNavigation';
+import { useDashboard } from '@/providers/DashboardProvider';
 
 export const Route = createFileRoute('/dashboard/$cycleId/settings')({
   component: RouteComponent,
@@ -20,6 +21,8 @@ export const Route = createFileRoute('/dashboard/$cycleId/settings')({
 
 function RouteComponent() {
   const { cycleId } = useParams({ strict: false });
+
+  const { cycle } = useDashboard();
 
   return (
     <>
@@ -37,8 +40,8 @@ function RouteComponent() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="/dashboard/$cycleId/overview">
-                    Fall 2027
+                  <BreadcrumbLink href={`/dashboard/${cycle.id}/overview`}>
+                    {cycle.name}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />

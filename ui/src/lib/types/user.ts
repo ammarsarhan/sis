@@ -1,4 +1,4 @@
-import type Application from "@/lib/types/application";
+import type Application from "@/lib/types/Application";
 
 export enum AdmissionStaffRole {
     OFFICER = "OFFICER",

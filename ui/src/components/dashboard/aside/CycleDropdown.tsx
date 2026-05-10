@@ -1,6 +1,7 @@
-import * as React from "react";
 import { ChevronsUpDown } from "lucide-react";
 
+import { useNavigate } from "@tanstack/react-router";
+import type { DashboardAdmissionCycle } from "@/lib/types/AdmissionCycle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,17 +18,17 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 
-export default function CycleDropdown({
-  cycles,
-}: {
-  cycles: Array<{
-    name: string
-    logo: React.ElementType
-    plan: string
-  }>
-}) {
-  const { isMobile } = useSidebar()
-  const [activeCycle, setActiveCycle] = React.useState(cycles[0])
+import { useDashboard } from "@/providers/DashboardProvider";
+
+export default function CycleDropdown() {
+  const { isMobile } = useSidebar();
+  const navigate = useNavigate();
+  const { cycles, cycle, setCycle } = useDashboard();
+
+  const handleSelect = (target: DashboardAdmissionCycle) => {
+    setCycle(target);
+    navigate({ to: "/dashboard/$cycleId/overview", params: { cycleId: target.id }});
+  }
 
   return (
     <SidebarMenu>
@@ -39,11 +40,11 @@ export default function CycleDropdown({
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                <activeCycle.logo className="size-4" />
+                <cycle.logo className="size-4" />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{activeCycle.name}</span>
-                <span className="truncate text-xs">{activeCycle.plan}</span>
+                <span className="truncate font-medium">{cycle.name}</span>
+                <span className="truncate text-xs">{cycle.status}</span>
               </div>
               <ChevronsUpDown className="ml-auto" />
             </SidebarMenuButton>
@@ -57,16 +58,16 @@ export default function CycleDropdown({
             <DropdownMenuLabel className="text-xs text-muted-foreground">
               Admission Cycles
             </DropdownMenuLabel>
-            {cycles.map((cycle, index) => (
+            {cycles.map((item, index) => (
               <DropdownMenuItem
-                key={cycle.name}
-                onClick={() => setActiveCycle(cycle)}
+                key={item.name}
+                onClick={() => handleSelect(item)}
                 className="gap-2 p-2"
               >
                 <div className="flex size-6 items-center justify-center rounded-md border">
-                  <cycle.logo className="size-3.5 shrink-0" />
+                  <item.logo className="size-3.5 shrink-0" />
                 </div>
-                {cycle.name}
+                {item.name}
                 <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
               </DropdownMenuItem>
             ))}

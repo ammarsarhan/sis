@@ -1,4 +1,4 @@
-import type User from "@/lib/types/user";
+import type User from "@/lib/types/User";
 import request, { BASE_URL } from "@/lib/api/base";
 
 export const fetchUser = async () => {

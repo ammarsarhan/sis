@@ -1,4 +1,4 @@
-import RequestError, { ERROR_CODES } from "@/lib/types/api";
+import RequestError, { ERROR_CODES } from "@/lib/types/RequestError";
 
 export const BASE_URL = import.meta.env.VITE_API_URL;
 

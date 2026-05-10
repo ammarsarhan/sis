@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Check, Download, Printer, X } from 'lucide-react
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
 import { parseType } from '@/lib/string'
+import { useDashboard } from '@/providers/DashboardProvider'
 
 export const Route = createFileRoute(
   '/dashboard/$cycleId/applications/$applicationId/',
@@ -101,7 +102,8 @@ function formatBytes(bytes: number) {
 }
 
 function RouteComponent() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const { cycle } = useDashboard();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 48)
@@ -119,7 +121,7 @@ function RouteComponent() {
                 <h1 className="text-xl font-medium">View Application</h1>
                 <p className="text-gray-500 text-sm">Review the applicant's full submission details and update the application status.</p>
             </div>
-            <Link to="/dashboard/$cycleId/applications" params={{ cycleId: "cycle-id" }} search={{ status: undefined, page: 1, limit: 10 }} className='flex items-center gap-x-1.5 text-primary hover:underline'>
+            <Link to="/dashboard/$cycleId/applications" params={{ cycleId: cycle.id }} search={{ status: undefined, page: 1, limit: 10 }} className='flex items-center gap-x-1.5 text-primary hover:underline'>
                 <ArrowLeft className='size-3.5' />
                 <span className='text-sm'>Back to applications</span>
             </Link>
