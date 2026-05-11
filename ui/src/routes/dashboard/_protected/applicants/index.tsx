@@ -4,7 +4,7 @@ import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import ApplicantsTable from '@/components/dashboard/applicants/ApplicantsTable'
 
-export const Route = createFileRoute('/dashboard/applicants/')({
+export const Route = createFileRoute('/dashboard/_protected/applicants/')({
   component: RouteComponent,
 })
 

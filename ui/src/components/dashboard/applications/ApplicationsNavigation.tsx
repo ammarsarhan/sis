@@ -1,5 +1,5 @@
 import { Link, useSearch } from "@tanstack/react-router";
-import { Route } from "@/routes/dashboard/$cycleId/applications";
+import { Route } from "@/routes/dashboard/_protected/$cycleId/applications";
 
 export default function ApplicationsNavigation({ cycleId }: { cycleId: string }) {
   const search = useSearch({ from: Route.id });

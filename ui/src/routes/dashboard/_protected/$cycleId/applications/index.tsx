@@ -4,7 +4,7 @@ import ApplicationsNavigation from '@/components/dashboard/applications/Applicat
 
 type ApplicationStatus = "DRAFT" | "SUBMITTED" | "ACCEPTED" | "REJECTED";
 
-export const Route = createFileRoute('/dashboard/$cycleId/applications/')({
+export const Route = createFileRoute('/dashboard/_protected/$cycleId/applications/')({
   validateSearch: (search) => ({
     status: search.status as ApplicationStatus | undefined,
     page: Number(search.page ?? 1),

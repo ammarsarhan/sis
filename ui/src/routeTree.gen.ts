@@ -10,183 +10,189 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
-import { Route as SetupIndexRouteImport } from './routes/setup/index'
-import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as DashboardNotificationsIndexRouteImport } from './routes/dashboard/notifications/index'
-import { Route as DashboardApplicantsIndexRouteImport } from './routes/dashboard/applicants/index'
-import { Route as DashboardCycleIdSettingsRouteRouteImport } from './routes/dashboard/$cycleId/settings/route'
-import { Route as DashboardCycleIdDocumentsRouteRouteImport } from './routes/dashboard/$cycleId/documents/route'
-import { Route as DashboardCycleIdApplicationsRouteRouteImport } from './routes/dashboard/$cycleId/applications/route'
-import { Route as DashboardApplicantsApplicantIdIndexRouteImport } from './routes/dashboard/applicants/$applicantId/index'
-import { Route as DashboardCycleIdSettingsIndexRouteImport } from './routes/dashboard/$cycleId/settings/index'
-import { Route as DashboardCycleIdOverviewIndexRouteImport } from './routes/dashboard/$cycleId/overview/index'
-import { Route as DashboardCycleIdDocumentsIndexRouteImport } from './routes/dashboard/$cycleId/documents/index'
-import { Route as DashboardCycleIdApplicationsIndexRouteImport } from './routes/dashboard/$cycleId/applications/index'
-import { Route as DashboardCycleIdSettingsUsersIndexRouteImport } from './routes/dashboard/$cycleId/settings/users/index'
-import { Route as DashboardCycleIdSettingsOfferingsIndexRouteImport } from './routes/dashboard/$cycleId/settings/offerings/index'
-import { Route as DashboardCycleIdSettingsEventsIndexRouteImport } from './routes/dashboard/$cycleId/settings/events/index'
-import { Route as DashboardCycleIdApplicationsApplicationIdIndexRouteImport } from './routes/dashboard/$cycleId/applications/$applicationId/index'
+import { Route as DashboardProtectedRouteRouteImport } from './routes/dashboard/_protected/route'
+import { Route as DashboardSetupIndexRouteImport } from './routes/dashboard/setup/index'
+import { Route as DashboardProtectedIndexRouteImport } from './routes/dashboard/_protected/index'
+import { Route as DashboardProtectedNotificationsIndexRouteImport } from './routes/dashboard/_protected/notifications/index'
+import { Route as DashboardProtectedApplicantsIndexRouteImport } from './routes/dashboard/_protected/applicants/index'
+import { Route as DashboardProtectedCycleIdSettingsRouteRouteImport } from './routes/dashboard/_protected/$cycleId/settings/route'
+import { Route as DashboardProtectedCycleIdDocumentsRouteRouteImport } from './routes/dashboard/_protected/$cycleId/documents/route'
+import { Route as DashboardProtectedCycleIdApplicationsRouteRouteImport } from './routes/dashboard/_protected/$cycleId/applications/route'
+import { Route as DashboardProtectedApplicantsApplicantIdIndexRouteImport } from './routes/dashboard/_protected/applicants/$applicantId/index'
+import { Route as DashboardProtectedCycleIdSettingsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/settings/index'
+import { Route as DashboardProtectedCycleIdOverviewIndexRouteImport } from './routes/dashboard/_protected/$cycleId/overview/index'
+import { Route as DashboardProtectedCycleIdDocumentsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/documents/index'
+import { Route as DashboardProtectedCycleIdApplicationsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/applications/index'
+import { Route as DashboardProtectedCycleIdSettingsUsersIndexRouteImport } from './routes/dashboard/_protected/$cycleId/settings/users/index'
+import { Route as DashboardProtectedCycleIdSettingsOfferingsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/settings/offerings/index'
+import { Route as DashboardProtectedCycleIdSettingsEventsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/settings/events/index'
+import { Route as DashboardProtectedCycleIdApplicationsApplicationIdIndexRouteImport } from './routes/dashboard/_protected/$cycleId/applications/$applicationId/index'
 
 const DashboardRouteRoute = DashboardRouteRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SetupIndexRoute = SetupIndexRouteImport.update({
-  id: '/setup/',
-  path: '/setup/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardIndexRoute = DashboardIndexRouteImport.update({
-  id: '/',
-  path: '/',
+const DashboardProtectedRouteRoute = DashboardProtectedRouteRouteImport.update({
+  id: '/_protected',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
-const DashboardNotificationsIndexRoute =
-  DashboardNotificationsIndexRouteImport.update({
+const DashboardSetupIndexRoute = DashboardSetupIndexRouteImport.update({
+  id: '/setup/',
+  path: '/setup/',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardProtectedIndexRoute = DashboardProtectedIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardProtectedRouteRoute,
+} as any)
+const DashboardProtectedNotificationsIndexRoute =
+  DashboardProtectedNotificationsIndexRouteImport.update({
     id: '/notifications/',
     path: '/notifications/',
-    getParentRoute: () => DashboardRouteRoute,
+    getParentRoute: () => DashboardProtectedRouteRoute,
   } as any)
-const DashboardApplicantsIndexRoute =
-  DashboardApplicantsIndexRouteImport.update({
+const DashboardProtectedApplicantsIndexRoute =
+  DashboardProtectedApplicantsIndexRouteImport.update({
     id: '/applicants/',
     path: '/applicants/',
-    getParentRoute: () => DashboardRouteRoute,
+    getParentRoute: () => DashboardProtectedRouteRoute,
   } as any)
-const DashboardCycleIdSettingsRouteRoute =
-  DashboardCycleIdSettingsRouteRouteImport.update({
+const DashboardProtectedCycleIdSettingsRouteRoute =
+  DashboardProtectedCycleIdSettingsRouteRouteImport.update({
     id: '/$cycleId/settings',
     path: '/$cycleId/settings',
-    getParentRoute: () => DashboardRouteRoute,
+    getParentRoute: () => DashboardProtectedRouteRoute,
   } as any)
-const DashboardCycleIdDocumentsRouteRoute =
-  DashboardCycleIdDocumentsRouteRouteImport.update({
+const DashboardProtectedCycleIdDocumentsRouteRoute =
+  DashboardProtectedCycleIdDocumentsRouteRouteImport.update({
     id: '/$cycleId/documents',
     path: '/$cycleId/documents',
-    getParentRoute: () => DashboardRouteRoute,
+    getParentRoute: () => DashboardProtectedRouteRoute,
   } as any)
-const DashboardCycleIdApplicationsRouteRoute =
-  DashboardCycleIdApplicationsRouteRouteImport.update({
+const DashboardProtectedCycleIdApplicationsRouteRoute =
+  DashboardProtectedCycleIdApplicationsRouteRouteImport.update({
     id: '/$cycleId/applications',
     path: '/$cycleId/applications',
-    getParentRoute: () => DashboardRouteRoute,
+    getParentRoute: () => DashboardProtectedRouteRoute,
   } as any)
-const DashboardApplicantsApplicantIdIndexRoute =
-  DashboardApplicantsApplicantIdIndexRouteImport.update({
+const DashboardProtectedApplicantsApplicantIdIndexRoute =
+  DashboardProtectedApplicantsApplicantIdIndexRouteImport.update({
     id: '/applicants/$applicantId/',
     path: '/applicants/$applicantId/',
-    getParentRoute: () => DashboardRouteRoute,
+    getParentRoute: () => DashboardProtectedRouteRoute,
   } as any)
-const DashboardCycleIdSettingsIndexRoute =
-  DashboardCycleIdSettingsIndexRouteImport.update({
+const DashboardProtectedCycleIdSettingsIndexRoute =
+  DashboardProtectedCycleIdSettingsIndexRouteImport.update({
     id: '/',
     path: '/',
-    getParentRoute: () => DashboardCycleIdSettingsRouteRoute,
+    getParentRoute: () => DashboardProtectedCycleIdSettingsRouteRoute,
   } as any)
-const DashboardCycleIdOverviewIndexRoute =
-  DashboardCycleIdOverviewIndexRouteImport.update({
+const DashboardProtectedCycleIdOverviewIndexRoute =
+  DashboardProtectedCycleIdOverviewIndexRouteImport.update({
     id: '/$cycleId/overview/',
     path: '/$cycleId/overview/',
-    getParentRoute: () => DashboardRouteRoute,
+    getParentRoute: () => DashboardProtectedRouteRoute,
   } as any)
-const DashboardCycleIdDocumentsIndexRoute =
-  DashboardCycleIdDocumentsIndexRouteImport.update({
+const DashboardProtectedCycleIdDocumentsIndexRoute =
+  DashboardProtectedCycleIdDocumentsIndexRouteImport.update({
     id: '/',
     path: '/',
-    getParentRoute: () => DashboardCycleIdDocumentsRouteRoute,
+    getParentRoute: () => DashboardProtectedCycleIdDocumentsRouteRoute,
   } as any)
-const DashboardCycleIdApplicationsIndexRoute =
-  DashboardCycleIdApplicationsIndexRouteImport.update({
+const DashboardProtectedCycleIdApplicationsIndexRoute =
+  DashboardProtectedCycleIdApplicationsIndexRouteImport.update({
     id: '/',
     path: '/',
-    getParentRoute: () => DashboardCycleIdApplicationsRouteRoute,
+    getParentRoute: () => DashboardProtectedCycleIdApplicationsRouteRoute,
   } as any)
-const DashboardCycleIdSettingsUsersIndexRoute =
-  DashboardCycleIdSettingsUsersIndexRouteImport.update({
+const DashboardProtectedCycleIdSettingsUsersIndexRoute =
+  DashboardProtectedCycleIdSettingsUsersIndexRouteImport.update({
     id: '/users/',
     path: '/users/',
-    getParentRoute: () => DashboardCycleIdSettingsRouteRoute,
+    getParentRoute: () => DashboardProtectedCycleIdSettingsRouteRoute,
   } as any)
-const DashboardCycleIdSettingsOfferingsIndexRoute =
-  DashboardCycleIdSettingsOfferingsIndexRouteImport.update({
+const DashboardProtectedCycleIdSettingsOfferingsIndexRoute =
+  DashboardProtectedCycleIdSettingsOfferingsIndexRouteImport.update({
     id: '/offerings/',
     path: '/offerings/',
-    getParentRoute: () => DashboardCycleIdSettingsRouteRoute,
+    getParentRoute: () => DashboardProtectedCycleIdSettingsRouteRoute,
   } as any)
-const DashboardCycleIdSettingsEventsIndexRoute =
-  DashboardCycleIdSettingsEventsIndexRouteImport.update({
+const DashboardProtectedCycleIdSettingsEventsIndexRoute =
+  DashboardProtectedCycleIdSettingsEventsIndexRouteImport.update({
     id: '/events/',
     path: '/events/',
-    getParentRoute: () => DashboardCycleIdSettingsRouteRoute,
+    getParentRoute: () => DashboardProtectedCycleIdSettingsRouteRoute,
   } as any)
-const DashboardCycleIdApplicationsApplicationIdIndexRoute =
-  DashboardCycleIdApplicationsApplicationIdIndexRouteImport.update({
+const DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute =
+  DashboardProtectedCycleIdApplicationsApplicationIdIndexRouteImport.update({
     id: '/$applicationId/',
     path: '/$applicationId/',
-    getParentRoute: () => DashboardCycleIdApplicationsRouteRoute,
+    getParentRoute: () => DashboardProtectedCycleIdApplicationsRouteRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
-  '/dashboard': typeof DashboardRouteRouteWithChildren
-  '/dashboard/': typeof DashboardIndexRoute
-  '/setup/': typeof SetupIndexRoute
-  '/dashboard/$cycleId/applications': typeof DashboardCycleIdApplicationsRouteRouteWithChildren
-  '/dashboard/$cycleId/documents': typeof DashboardCycleIdDocumentsRouteRouteWithChildren
-  '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsRouteRouteWithChildren
-  '/dashboard/applicants/': typeof DashboardApplicantsIndexRoute
-  '/dashboard/notifications/': typeof DashboardNotificationsIndexRoute
-  '/dashboard/$cycleId/applications/': typeof DashboardCycleIdApplicationsIndexRoute
-  '/dashboard/$cycleId/documents/': typeof DashboardCycleIdDocumentsIndexRoute
-  '/dashboard/$cycleId/overview/': typeof DashboardCycleIdOverviewIndexRoute
-  '/dashboard/$cycleId/settings/': typeof DashboardCycleIdSettingsIndexRoute
-  '/dashboard/applicants/$applicantId/': typeof DashboardApplicantsApplicantIdIndexRoute
-  '/dashboard/$cycleId/applications/$applicationId/': typeof DashboardCycleIdApplicationsApplicationIdIndexRoute
-  '/dashboard/$cycleId/settings/events/': typeof DashboardCycleIdSettingsEventsIndexRoute
-  '/dashboard/$cycleId/settings/offerings/': typeof DashboardCycleIdSettingsOfferingsIndexRoute
-  '/dashboard/$cycleId/settings/users/': typeof DashboardCycleIdSettingsUsersIndexRoute
+  '/dashboard': typeof DashboardProtectedRouteRouteWithChildren
+  '/dashboard/': typeof DashboardProtectedIndexRoute
+  '/dashboard/setup/': typeof DashboardSetupIndexRoute
+  '/dashboard/$cycleId/applications': typeof DashboardProtectedCycleIdApplicationsRouteRouteWithChildren
+  '/dashboard/$cycleId/documents': typeof DashboardProtectedCycleIdDocumentsRouteRouteWithChildren
+  '/dashboard/$cycleId/settings': typeof DashboardProtectedCycleIdSettingsRouteRouteWithChildren
+  '/dashboard/applicants/': typeof DashboardProtectedApplicantsIndexRoute
+  '/dashboard/notifications/': typeof DashboardProtectedNotificationsIndexRoute
+  '/dashboard/$cycleId/applications/': typeof DashboardProtectedCycleIdApplicationsIndexRoute
+  '/dashboard/$cycleId/documents/': typeof DashboardProtectedCycleIdDocumentsIndexRoute
+  '/dashboard/$cycleId/overview/': typeof DashboardProtectedCycleIdOverviewIndexRoute
+  '/dashboard/$cycleId/settings/': typeof DashboardProtectedCycleIdSettingsIndexRoute
+  '/dashboard/applicants/$applicantId/': typeof DashboardProtectedApplicantsApplicantIdIndexRoute
+  '/dashboard/$cycleId/applications/$applicationId/': typeof DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute
+  '/dashboard/$cycleId/settings/events/': typeof DashboardProtectedCycleIdSettingsEventsIndexRoute
+  '/dashboard/$cycleId/settings/offerings/': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
+  '/dashboard/$cycleId/settings/users/': typeof DashboardProtectedCycleIdSettingsUsersIndexRoute
 }
 export interface FileRoutesByTo {
-  '/dashboard': typeof DashboardIndexRoute
-  '/setup': typeof SetupIndexRoute
-  '/dashboard/applicants': typeof DashboardApplicantsIndexRoute
-  '/dashboard/notifications': typeof DashboardNotificationsIndexRoute
-  '/dashboard/$cycleId/applications': typeof DashboardCycleIdApplicationsIndexRoute
-  '/dashboard/$cycleId/documents': typeof DashboardCycleIdDocumentsIndexRoute
-  '/dashboard/$cycleId/overview': typeof DashboardCycleIdOverviewIndexRoute
-  '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsIndexRoute
-  '/dashboard/applicants/$applicantId': typeof DashboardApplicantsApplicantIdIndexRoute
-  '/dashboard/$cycleId/applications/$applicationId': typeof DashboardCycleIdApplicationsApplicationIdIndexRoute
-  '/dashboard/$cycleId/settings/events': typeof DashboardCycleIdSettingsEventsIndexRoute
-  '/dashboard/$cycleId/settings/offerings': typeof DashboardCycleIdSettingsOfferingsIndexRoute
-  '/dashboard/$cycleId/settings/users': typeof DashboardCycleIdSettingsUsersIndexRoute
+  '/dashboard': typeof DashboardProtectedIndexRoute
+  '/dashboard/setup': typeof DashboardSetupIndexRoute
+  '/dashboard/applicants': typeof DashboardProtectedApplicantsIndexRoute
+  '/dashboard/notifications': typeof DashboardProtectedNotificationsIndexRoute
+  '/dashboard/$cycleId/applications': typeof DashboardProtectedCycleIdApplicationsIndexRoute
+  '/dashboard/$cycleId/documents': typeof DashboardProtectedCycleIdDocumentsIndexRoute
+  '/dashboard/$cycleId/overview': typeof DashboardProtectedCycleIdOverviewIndexRoute
+  '/dashboard/$cycleId/settings': typeof DashboardProtectedCycleIdSettingsIndexRoute
+  '/dashboard/applicants/$applicantId': typeof DashboardProtectedApplicantsApplicantIdIndexRoute
+  '/dashboard/$cycleId/applications/$applicationId': typeof DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute
+  '/dashboard/$cycleId/settings/events': typeof DashboardProtectedCycleIdSettingsEventsIndexRoute
+  '/dashboard/$cycleId/settings/offerings': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
+  '/dashboard/$cycleId/settings/users': typeof DashboardProtectedCycleIdSettingsUsersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/dashboard': typeof DashboardRouteRouteWithChildren
-  '/dashboard/': typeof DashboardIndexRoute
-  '/setup/': typeof SetupIndexRoute
-  '/dashboard/$cycleId/applications': typeof DashboardCycleIdApplicationsRouteRouteWithChildren
-  '/dashboard/$cycleId/documents': typeof DashboardCycleIdDocumentsRouteRouteWithChildren
-  '/dashboard/$cycleId/settings': typeof DashboardCycleIdSettingsRouteRouteWithChildren
-  '/dashboard/applicants/': typeof DashboardApplicantsIndexRoute
-  '/dashboard/notifications/': typeof DashboardNotificationsIndexRoute
-  '/dashboard/$cycleId/applications/': typeof DashboardCycleIdApplicationsIndexRoute
-  '/dashboard/$cycleId/documents/': typeof DashboardCycleIdDocumentsIndexRoute
-  '/dashboard/$cycleId/overview/': typeof DashboardCycleIdOverviewIndexRoute
-  '/dashboard/$cycleId/settings/': typeof DashboardCycleIdSettingsIndexRoute
-  '/dashboard/applicants/$applicantId/': typeof DashboardApplicantsApplicantIdIndexRoute
-  '/dashboard/$cycleId/applications/$applicationId/': typeof DashboardCycleIdApplicationsApplicationIdIndexRoute
-  '/dashboard/$cycleId/settings/events/': typeof DashboardCycleIdSettingsEventsIndexRoute
-  '/dashboard/$cycleId/settings/offerings/': typeof DashboardCycleIdSettingsOfferingsIndexRoute
-  '/dashboard/$cycleId/settings/users/': typeof DashboardCycleIdSettingsUsersIndexRoute
+  '/dashboard/_protected': typeof DashboardProtectedRouteRouteWithChildren
+  '/dashboard/_protected/': typeof DashboardProtectedIndexRoute
+  '/dashboard/setup/': typeof DashboardSetupIndexRoute
+  '/dashboard/_protected/$cycleId/applications': typeof DashboardProtectedCycleIdApplicationsRouteRouteWithChildren
+  '/dashboard/_protected/$cycleId/documents': typeof DashboardProtectedCycleIdDocumentsRouteRouteWithChildren
+  '/dashboard/_protected/$cycleId/settings': typeof DashboardProtectedCycleIdSettingsRouteRouteWithChildren
+  '/dashboard/_protected/applicants/': typeof DashboardProtectedApplicantsIndexRoute
+  '/dashboard/_protected/notifications/': typeof DashboardProtectedNotificationsIndexRoute
+  '/dashboard/_protected/$cycleId/applications/': typeof DashboardProtectedCycleIdApplicationsIndexRoute
+  '/dashboard/_protected/$cycleId/documents/': typeof DashboardProtectedCycleIdDocumentsIndexRoute
+  '/dashboard/_protected/$cycleId/overview/': typeof DashboardProtectedCycleIdOverviewIndexRoute
+  '/dashboard/_protected/$cycleId/settings/': typeof DashboardProtectedCycleIdSettingsIndexRoute
+  '/dashboard/_protected/applicants/$applicantId/': typeof DashboardProtectedApplicantsApplicantIdIndexRoute
+  '/dashboard/_protected/$cycleId/applications/$applicationId/': typeof DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute
+  '/dashboard/_protected/$cycleId/settings/events/': typeof DashboardProtectedCycleIdSettingsEventsIndexRoute
+  '/dashboard/_protected/$cycleId/settings/offerings/': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
+  '/dashboard/_protected/$cycleId/settings/users/': typeof DashboardProtectedCycleIdSettingsUsersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/dashboard'
     | '/dashboard/'
-    | '/setup/'
+    | '/dashboard/setup/'
     | '/dashboard/$cycleId/applications'
     | '/dashboard/$cycleId/documents'
     | '/dashboard/$cycleId/settings'
@@ -204,7 +210,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/dashboard'
-    | '/setup'
+    | '/dashboard/setup'
     | '/dashboard/applicants'
     | '/dashboard/notifications'
     | '/dashboard/$cycleId/applications'
@@ -219,27 +225,27 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/dashboard'
-    | '/dashboard/'
-    | '/setup/'
-    | '/dashboard/$cycleId/applications'
-    | '/dashboard/$cycleId/documents'
-    | '/dashboard/$cycleId/settings'
-    | '/dashboard/applicants/'
-    | '/dashboard/notifications/'
-    | '/dashboard/$cycleId/applications/'
-    | '/dashboard/$cycleId/documents/'
-    | '/dashboard/$cycleId/overview/'
-    | '/dashboard/$cycleId/settings/'
-    | '/dashboard/applicants/$applicantId/'
-    | '/dashboard/$cycleId/applications/$applicationId/'
-    | '/dashboard/$cycleId/settings/events/'
-    | '/dashboard/$cycleId/settings/offerings/'
-    | '/dashboard/$cycleId/settings/users/'
+    | '/dashboard/_protected'
+    | '/dashboard/_protected/'
+    | '/dashboard/setup/'
+    | '/dashboard/_protected/$cycleId/applications'
+    | '/dashboard/_protected/$cycleId/documents'
+    | '/dashboard/_protected/$cycleId/settings'
+    | '/dashboard/_protected/applicants/'
+    | '/dashboard/_protected/notifications/'
+    | '/dashboard/_protected/$cycleId/applications/'
+    | '/dashboard/_protected/$cycleId/documents/'
+    | '/dashboard/_protected/$cycleId/overview/'
+    | '/dashboard/_protected/$cycleId/settings/'
+    | '/dashboard/_protected/applicants/$applicantId/'
+    | '/dashboard/_protected/$cycleId/applications/$applicationId/'
+    | '/dashboard/_protected/$cycleId/settings/events/'
+    | '/dashboard/_protected/$cycleId/settings/offerings/'
+    | '/dashboard/_protected/$cycleId/settings/users/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   DashboardRouteRoute: typeof DashboardRouteRouteWithChildren
-  SetupIndexRoute: typeof SetupIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -251,200 +257,228 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/setup/': {
-      id: '/setup/'
-      path: '/setup'
-      fullPath: '/setup/'
-      preLoaderRoute: typeof SetupIndexRouteImport
-      parentRoute: typeof rootRouteImport
+    '/dashboard/_protected': {
+      id: '/dashboard/_protected'
+      path: ''
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardProtectedRouteRouteImport
+      parentRoute: typeof DashboardRouteRoute
     }
-    '/dashboard/': {
-      id: '/dashboard/'
+    '/dashboard/setup/': {
+      id: '/dashboard/setup/'
+      path: '/setup'
+      fullPath: '/dashboard/setup/'
+      preLoaderRoute: typeof DashboardSetupIndexRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/_protected/': {
+      id: '/dashboard/_protected/'
       path: '/'
       fullPath: '/dashboard/'
-      preLoaderRoute: typeof DashboardIndexRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      preLoaderRoute: typeof DashboardProtectedIndexRouteImport
+      parentRoute: typeof DashboardProtectedRouteRoute
     }
-    '/dashboard/notifications/': {
-      id: '/dashboard/notifications/'
+    '/dashboard/_protected/notifications/': {
+      id: '/dashboard/_protected/notifications/'
       path: '/notifications'
       fullPath: '/dashboard/notifications/'
-      preLoaderRoute: typeof DashboardNotificationsIndexRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      preLoaderRoute: typeof DashboardProtectedNotificationsIndexRouteImport
+      parentRoute: typeof DashboardProtectedRouteRoute
     }
-    '/dashboard/applicants/': {
-      id: '/dashboard/applicants/'
+    '/dashboard/_protected/applicants/': {
+      id: '/dashboard/_protected/applicants/'
       path: '/applicants'
       fullPath: '/dashboard/applicants/'
-      preLoaderRoute: typeof DashboardApplicantsIndexRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      preLoaderRoute: typeof DashboardProtectedApplicantsIndexRouteImport
+      parentRoute: typeof DashboardProtectedRouteRoute
     }
-    '/dashboard/$cycleId/settings': {
-      id: '/dashboard/$cycleId/settings'
+    '/dashboard/_protected/$cycleId/settings': {
+      id: '/dashboard/_protected/$cycleId/settings'
       path: '/$cycleId/settings'
       fullPath: '/dashboard/$cycleId/settings'
-      preLoaderRoute: typeof DashboardCycleIdSettingsRouteRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      preLoaderRoute: typeof DashboardProtectedCycleIdSettingsRouteRouteImport
+      parentRoute: typeof DashboardProtectedRouteRoute
     }
-    '/dashboard/$cycleId/documents': {
-      id: '/dashboard/$cycleId/documents'
+    '/dashboard/_protected/$cycleId/documents': {
+      id: '/dashboard/_protected/$cycleId/documents'
       path: '/$cycleId/documents'
       fullPath: '/dashboard/$cycleId/documents'
-      preLoaderRoute: typeof DashboardCycleIdDocumentsRouteRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      preLoaderRoute: typeof DashboardProtectedCycleIdDocumentsRouteRouteImport
+      parentRoute: typeof DashboardProtectedRouteRoute
     }
-    '/dashboard/$cycleId/applications': {
-      id: '/dashboard/$cycleId/applications'
+    '/dashboard/_protected/$cycleId/applications': {
+      id: '/dashboard/_protected/$cycleId/applications'
       path: '/$cycleId/applications'
       fullPath: '/dashboard/$cycleId/applications'
-      preLoaderRoute: typeof DashboardCycleIdApplicationsRouteRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      preLoaderRoute: typeof DashboardProtectedCycleIdApplicationsRouteRouteImport
+      parentRoute: typeof DashboardProtectedRouteRoute
     }
-    '/dashboard/applicants/$applicantId/': {
-      id: '/dashboard/applicants/$applicantId/'
+    '/dashboard/_protected/applicants/$applicantId/': {
+      id: '/dashboard/_protected/applicants/$applicantId/'
       path: '/applicants/$applicantId'
       fullPath: '/dashboard/applicants/$applicantId/'
-      preLoaderRoute: typeof DashboardApplicantsApplicantIdIndexRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      preLoaderRoute: typeof DashboardProtectedApplicantsApplicantIdIndexRouteImport
+      parentRoute: typeof DashboardProtectedRouteRoute
     }
-    '/dashboard/$cycleId/settings/': {
-      id: '/dashboard/$cycleId/settings/'
+    '/dashboard/_protected/$cycleId/settings/': {
+      id: '/dashboard/_protected/$cycleId/settings/'
       path: '/'
       fullPath: '/dashboard/$cycleId/settings/'
-      preLoaderRoute: typeof DashboardCycleIdSettingsIndexRouteImport
-      parentRoute: typeof DashboardCycleIdSettingsRouteRoute
+      preLoaderRoute: typeof DashboardProtectedCycleIdSettingsIndexRouteImport
+      parentRoute: typeof DashboardProtectedCycleIdSettingsRouteRoute
     }
-    '/dashboard/$cycleId/overview/': {
-      id: '/dashboard/$cycleId/overview/'
+    '/dashboard/_protected/$cycleId/overview/': {
+      id: '/dashboard/_protected/$cycleId/overview/'
       path: '/$cycleId/overview'
       fullPath: '/dashboard/$cycleId/overview/'
-      preLoaderRoute: typeof DashboardCycleIdOverviewIndexRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      preLoaderRoute: typeof DashboardProtectedCycleIdOverviewIndexRouteImport
+      parentRoute: typeof DashboardProtectedRouteRoute
     }
-    '/dashboard/$cycleId/documents/': {
-      id: '/dashboard/$cycleId/documents/'
+    '/dashboard/_protected/$cycleId/documents/': {
+      id: '/dashboard/_protected/$cycleId/documents/'
       path: '/'
       fullPath: '/dashboard/$cycleId/documents/'
-      preLoaderRoute: typeof DashboardCycleIdDocumentsIndexRouteImport
-      parentRoute: typeof DashboardCycleIdDocumentsRouteRoute
+      preLoaderRoute: typeof DashboardProtectedCycleIdDocumentsIndexRouteImport
+      parentRoute: typeof DashboardProtectedCycleIdDocumentsRouteRoute
     }
-    '/dashboard/$cycleId/applications/': {
-      id: '/dashboard/$cycleId/applications/'
+    '/dashboard/_protected/$cycleId/applications/': {
+      id: '/dashboard/_protected/$cycleId/applications/'
       path: '/'
       fullPath: '/dashboard/$cycleId/applications/'
-      preLoaderRoute: typeof DashboardCycleIdApplicationsIndexRouteImport
-      parentRoute: typeof DashboardCycleIdApplicationsRouteRoute
+      preLoaderRoute: typeof DashboardProtectedCycleIdApplicationsIndexRouteImport
+      parentRoute: typeof DashboardProtectedCycleIdApplicationsRouteRoute
     }
-    '/dashboard/$cycleId/settings/users/': {
-      id: '/dashboard/$cycleId/settings/users/'
+    '/dashboard/_protected/$cycleId/settings/users/': {
+      id: '/dashboard/_protected/$cycleId/settings/users/'
       path: '/users'
       fullPath: '/dashboard/$cycleId/settings/users/'
-      preLoaderRoute: typeof DashboardCycleIdSettingsUsersIndexRouteImport
-      parentRoute: typeof DashboardCycleIdSettingsRouteRoute
+      preLoaderRoute: typeof DashboardProtectedCycleIdSettingsUsersIndexRouteImport
+      parentRoute: typeof DashboardProtectedCycleIdSettingsRouteRoute
     }
-    '/dashboard/$cycleId/settings/offerings/': {
-      id: '/dashboard/$cycleId/settings/offerings/'
+    '/dashboard/_protected/$cycleId/settings/offerings/': {
+      id: '/dashboard/_protected/$cycleId/settings/offerings/'
       path: '/offerings'
       fullPath: '/dashboard/$cycleId/settings/offerings/'
-      preLoaderRoute: typeof DashboardCycleIdSettingsOfferingsIndexRouteImport
-      parentRoute: typeof DashboardCycleIdSettingsRouteRoute
+      preLoaderRoute: typeof DashboardProtectedCycleIdSettingsOfferingsIndexRouteImport
+      parentRoute: typeof DashboardProtectedCycleIdSettingsRouteRoute
     }
-    '/dashboard/$cycleId/settings/events/': {
-      id: '/dashboard/$cycleId/settings/events/'
+    '/dashboard/_protected/$cycleId/settings/events/': {
+      id: '/dashboard/_protected/$cycleId/settings/events/'
       path: '/events'
       fullPath: '/dashboard/$cycleId/settings/events/'
-      preLoaderRoute: typeof DashboardCycleIdSettingsEventsIndexRouteImport
-      parentRoute: typeof DashboardCycleIdSettingsRouteRoute
+      preLoaderRoute: typeof DashboardProtectedCycleIdSettingsEventsIndexRouteImport
+      parentRoute: typeof DashboardProtectedCycleIdSettingsRouteRoute
     }
-    '/dashboard/$cycleId/applications/$applicationId/': {
-      id: '/dashboard/$cycleId/applications/$applicationId/'
+    '/dashboard/_protected/$cycleId/applications/$applicationId/': {
+      id: '/dashboard/_protected/$cycleId/applications/$applicationId/'
       path: '/$applicationId'
       fullPath: '/dashboard/$cycleId/applications/$applicationId/'
-      preLoaderRoute: typeof DashboardCycleIdApplicationsApplicationIdIndexRouteImport
-      parentRoute: typeof DashboardCycleIdApplicationsRouteRoute
+      preLoaderRoute: typeof DashboardProtectedCycleIdApplicationsApplicationIdIndexRouteImport
+      parentRoute: typeof DashboardProtectedCycleIdApplicationsRouteRoute
     }
   }
 }
 
-interface DashboardCycleIdApplicationsRouteRouteChildren {
-  DashboardCycleIdApplicationsIndexRoute: typeof DashboardCycleIdApplicationsIndexRoute
-  DashboardCycleIdApplicationsApplicationIdIndexRoute: typeof DashboardCycleIdApplicationsApplicationIdIndexRoute
+interface DashboardProtectedCycleIdApplicationsRouteRouteChildren {
+  DashboardProtectedCycleIdApplicationsIndexRoute: typeof DashboardProtectedCycleIdApplicationsIndexRoute
+  DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute: typeof DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute
 }
 
-const DashboardCycleIdApplicationsRouteRouteChildren: DashboardCycleIdApplicationsRouteRouteChildren =
+const DashboardProtectedCycleIdApplicationsRouteRouteChildren: DashboardProtectedCycleIdApplicationsRouteRouteChildren =
   {
-    DashboardCycleIdApplicationsIndexRoute:
-      DashboardCycleIdApplicationsIndexRoute,
-    DashboardCycleIdApplicationsApplicationIdIndexRoute:
-      DashboardCycleIdApplicationsApplicationIdIndexRoute,
+    DashboardProtectedCycleIdApplicationsIndexRoute:
+      DashboardProtectedCycleIdApplicationsIndexRoute,
+    DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute:
+      DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute,
   }
 
-const DashboardCycleIdApplicationsRouteRouteWithChildren =
-  DashboardCycleIdApplicationsRouteRoute._addFileChildren(
-    DashboardCycleIdApplicationsRouteRouteChildren,
+const DashboardProtectedCycleIdApplicationsRouteRouteWithChildren =
+  DashboardProtectedCycleIdApplicationsRouteRoute._addFileChildren(
+    DashboardProtectedCycleIdApplicationsRouteRouteChildren,
   )
 
-interface DashboardCycleIdDocumentsRouteRouteChildren {
-  DashboardCycleIdDocumentsIndexRoute: typeof DashboardCycleIdDocumentsIndexRoute
+interface DashboardProtectedCycleIdDocumentsRouteRouteChildren {
+  DashboardProtectedCycleIdDocumentsIndexRoute: typeof DashboardProtectedCycleIdDocumentsIndexRoute
 }
 
-const DashboardCycleIdDocumentsRouteRouteChildren: DashboardCycleIdDocumentsRouteRouteChildren =
+const DashboardProtectedCycleIdDocumentsRouteRouteChildren: DashboardProtectedCycleIdDocumentsRouteRouteChildren =
   {
-    DashboardCycleIdDocumentsIndexRoute: DashboardCycleIdDocumentsIndexRoute,
+    DashboardProtectedCycleIdDocumentsIndexRoute:
+      DashboardProtectedCycleIdDocumentsIndexRoute,
   }
 
-const DashboardCycleIdDocumentsRouteRouteWithChildren =
-  DashboardCycleIdDocumentsRouteRoute._addFileChildren(
-    DashboardCycleIdDocumentsRouteRouteChildren,
+const DashboardProtectedCycleIdDocumentsRouteRouteWithChildren =
+  DashboardProtectedCycleIdDocumentsRouteRoute._addFileChildren(
+    DashboardProtectedCycleIdDocumentsRouteRouteChildren,
   )
 
-interface DashboardCycleIdSettingsRouteRouteChildren {
-  DashboardCycleIdSettingsIndexRoute: typeof DashboardCycleIdSettingsIndexRoute
-  DashboardCycleIdSettingsEventsIndexRoute: typeof DashboardCycleIdSettingsEventsIndexRoute
-  DashboardCycleIdSettingsOfferingsIndexRoute: typeof DashboardCycleIdSettingsOfferingsIndexRoute
-  DashboardCycleIdSettingsUsersIndexRoute: typeof DashboardCycleIdSettingsUsersIndexRoute
+interface DashboardProtectedCycleIdSettingsRouteRouteChildren {
+  DashboardProtectedCycleIdSettingsIndexRoute: typeof DashboardProtectedCycleIdSettingsIndexRoute
+  DashboardProtectedCycleIdSettingsEventsIndexRoute: typeof DashboardProtectedCycleIdSettingsEventsIndexRoute
+  DashboardProtectedCycleIdSettingsOfferingsIndexRoute: typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
+  DashboardProtectedCycleIdSettingsUsersIndexRoute: typeof DashboardProtectedCycleIdSettingsUsersIndexRoute
 }
 
-const DashboardCycleIdSettingsRouteRouteChildren: DashboardCycleIdSettingsRouteRouteChildren =
+const DashboardProtectedCycleIdSettingsRouteRouteChildren: DashboardProtectedCycleIdSettingsRouteRouteChildren =
   {
-    DashboardCycleIdSettingsIndexRoute: DashboardCycleIdSettingsIndexRoute,
-    DashboardCycleIdSettingsEventsIndexRoute:
-      DashboardCycleIdSettingsEventsIndexRoute,
-    DashboardCycleIdSettingsOfferingsIndexRoute:
-      DashboardCycleIdSettingsOfferingsIndexRoute,
-    DashboardCycleIdSettingsUsersIndexRoute:
-      DashboardCycleIdSettingsUsersIndexRoute,
+    DashboardProtectedCycleIdSettingsIndexRoute:
+      DashboardProtectedCycleIdSettingsIndexRoute,
+    DashboardProtectedCycleIdSettingsEventsIndexRoute:
+      DashboardProtectedCycleIdSettingsEventsIndexRoute,
+    DashboardProtectedCycleIdSettingsOfferingsIndexRoute:
+      DashboardProtectedCycleIdSettingsOfferingsIndexRoute,
+    DashboardProtectedCycleIdSettingsUsersIndexRoute:
+      DashboardProtectedCycleIdSettingsUsersIndexRoute,
   }
 
-const DashboardCycleIdSettingsRouteRouteWithChildren =
-  DashboardCycleIdSettingsRouteRoute._addFileChildren(
-    DashboardCycleIdSettingsRouteRouteChildren,
+const DashboardProtectedCycleIdSettingsRouteRouteWithChildren =
+  DashboardProtectedCycleIdSettingsRouteRoute._addFileChildren(
+    DashboardProtectedCycleIdSettingsRouteRouteChildren,
+  )
+
+interface DashboardProtectedRouteRouteChildren {
+  DashboardProtectedIndexRoute: typeof DashboardProtectedIndexRoute
+  DashboardProtectedCycleIdApplicationsRouteRoute: typeof DashboardProtectedCycleIdApplicationsRouteRouteWithChildren
+  DashboardProtectedCycleIdDocumentsRouteRoute: typeof DashboardProtectedCycleIdDocumentsRouteRouteWithChildren
+  DashboardProtectedCycleIdSettingsRouteRoute: typeof DashboardProtectedCycleIdSettingsRouteRouteWithChildren
+  DashboardProtectedApplicantsIndexRoute: typeof DashboardProtectedApplicantsIndexRoute
+  DashboardProtectedNotificationsIndexRoute: typeof DashboardProtectedNotificationsIndexRoute
+  DashboardProtectedCycleIdOverviewIndexRoute: typeof DashboardProtectedCycleIdOverviewIndexRoute
+  DashboardProtectedApplicantsApplicantIdIndexRoute: typeof DashboardProtectedApplicantsApplicantIdIndexRoute
+}
+
+const DashboardProtectedRouteRouteChildren: DashboardProtectedRouteRouteChildren =
+  {
+    DashboardProtectedIndexRoute: DashboardProtectedIndexRoute,
+    DashboardProtectedCycleIdApplicationsRouteRoute:
+      DashboardProtectedCycleIdApplicationsRouteRouteWithChildren,
+    DashboardProtectedCycleIdDocumentsRouteRoute:
+      DashboardProtectedCycleIdDocumentsRouteRouteWithChildren,
+    DashboardProtectedCycleIdSettingsRouteRoute:
+      DashboardProtectedCycleIdSettingsRouteRouteWithChildren,
+    DashboardProtectedApplicantsIndexRoute:
+      DashboardProtectedApplicantsIndexRoute,
+    DashboardProtectedNotificationsIndexRoute:
+      DashboardProtectedNotificationsIndexRoute,
+    DashboardProtectedCycleIdOverviewIndexRoute:
+      DashboardProtectedCycleIdOverviewIndexRoute,
+    DashboardProtectedApplicantsApplicantIdIndexRoute:
+      DashboardProtectedApplicantsApplicantIdIndexRoute,
+  }
+
+const DashboardProtectedRouteRouteWithChildren =
+  DashboardProtectedRouteRoute._addFileChildren(
+    DashboardProtectedRouteRouteChildren,
   )
 
 interface DashboardRouteRouteChildren {
-  DashboardIndexRoute: typeof DashboardIndexRoute
-  DashboardCycleIdApplicationsRouteRoute: typeof DashboardCycleIdApplicationsRouteRouteWithChildren
-  DashboardCycleIdDocumentsRouteRoute: typeof DashboardCycleIdDocumentsRouteRouteWithChildren
-  DashboardCycleIdSettingsRouteRoute: typeof DashboardCycleIdSettingsRouteRouteWithChildren
-  DashboardApplicantsIndexRoute: typeof DashboardApplicantsIndexRoute
-  DashboardNotificationsIndexRoute: typeof DashboardNotificationsIndexRoute
-  DashboardCycleIdOverviewIndexRoute: typeof DashboardCycleIdOverviewIndexRoute
-  DashboardApplicantsApplicantIdIndexRoute: typeof DashboardApplicantsApplicantIdIndexRoute
+  DashboardProtectedRouteRoute: typeof DashboardProtectedRouteRouteWithChildren
+  DashboardSetupIndexRoute: typeof DashboardSetupIndexRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
-  DashboardIndexRoute: DashboardIndexRoute,
-  DashboardCycleIdApplicationsRouteRoute:
-    DashboardCycleIdApplicationsRouteRouteWithChildren,
-  DashboardCycleIdDocumentsRouteRoute:
-    DashboardCycleIdDocumentsRouteRouteWithChildren,
-  DashboardCycleIdSettingsRouteRoute:
-    DashboardCycleIdSettingsRouteRouteWithChildren,
-  DashboardApplicantsIndexRoute: DashboardApplicantsIndexRoute,
-  DashboardNotificationsIndexRoute: DashboardNotificationsIndexRoute,
-  DashboardCycleIdOverviewIndexRoute: DashboardCycleIdOverviewIndexRoute,
-  DashboardApplicantsApplicantIdIndexRoute:
-    DashboardApplicantsApplicantIdIndexRoute,
+  DashboardProtectedRouteRoute: DashboardProtectedRouteRouteWithChildren,
+  DashboardSetupIndexRoute: DashboardSetupIndexRoute,
 }
 
 const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
@@ -453,7 +487,6 @@ const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   DashboardRouteRoute: DashboardRouteRouteWithChildren,
-  SetupIndexRoute: SetupIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

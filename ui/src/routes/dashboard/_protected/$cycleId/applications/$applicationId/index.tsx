@@ -6,7 +6,7 @@ import { parseType } from '@/lib/string'
 import { useDashboard } from '@/providers/DashboardProvider'
 
 export const Route = createFileRoute(
-  '/dashboard/$cycleId/applications/$applicationId/',
+  '/dashboard/_protected/$cycleId/applications/$applicationId/',
 )({
   component: RouteComponent,
 })

@@ -18,7 +18,7 @@ import { ApplicationsTable } from '@/components/dashboard/overview/ApplicationsT
 import { RevenueChart } from '@/components/dashboard/overview/RevenueChart';
 import { useDashboard } from '@/providers/DashboardProvider';
 
-export const Route = createFileRoute('/dashboard/$cycleId/overview/')({
+export const Route = createFileRoute('/dashboard/_protected/$cycleId/overview/')({
   component: RouteComponent,
 })
 

@@ -13,7 +13,7 @@ import StrengthChart from "@/components/dashboard/applicants/StrengthChart";
 import ApplicationsTable from "@/components/dashboard/applicants/ApplicationsTable";
 import { parseType } from "@/lib/string";
 
-export const Route = createFileRoute("/dashboard/applicants/$applicantId/")({
+export const Route = createFileRoute("/dashboard/_protected/applicants/$applicantId/")({
   component: RouteComponent,
 });
 

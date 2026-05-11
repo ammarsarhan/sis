@@ -17,7 +17,7 @@ import {
 
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import type { ColumnDef, PaginationState, SortingState, VisibilityState } from "@tanstack/react-table";
-import { Route } from "@/routes/dashboard/applicants";
+import { Route } from "@/routes/dashboard/_protected/applicants";
 
 import {
     Table, TableBody, TableCell,

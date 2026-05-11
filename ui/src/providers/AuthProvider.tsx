@@ -34,7 +34,11 @@ const user = {
 export default function AuthProvider({ children }: { children: ReactNode }) {
     const queryClient = useQueryClient();
 
-    const { data, isLoading, error } = useQuery({
+    const {
+        // data,
+        // error, 
+        isLoading,  
+    } = useQuery({
         queryKey: ["session"],
         queryFn: fetchUser,
         retry: false,

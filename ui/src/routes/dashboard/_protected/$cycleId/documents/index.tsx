@@ -4,7 +4,7 @@ import DocumentsTable from '@/components/dashboard/documents/DocumentsTable';
 
 type DocumentStatus = "UPLOADED" | "ACCEPTED" | "REJECTED";
 
-export const Route = createFileRoute('/dashboard/$cycleId/documents/')({
+export const Route = createFileRoute('/dashboard/_protected/$cycleId/documents/')({
   component: RouteComponent,
   validateSearch: (search) => ({
     status: search.status as DocumentStatus | undefined,

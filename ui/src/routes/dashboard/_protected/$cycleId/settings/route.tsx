@@ -1,14 +1,27 @@
-import { Link, Outlet, createFileRoute } from '@tanstack/react-router';
+import { Link, Outlet, createFileRoute, useParams } from '@tanstack/react-router';
 
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
-import { Separator } from '@/components/ui/separator'
-import { SidebarTrigger } from '@/components/ui/sidebar'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
+import { Separator } from "@/components/ui/separator";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+
+import SettingsNavigation from '@/components/dashboard/settings/SettingsNavigation';
 import { useDashboard } from '@/providers/DashboardProvider';
 
-export const Route = createFileRoute('/dashboard/$cycleId/documents')({
-  component: RouteComponent
-});
+export const Route = createFileRoute('/dashboard/_protected/$cycleId/settings')({
+  component: RouteComponent,
+})
+
 function RouteComponent() {
+  const { cycleId } = useParams({ strict: false });
+
   const { cycle } = useDashboard();
 
   return (
@@ -35,17 +48,14 @@ function RouteComponent() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Documents</BreadcrumbPage>
+                  <BreadcrumbPage>Settings</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
           </div>
         </header>
-        <div className="flex flex-col gap-y-0.5 mb-2 mx-6">
-            <h1 className="text-xl font-medium">Documents</h1>
-            <p className="text-gray-500 text-sm">Track uploaded documents and verify them to finalize submitted applications.</p>
-        </div>
-        <Outlet/>
+        <SettingsNavigation cycleId={cycleId!} />
+        <Outlet />
     </>
   )
 }

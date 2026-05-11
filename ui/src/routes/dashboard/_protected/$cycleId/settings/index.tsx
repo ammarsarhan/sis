@@ -7,7 +7,7 @@ import { MultiSelect } from '@/components/shared/MultiSelect'
 import SettingsBlock from '@/components/dashboard/settings/SettingsBlock'
 import { Button } from '@/components/ui/button'
 
-export const Route = createFileRoute('/dashboard/$cycleId/settings/')({
+export const Route = createFileRoute('/dashboard/_protected/$cycleId/settings/')({
   component: RouteComponent,
 })
 

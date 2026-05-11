@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import EventTable from '@/components/dashboard/settings/EventTable';
 
-export const Route = createFileRoute('/dashboard/$cycleId/settings/events/')({
+export const Route = createFileRoute('/dashboard/_protected/$cycleId/settings/events/')({
   component: RouteComponent,
 })
 

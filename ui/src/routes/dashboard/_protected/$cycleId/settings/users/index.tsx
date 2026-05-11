@@ -6,7 +6,7 @@ import UsersTable from '@/components/dashboard/settings/UsersTable';
 import InvitationsTable from '@/components/dashboard/settings/InvitationsTable';
 import { Button } from '@/components/ui/button';
 
-export const Route = createFileRoute('/dashboard/$cycleId/settings/users/')({
+export const Route = createFileRoute('/dashboard/_protected/$cycleId/settings/users/')({
   component: RouteComponent,
 })
 

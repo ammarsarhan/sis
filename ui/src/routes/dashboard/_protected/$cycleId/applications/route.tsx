@@ -5,7 +5,7 @@ import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { useDashboard } from '@/providers/DashboardProvider';
 
-export const Route = createFileRoute('/dashboard/$cycleId/applications')({
+export const Route = createFileRoute('/dashboard/_protected/$cycleId/applications')({
   component: RouteComponent
 });
 function RouteComponent() {
