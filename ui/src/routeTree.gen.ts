@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
+import { Route as DashboardSetupRouteRouteImport } from './routes/dashboard/setup/route'
 import { Route as DashboardProtectedRouteRouteImport } from './routes/dashboard/_protected/route'
 import { Route as DashboardSetupIndexRouteImport } from './routes/dashboard/setup/index'
 import { Route as DashboardProtectedIndexRouteImport } from './routes/dashboard/_protected/index'
@@ -33,14 +34,19 @@ const DashboardRouteRoute = DashboardRouteRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardSetupRouteRoute = DashboardSetupRouteRouteImport.update({
+  id: '/setup',
+  path: '/setup',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const DashboardProtectedRouteRoute = DashboardProtectedRouteRouteImport.update({
   id: '/_protected',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
 const DashboardSetupIndexRoute = DashboardSetupIndexRouteImport.update({
-  id: '/setup/',
-  path: '/setup/',
-  getParentRoute: () => DashboardRouteRoute,
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardSetupRouteRoute,
 } as any)
 const DashboardProtectedIndexRoute = DashboardProtectedIndexRouteImport.update({
   id: '/',
@@ -134,6 +140,7 @@ const DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute =
 
 export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardProtectedRouteRouteWithChildren
+  '/dashboard/setup': typeof DashboardSetupRouteRouteWithChildren
   '/dashboard/': typeof DashboardProtectedIndexRoute
   '/dashboard/setup/': typeof DashboardSetupIndexRoute
   '/dashboard/$cycleId/applications': typeof DashboardProtectedCycleIdApplicationsRouteRouteWithChildren
@@ -170,6 +177,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/dashboard/_protected': typeof DashboardProtectedRouteRouteWithChildren
+  '/dashboard/setup': typeof DashboardSetupRouteRouteWithChildren
   '/dashboard/_protected/': typeof DashboardProtectedIndexRoute
   '/dashboard/setup/': typeof DashboardSetupIndexRoute
   '/dashboard/_protected/$cycleId/applications': typeof DashboardProtectedCycleIdApplicationsRouteRouteWithChildren
@@ -191,6 +199,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/dashboard'
+    | '/dashboard/setup'
     | '/dashboard/'
     | '/dashboard/setup/'
     | '/dashboard/$cycleId/applications'
@@ -226,6 +235,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/dashboard'
     | '/dashboard/_protected'
+    | '/dashboard/setup'
     | '/dashboard/_protected/'
     | '/dashboard/setup/'
     | '/dashboard/_protected/$cycleId/applications'
@@ -257,6 +267,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/setup': {
+      id: '/dashboard/setup'
+      path: '/setup'
+      fullPath: '/dashboard/setup'
+      preLoaderRoute: typeof DashboardSetupRouteRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/dashboard/_protected': {
       id: '/dashboard/_protected'
       path: ''
@@ -266,10 +283,10 @@ declare module '@tanstack/react-router' {
     }
     '/dashboard/setup/': {
       id: '/dashboard/setup/'
-      path: '/setup'
+      path: '/'
       fullPath: '/dashboard/setup/'
       preLoaderRoute: typeof DashboardSetupIndexRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      parentRoute: typeof DashboardSetupRouteRoute
     }
     '/dashboard/_protected/': {
       id: '/dashboard/_protected/'
@@ -471,14 +488,25 @@ const DashboardProtectedRouteRouteWithChildren =
     DashboardProtectedRouteRouteChildren,
   )
 
+interface DashboardSetupRouteRouteChildren {
+  DashboardSetupIndexRoute: typeof DashboardSetupIndexRoute
+}
+
+const DashboardSetupRouteRouteChildren: DashboardSetupRouteRouteChildren = {
+  DashboardSetupIndexRoute: DashboardSetupIndexRoute,
+}
+
+const DashboardSetupRouteRouteWithChildren =
+  DashboardSetupRouteRoute._addFileChildren(DashboardSetupRouteRouteChildren)
+
 interface DashboardRouteRouteChildren {
   DashboardProtectedRouteRoute: typeof DashboardProtectedRouteRouteWithChildren
-  DashboardSetupIndexRoute: typeof DashboardSetupIndexRoute
+  DashboardSetupRouteRoute: typeof DashboardSetupRouteRouteWithChildren
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardProtectedRouteRoute: DashboardProtectedRouteRouteWithChildren,
-  DashboardSetupIndexRoute: DashboardSetupIndexRoute,
+  DashboardSetupRouteRoute: DashboardSetupRouteRouteWithChildren,
 }
 
 const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
