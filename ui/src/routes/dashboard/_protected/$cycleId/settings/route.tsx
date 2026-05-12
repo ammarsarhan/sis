@@ -1,4 +1,4 @@
-import { Link, Outlet, createFileRoute, useParams } from '@tanstack/react-router';
+import { Link, Outlet, createFileRoute } from '@tanstack/react-router';
 
 import {
   Breadcrumb,
@@ -12,17 +12,28 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 
-import SettingsNavigation from '@/components/dashboard/settings/SettingsNavigation';
 import { useDashboard } from '@/providers/DashboardProvider';
+import { TabNavigation } from '@/components/shared/TabNavigation';
 
 export const Route = createFileRoute('/dashboard/_protected/$cycleId/settings')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  const { cycleId } = useParams({ strict: false });
-
   const { cycle } = useDashboard();
+  
+  const tabs = [
+    { label: "General",            to: "/dashboard/$cycleId/settings" },
+    { label: "Offerings",          to: "/dashboard/$cycleId/settings/offerings" },
+    { label: "Event Log",          to: "/dashboard/$cycleId/settings/events" },
+    { label: "Users & Permissions",to: "/dashboard/$cycleId/settings/users" },
+  ].map(({ label, to }) => ({
+    type: "link" as const,
+    label,
+    to,
+    params: { cycleId: cycle.id },
+    activeOptions: { exact: true },
+  }));
 
   return (
     <>
@@ -54,7 +65,8 @@ function RouteComponent() {
             </Breadcrumb>
           </div>
         </header>
-        <SettingsNavigation cycleId={cycleId!} />
+        <h1 className="text-xl font-medium mx-6">Settings</h1>
+        <TabNavigation tabs={tabs} />
         <Outlet />
     </>
   )

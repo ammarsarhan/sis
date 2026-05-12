@@ -37,5 +37,12 @@ function RouteComponent() {
         );
     }
 
-    return <Outlet />
+    return (
+        <div className='py-32 mx-8'>
+            <nav className='flex items-center justify-between gap-x-16'>
+                
+            </nav>
+            <Outlet />
+        </div>
+    )
 }

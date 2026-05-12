@@ -14,11 +14,13 @@ import { Route as DashboardSetupRouteRouteImport } from './routes/dashboard/setu
 import { Route as DashboardProtectedRouteRouteImport } from './routes/dashboard/_protected/route'
 import { Route as DashboardSetupIndexRouteImport } from './routes/dashboard/setup/index'
 import { Route as DashboardProtectedIndexRouteImport } from './routes/dashboard/_protected/index'
+import { Route as DashboardProtectedNotificationsRouteRouteImport } from './routes/dashboard/_protected/notifications/route'
 import { Route as DashboardProtectedNotificationsIndexRouteImport } from './routes/dashboard/_protected/notifications/index'
 import { Route as DashboardProtectedApplicantsIndexRouteImport } from './routes/dashboard/_protected/applicants/index'
 import { Route as DashboardProtectedCycleIdSettingsRouteRouteImport } from './routes/dashboard/_protected/$cycleId/settings/route'
 import { Route as DashboardProtectedCycleIdDocumentsRouteRouteImport } from './routes/dashboard/_protected/$cycleId/documents/route'
 import { Route as DashboardProtectedCycleIdApplicationsRouteRouteImport } from './routes/dashboard/_protected/$cycleId/applications/route'
+import { Route as DashboardProtectedNotificationsTemplatesIndexRouteImport } from './routes/dashboard/_protected/notifications/templates/index'
 import { Route as DashboardProtectedApplicantsApplicantIdIndexRouteImport } from './routes/dashboard/_protected/applicants/$applicantId/index'
 import { Route as DashboardProtectedCycleIdSettingsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/settings/index'
 import { Route as DashboardProtectedCycleIdOverviewIndexRouteImport } from './routes/dashboard/_protected/$cycleId/overview/index'
@@ -53,11 +55,17 @@ const DashboardProtectedIndexRoute = DashboardProtectedIndexRouteImport.update({
   path: '/',
   getParentRoute: () => DashboardProtectedRouteRoute,
 } as any)
+const DashboardProtectedNotificationsRouteRoute =
+  DashboardProtectedNotificationsRouteRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => DashboardProtectedRouteRoute,
+  } as any)
 const DashboardProtectedNotificationsIndexRoute =
   DashboardProtectedNotificationsIndexRouteImport.update({
-    id: '/notifications/',
-    path: '/notifications/',
-    getParentRoute: () => DashboardProtectedRouteRoute,
+    id: '/',
+    path: '/',
+    getParentRoute: () => DashboardProtectedNotificationsRouteRoute,
   } as any)
 const DashboardProtectedApplicantsIndexRoute =
   DashboardProtectedApplicantsIndexRouteImport.update({
@@ -82,6 +90,12 @@ const DashboardProtectedCycleIdApplicationsRouteRoute =
     id: '/$cycleId/applications',
     path: '/$cycleId/applications',
     getParentRoute: () => DashboardProtectedRouteRoute,
+  } as any)
+const DashboardProtectedNotificationsTemplatesIndexRoute =
+  DashboardProtectedNotificationsTemplatesIndexRouteImport.update({
+    id: '/templates/',
+    path: '/templates/',
+    getParentRoute: () => DashboardProtectedNotificationsRouteRoute,
   } as any)
 const DashboardProtectedApplicantsApplicantIdIndexRoute =
   DashboardProtectedApplicantsApplicantIdIndexRouteImport.update({
@@ -141,6 +155,7 @@ const DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute =
 export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardProtectedRouteRouteWithChildren
   '/dashboard/setup': typeof DashboardSetupRouteRouteWithChildren
+  '/dashboard/notifications': typeof DashboardProtectedNotificationsRouteRouteWithChildren
   '/dashboard/': typeof DashboardProtectedIndexRoute
   '/dashboard/setup/': typeof DashboardSetupIndexRoute
   '/dashboard/$cycleId/applications': typeof DashboardProtectedCycleIdApplicationsRouteRouteWithChildren
@@ -153,6 +168,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/$cycleId/overview/': typeof DashboardProtectedCycleIdOverviewIndexRoute
   '/dashboard/$cycleId/settings/': typeof DashboardProtectedCycleIdSettingsIndexRoute
   '/dashboard/applicants/$applicantId/': typeof DashboardProtectedApplicantsApplicantIdIndexRoute
+  '/dashboard/notifications/templates/': typeof DashboardProtectedNotificationsTemplatesIndexRoute
   '/dashboard/$cycleId/applications/$applicationId/': typeof DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute
   '/dashboard/$cycleId/settings/events/': typeof DashboardProtectedCycleIdSettingsEventsIndexRoute
   '/dashboard/$cycleId/settings/offerings/': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
@@ -168,6 +184,7 @@ export interface FileRoutesByTo {
   '/dashboard/$cycleId/overview': typeof DashboardProtectedCycleIdOverviewIndexRoute
   '/dashboard/$cycleId/settings': typeof DashboardProtectedCycleIdSettingsIndexRoute
   '/dashboard/applicants/$applicantId': typeof DashboardProtectedApplicantsApplicantIdIndexRoute
+  '/dashboard/notifications/templates': typeof DashboardProtectedNotificationsTemplatesIndexRoute
   '/dashboard/$cycleId/applications/$applicationId': typeof DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute
   '/dashboard/$cycleId/settings/events': typeof DashboardProtectedCycleIdSettingsEventsIndexRoute
   '/dashboard/$cycleId/settings/offerings': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
@@ -178,6 +195,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/dashboard/_protected': typeof DashboardProtectedRouteRouteWithChildren
   '/dashboard/setup': typeof DashboardSetupRouteRouteWithChildren
+  '/dashboard/_protected/notifications': typeof DashboardProtectedNotificationsRouteRouteWithChildren
   '/dashboard/_protected/': typeof DashboardProtectedIndexRoute
   '/dashboard/setup/': typeof DashboardSetupIndexRoute
   '/dashboard/_protected/$cycleId/applications': typeof DashboardProtectedCycleIdApplicationsRouteRouteWithChildren
@@ -190,6 +208,7 @@ export interface FileRoutesById {
   '/dashboard/_protected/$cycleId/overview/': typeof DashboardProtectedCycleIdOverviewIndexRoute
   '/dashboard/_protected/$cycleId/settings/': typeof DashboardProtectedCycleIdSettingsIndexRoute
   '/dashboard/_protected/applicants/$applicantId/': typeof DashboardProtectedApplicantsApplicantIdIndexRoute
+  '/dashboard/_protected/notifications/templates/': typeof DashboardProtectedNotificationsTemplatesIndexRoute
   '/dashboard/_protected/$cycleId/applications/$applicationId/': typeof DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute
   '/dashboard/_protected/$cycleId/settings/events/': typeof DashboardProtectedCycleIdSettingsEventsIndexRoute
   '/dashboard/_protected/$cycleId/settings/offerings/': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
@@ -200,6 +219,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/dashboard'
     | '/dashboard/setup'
+    | '/dashboard/notifications'
     | '/dashboard/'
     | '/dashboard/setup/'
     | '/dashboard/$cycleId/applications'
@@ -212,6 +232,7 @@ export interface FileRouteTypes {
     | '/dashboard/$cycleId/overview/'
     | '/dashboard/$cycleId/settings/'
     | '/dashboard/applicants/$applicantId/'
+    | '/dashboard/notifications/templates/'
     | '/dashboard/$cycleId/applications/$applicationId/'
     | '/dashboard/$cycleId/settings/events/'
     | '/dashboard/$cycleId/settings/offerings/'
@@ -227,6 +248,7 @@ export interface FileRouteTypes {
     | '/dashboard/$cycleId/overview'
     | '/dashboard/$cycleId/settings'
     | '/dashboard/applicants/$applicantId'
+    | '/dashboard/notifications/templates'
     | '/dashboard/$cycleId/applications/$applicationId'
     | '/dashboard/$cycleId/settings/events'
     | '/dashboard/$cycleId/settings/offerings'
@@ -236,6 +258,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/dashboard/_protected'
     | '/dashboard/setup'
+    | '/dashboard/_protected/notifications'
     | '/dashboard/_protected/'
     | '/dashboard/setup/'
     | '/dashboard/_protected/$cycleId/applications'
@@ -248,6 +271,7 @@ export interface FileRouteTypes {
     | '/dashboard/_protected/$cycleId/overview/'
     | '/dashboard/_protected/$cycleId/settings/'
     | '/dashboard/_protected/applicants/$applicantId/'
+    | '/dashboard/_protected/notifications/templates/'
     | '/dashboard/_protected/$cycleId/applications/$applicationId/'
     | '/dashboard/_protected/$cycleId/settings/events/'
     | '/dashboard/_protected/$cycleId/settings/offerings/'
@@ -295,12 +319,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardProtectedIndexRouteImport
       parentRoute: typeof DashboardProtectedRouteRoute
     }
+    '/dashboard/_protected/notifications': {
+      id: '/dashboard/_protected/notifications'
+      path: '/notifications'
+      fullPath: '/dashboard/notifications'
+      preLoaderRoute: typeof DashboardProtectedNotificationsRouteRouteImport
+      parentRoute: typeof DashboardProtectedRouteRoute
+    }
     '/dashboard/_protected/notifications/': {
       id: '/dashboard/_protected/notifications/'
-      path: '/notifications'
+      path: '/'
       fullPath: '/dashboard/notifications/'
       preLoaderRoute: typeof DashboardProtectedNotificationsIndexRouteImport
-      parentRoute: typeof DashboardProtectedRouteRoute
+      parentRoute: typeof DashboardProtectedNotificationsRouteRoute
     }
     '/dashboard/_protected/applicants/': {
       id: '/dashboard/_protected/applicants/'
@@ -329,6 +360,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/dashboard/$cycleId/applications'
       preLoaderRoute: typeof DashboardProtectedCycleIdApplicationsRouteRouteImport
       parentRoute: typeof DashboardProtectedRouteRoute
+    }
+    '/dashboard/_protected/notifications/templates/': {
+      id: '/dashboard/_protected/notifications/templates/'
+      path: '/templates'
+      fullPath: '/dashboard/notifications/templates/'
+      preLoaderRoute: typeof DashboardProtectedNotificationsTemplatesIndexRouteImport
+      parentRoute: typeof DashboardProtectedNotificationsRouteRoute
     }
     '/dashboard/_protected/applicants/$applicantId/': {
       id: '/dashboard/_protected/applicants/$applicantId/'
@@ -396,6 +434,24 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface DashboardProtectedNotificationsRouteRouteChildren {
+  DashboardProtectedNotificationsIndexRoute: typeof DashboardProtectedNotificationsIndexRoute
+  DashboardProtectedNotificationsTemplatesIndexRoute: typeof DashboardProtectedNotificationsTemplatesIndexRoute
+}
+
+const DashboardProtectedNotificationsRouteRouteChildren: DashboardProtectedNotificationsRouteRouteChildren =
+  {
+    DashboardProtectedNotificationsIndexRoute:
+      DashboardProtectedNotificationsIndexRoute,
+    DashboardProtectedNotificationsTemplatesIndexRoute:
+      DashboardProtectedNotificationsTemplatesIndexRoute,
+  }
+
+const DashboardProtectedNotificationsRouteRouteWithChildren =
+  DashboardProtectedNotificationsRouteRoute._addFileChildren(
+    DashboardProtectedNotificationsRouteRouteChildren,
+  )
+
 interface DashboardProtectedCycleIdApplicationsRouteRouteChildren {
   DashboardProtectedCycleIdApplicationsIndexRoute: typeof DashboardProtectedCycleIdApplicationsIndexRoute
   DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute: typeof DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute
@@ -454,18 +510,20 @@ const DashboardProtectedCycleIdSettingsRouteRouteWithChildren =
   )
 
 interface DashboardProtectedRouteRouteChildren {
+  DashboardProtectedNotificationsRouteRoute: typeof DashboardProtectedNotificationsRouteRouteWithChildren
   DashboardProtectedIndexRoute: typeof DashboardProtectedIndexRoute
   DashboardProtectedCycleIdApplicationsRouteRoute: typeof DashboardProtectedCycleIdApplicationsRouteRouteWithChildren
   DashboardProtectedCycleIdDocumentsRouteRoute: typeof DashboardProtectedCycleIdDocumentsRouteRouteWithChildren
   DashboardProtectedCycleIdSettingsRouteRoute: typeof DashboardProtectedCycleIdSettingsRouteRouteWithChildren
   DashboardProtectedApplicantsIndexRoute: typeof DashboardProtectedApplicantsIndexRoute
-  DashboardProtectedNotificationsIndexRoute: typeof DashboardProtectedNotificationsIndexRoute
   DashboardProtectedCycleIdOverviewIndexRoute: typeof DashboardProtectedCycleIdOverviewIndexRoute
   DashboardProtectedApplicantsApplicantIdIndexRoute: typeof DashboardProtectedApplicantsApplicantIdIndexRoute
 }
 
 const DashboardProtectedRouteRouteChildren: DashboardProtectedRouteRouteChildren =
   {
+    DashboardProtectedNotificationsRouteRoute:
+      DashboardProtectedNotificationsRouteRouteWithChildren,
     DashboardProtectedIndexRoute: DashboardProtectedIndexRoute,
     DashboardProtectedCycleIdApplicationsRouteRoute:
       DashboardProtectedCycleIdApplicationsRouteRouteWithChildren,
@@ -475,8 +533,6 @@ const DashboardProtectedRouteRouteChildren: DashboardProtectedRouteRouteChildren
       DashboardProtectedCycleIdSettingsRouteRouteWithChildren,
     DashboardProtectedApplicantsIndexRoute:
       DashboardProtectedApplicantsIndexRoute,
-    DashboardProtectedNotificationsIndexRoute:
-      DashboardProtectedNotificationsIndexRoute,
     DashboardProtectedCycleIdOverviewIndexRoute:
       DashboardProtectedCycleIdOverviewIndexRoute,
     DashboardProtectedApplicantsApplicantIdIndexRoute:

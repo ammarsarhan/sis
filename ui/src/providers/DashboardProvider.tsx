@@ -28,24 +28,24 @@ export function useDashboard() {
 
 // Mock data to be replaced when data is fetched from the backend.
 const data: Array<AdmissionCycle> = [
-    // {
-    //     cycleId: "some-random-cycle-id-1",
-    //     name: "Fall 2026",
-    //     startDate: subMonths(new Date(), 2),
-    //     endDate: addMonths(new Date(), 3)
-    // },
-    // {
-    //     cycleId: "some-random-cycle-id-2",
-    //     name: "Spring 2025",
-    //     startDate: subYears(new Date(), 1.5),
-    //     endDate: subYears(new Date(), 1)
-    // },
-    // {
-    //     cycleId: "some-random-cycle-id-3",
-    //     name: "Fall 2025",
-    //     startDate: subYears(new Date(), 2),
-    //     endDate: subYears(new Date(), 1.75)
-    // },
+    {
+        cycleId: "some-random-cycle-id-1",
+        name: "Fall 2026",
+        startDate: subMonths(new Date(), 2),
+        endDate: addMonths(new Date(), 3)
+    },
+    {
+        cycleId: "some-random-cycle-id-2",
+        name: "Spring 2025",
+        startDate: subYears(new Date(), 1.5),
+        endDate: subYears(new Date(), 1)
+    },
+    {
+        cycleId: "some-random-cycle-id-3",
+        name: "Fall 2025",
+        startDate: subYears(new Date(), 2),
+        endDate: subYears(new Date(), 1.75)
+    },
 ];
 
 const parseCycles = (cycles: Array<AdmissionCycle>): Array<DashboardAdmissionCycle> => {

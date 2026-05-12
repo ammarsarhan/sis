@@ -1,6 +1,6 @@
 import RequestError, { ERROR_CODES } from "@/lib/types/RequestError";
 
-export const BASE_URL = import.meta.env.VITE_API_URL;
+export const BASE_URL = `${import.meta.env.VITE_API_URL}/api/v1`;
 
 export default async function request<T>(target: string, options?: RequestInit): Promise<T> {
     let response = await fetch(`${BASE_URL}${target}`, {
