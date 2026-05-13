@@ -16,6 +16,7 @@ import { Route as DashboardSetupIndexRouteImport } from './routes/dashboard/setu
 import { Route as DashboardProtectedIndexRouteImport } from './routes/dashboard/_protected/index'
 import { Route as DashboardProtectedNotificationsRouteRouteImport } from './routes/dashboard/_protected/notifications/route'
 import { Route as DashboardProtectedNotificationsIndexRouteImport } from './routes/dashboard/_protected/notifications/index'
+import { Route as DashboardProtectedFacultiesIndexRouteImport } from './routes/dashboard/_protected/faculties/index'
 import { Route as DashboardProtectedApplicantsIndexRouteImport } from './routes/dashboard/_protected/applicants/index'
 import { Route as DashboardProtectedCycleIdSettingsRouteRouteImport } from './routes/dashboard/_protected/$cycleId/settings/route'
 import { Route as DashboardProtectedCycleIdDocumentsRouteRouteImport } from './routes/dashboard/_protected/$cycleId/documents/route'
@@ -26,6 +27,7 @@ import { Route as DashboardProtectedCycleIdSettingsIndexRouteImport } from './ro
 import { Route as DashboardProtectedCycleIdOverviewIndexRouteImport } from './routes/dashboard/_protected/$cycleId/overview/index'
 import { Route as DashboardProtectedCycleIdDocumentsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/documents/index'
 import { Route as DashboardProtectedCycleIdApplicationsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/applications/index'
+import { Route as DashboardProtectedFacultiesFacultyIdDepartmentsIndexRouteImport } from './routes/dashboard/_protected/faculties/$facultyId/departments/index'
 import { Route as DashboardProtectedCycleIdSettingsUsersIndexRouteImport } from './routes/dashboard/_protected/$cycleId/settings/users/index'
 import { Route as DashboardProtectedCycleIdSettingsOfferingsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/settings/offerings/index'
 import { Route as DashboardProtectedCycleIdSettingsEventsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/settings/events/index'
@@ -66,6 +68,12 @@ const DashboardProtectedNotificationsIndexRoute =
     id: '/',
     path: '/',
     getParentRoute: () => DashboardProtectedNotificationsRouteRoute,
+  } as any)
+const DashboardProtectedFacultiesIndexRoute =
+  DashboardProtectedFacultiesIndexRouteImport.update({
+    id: '/faculties/',
+    path: '/faculties/',
+    getParentRoute: () => DashboardProtectedRouteRoute,
   } as any)
 const DashboardProtectedApplicantsIndexRoute =
   DashboardProtectedApplicantsIndexRouteImport.update({
@@ -127,6 +135,12 @@ const DashboardProtectedCycleIdApplicationsIndexRoute =
     path: '/',
     getParentRoute: () => DashboardProtectedCycleIdApplicationsRouteRoute,
   } as any)
+const DashboardProtectedFacultiesFacultyIdDepartmentsIndexRoute =
+  DashboardProtectedFacultiesFacultyIdDepartmentsIndexRouteImport.update({
+    id: '/faculties/$facultyId/departments/',
+    path: '/faculties/$facultyId/departments/',
+    getParentRoute: () => DashboardProtectedRouteRoute,
+  } as any)
 const DashboardProtectedCycleIdSettingsUsersIndexRoute =
   DashboardProtectedCycleIdSettingsUsersIndexRouteImport.update({
     id: '/users/',
@@ -162,6 +176,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/$cycleId/documents': typeof DashboardProtectedCycleIdDocumentsRouteRouteWithChildren
   '/dashboard/$cycleId/settings': typeof DashboardProtectedCycleIdSettingsRouteRouteWithChildren
   '/dashboard/applicants/': typeof DashboardProtectedApplicantsIndexRoute
+  '/dashboard/faculties/': typeof DashboardProtectedFacultiesIndexRoute
   '/dashboard/notifications/': typeof DashboardProtectedNotificationsIndexRoute
   '/dashboard/$cycleId/applications/': typeof DashboardProtectedCycleIdApplicationsIndexRoute
   '/dashboard/$cycleId/documents/': typeof DashboardProtectedCycleIdDocumentsIndexRoute
@@ -173,11 +188,13 @@ export interface FileRoutesByFullPath {
   '/dashboard/$cycleId/settings/events/': typeof DashboardProtectedCycleIdSettingsEventsIndexRoute
   '/dashboard/$cycleId/settings/offerings/': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
   '/dashboard/$cycleId/settings/users/': typeof DashboardProtectedCycleIdSettingsUsersIndexRoute
+  '/dashboard/faculties/$facultyId/departments/': typeof DashboardProtectedFacultiesFacultyIdDepartmentsIndexRoute
 }
 export interface FileRoutesByTo {
   '/dashboard': typeof DashboardProtectedIndexRoute
   '/dashboard/setup': typeof DashboardSetupIndexRoute
   '/dashboard/applicants': typeof DashboardProtectedApplicantsIndexRoute
+  '/dashboard/faculties': typeof DashboardProtectedFacultiesIndexRoute
   '/dashboard/notifications': typeof DashboardProtectedNotificationsIndexRoute
   '/dashboard/$cycleId/applications': typeof DashboardProtectedCycleIdApplicationsIndexRoute
   '/dashboard/$cycleId/documents': typeof DashboardProtectedCycleIdDocumentsIndexRoute
@@ -189,6 +206,7 @@ export interface FileRoutesByTo {
   '/dashboard/$cycleId/settings/events': typeof DashboardProtectedCycleIdSettingsEventsIndexRoute
   '/dashboard/$cycleId/settings/offerings': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
   '/dashboard/$cycleId/settings/users': typeof DashboardProtectedCycleIdSettingsUsersIndexRoute
+  '/dashboard/faculties/$facultyId/departments': typeof DashboardProtectedFacultiesFacultyIdDepartmentsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -202,6 +220,7 @@ export interface FileRoutesById {
   '/dashboard/_protected/$cycleId/documents': typeof DashboardProtectedCycleIdDocumentsRouteRouteWithChildren
   '/dashboard/_protected/$cycleId/settings': typeof DashboardProtectedCycleIdSettingsRouteRouteWithChildren
   '/dashboard/_protected/applicants/': typeof DashboardProtectedApplicantsIndexRoute
+  '/dashboard/_protected/faculties/': typeof DashboardProtectedFacultiesIndexRoute
   '/dashboard/_protected/notifications/': typeof DashboardProtectedNotificationsIndexRoute
   '/dashboard/_protected/$cycleId/applications/': typeof DashboardProtectedCycleIdApplicationsIndexRoute
   '/dashboard/_protected/$cycleId/documents/': typeof DashboardProtectedCycleIdDocumentsIndexRoute
@@ -213,6 +232,7 @@ export interface FileRoutesById {
   '/dashboard/_protected/$cycleId/settings/events/': typeof DashboardProtectedCycleIdSettingsEventsIndexRoute
   '/dashboard/_protected/$cycleId/settings/offerings/': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
   '/dashboard/_protected/$cycleId/settings/users/': typeof DashboardProtectedCycleIdSettingsUsersIndexRoute
+  '/dashboard/_protected/faculties/$facultyId/departments/': typeof DashboardProtectedFacultiesFacultyIdDepartmentsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -226,6 +246,7 @@ export interface FileRouteTypes {
     | '/dashboard/$cycleId/documents'
     | '/dashboard/$cycleId/settings'
     | '/dashboard/applicants/'
+    | '/dashboard/faculties/'
     | '/dashboard/notifications/'
     | '/dashboard/$cycleId/applications/'
     | '/dashboard/$cycleId/documents/'
@@ -237,11 +258,13 @@ export interface FileRouteTypes {
     | '/dashboard/$cycleId/settings/events/'
     | '/dashboard/$cycleId/settings/offerings/'
     | '/dashboard/$cycleId/settings/users/'
+    | '/dashboard/faculties/$facultyId/departments/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/dashboard'
     | '/dashboard/setup'
     | '/dashboard/applicants'
+    | '/dashboard/faculties'
     | '/dashboard/notifications'
     | '/dashboard/$cycleId/applications'
     | '/dashboard/$cycleId/documents'
@@ -253,6 +276,7 @@ export interface FileRouteTypes {
     | '/dashboard/$cycleId/settings/events'
     | '/dashboard/$cycleId/settings/offerings'
     | '/dashboard/$cycleId/settings/users'
+    | '/dashboard/faculties/$facultyId/departments'
   id:
     | '__root__'
     | '/dashboard'
@@ -265,6 +289,7 @@ export interface FileRouteTypes {
     | '/dashboard/_protected/$cycleId/documents'
     | '/dashboard/_protected/$cycleId/settings'
     | '/dashboard/_protected/applicants/'
+    | '/dashboard/_protected/faculties/'
     | '/dashboard/_protected/notifications/'
     | '/dashboard/_protected/$cycleId/applications/'
     | '/dashboard/_protected/$cycleId/documents/'
@@ -276,6 +301,7 @@ export interface FileRouteTypes {
     | '/dashboard/_protected/$cycleId/settings/events/'
     | '/dashboard/_protected/$cycleId/settings/offerings/'
     | '/dashboard/_protected/$cycleId/settings/users/'
+    | '/dashboard/_protected/faculties/$facultyId/departments/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -332,6 +358,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/dashboard/notifications/'
       preLoaderRoute: typeof DashboardProtectedNotificationsIndexRouteImport
       parentRoute: typeof DashboardProtectedNotificationsRouteRoute
+    }
+    '/dashboard/_protected/faculties/': {
+      id: '/dashboard/_protected/faculties/'
+      path: '/faculties'
+      fullPath: '/dashboard/faculties/'
+      preLoaderRoute: typeof DashboardProtectedFacultiesIndexRouteImport
+      parentRoute: typeof DashboardProtectedRouteRoute
     }
     '/dashboard/_protected/applicants/': {
       id: '/dashboard/_protected/applicants/'
@@ -402,6 +435,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/dashboard/$cycleId/applications/'
       preLoaderRoute: typeof DashboardProtectedCycleIdApplicationsIndexRouteImport
       parentRoute: typeof DashboardProtectedCycleIdApplicationsRouteRoute
+    }
+    '/dashboard/_protected/faculties/$facultyId/departments/': {
+      id: '/dashboard/_protected/faculties/$facultyId/departments/'
+      path: '/faculties/$facultyId/departments'
+      fullPath: '/dashboard/faculties/$facultyId/departments/'
+      preLoaderRoute: typeof DashboardProtectedFacultiesFacultyIdDepartmentsIndexRouteImport
+      parentRoute: typeof DashboardProtectedRouteRoute
     }
     '/dashboard/_protected/$cycleId/settings/users/': {
       id: '/dashboard/_protected/$cycleId/settings/users/'
@@ -516,8 +556,10 @@ interface DashboardProtectedRouteRouteChildren {
   DashboardProtectedCycleIdDocumentsRouteRoute: typeof DashboardProtectedCycleIdDocumentsRouteRouteWithChildren
   DashboardProtectedCycleIdSettingsRouteRoute: typeof DashboardProtectedCycleIdSettingsRouteRouteWithChildren
   DashboardProtectedApplicantsIndexRoute: typeof DashboardProtectedApplicantsIndexRoute
+  DashboardProtectedFacultiesIndexRoute: typeof DashboardProtectedFacultiesIndexRoute
   DashboardProtectedCycleIdOverviewIndexRoute: typeof DashboardProtectedCycleIdOverviewIndexRoute
   DashboardProtectedApplicantsApplicantIdIndexRoute: typeof DashboardProtectedApplicantsApplicantIdIndexRoute
+  DashboardProtectedFacultiesFacultyIdDepartmentsIndexRoute: typeof DashboardProtectedFacultiesFacultyIdDepartmentsIndexRoute
 }
 
 const DashboardProtectedRouteRouteChildren: DashboardProtectedRouteRouteChildren =
@@ -533,10 +575,14 @@ const DashboardProtectedRouteRouteChildren: DashboardProtectedRouteRouteChildren
       DashboardProtectedCycleIdSettingsRouteRouteWithChildren,
     DashboardProtectedApplicantsIndexRoute:
       DashboardProtectedApplicantsIndexRoute,
+    DashboardProtectedFacultiesIndexRoute:
+      DashboardProtectedFacultiesIndexRoute,
     DashboardProtectedCycleIdOverviewIndexRoute:
       DashboardProtectedCycleIdOverviewIndexRoute,
     DashboardProtectedApplicantsApplicantIdIndexRoute:
       DashboardProtectedApplicantsApplicantIdIndexRoute,
+    DashboardProtectedFacultiesFacultyIdDepartmentsIndexRoute:
+      DashboardProtectedFacultiesFacultyIdDepartmentsIndexRoute,
   }
 
 const DashboardProtectedRouteRouteWithChildren =

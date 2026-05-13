@@ -563,7 +563,7 @@ export default function DocumentsTable({ documents: data = documents, status }: 
                 </div>
                 <DialogFooter className="gap-2 sm:gap-2">
                     <Button
-                        variant="ghost" size="sm"
+                        variant="outline" size="sm"
                         className="text-[0.8125rem] font-normal"
                         onClick={clearFilters}
                         disabled={activeFilterCount === 0}

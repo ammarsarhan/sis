@@ -28,7 +28,7 @@ const user = {
     name: "Ammar Yasser",
     email: "superadmin@ejust.edu.eg",
     isVerified: true,
-    isRoot: true
+    isRoot: false
 };
 
 export default function AuthProvider({ children }: { children: ReactNode }) {

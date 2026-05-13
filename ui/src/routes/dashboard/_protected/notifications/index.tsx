@@ -5,5 +5,9 @@ export const Route = createFileRoute('/dashboard/_protected/notifications/')({
 })
 
 function RouteComponent() {
-  return <div>Hello "/notifications/"!</div>
+  return (
+    <div className='mx-6 h-full grid grid-cols-3'>
+
+    </div>
+  )
 }

@@ -577,7 +577,7 @@ export default function ApplicationsTable({ applications: data = applications, s
           </div>
           <DialogFooter className="gap-2 sm:gap-2">
             <Button
-              variant="ghost" size="sm"
+              variant="outline" size="sm"
               className="text-[0.8125rem] font-normal"
               onClick={clearFilters}
               disabled={activeFilterCount === 0}

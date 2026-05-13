@@ -72,7 +72,7 @@ export default function AppSidebar() {
                 icon: GraduationCap,
                 items: [
                     { title: "Browse Faculties", url: `/dashboard/faculties` },
-                    { title: "View Departments", url: `/dashboard/faculties/departments` },
+                    { title: "View Departments", url: `/dashboard/faculties/faculty-id/departments` },
                 ],
             },
             {
