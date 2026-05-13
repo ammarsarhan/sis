@@ -26,7 +26,7 @@ function RouteComponent() {
     { label: "General",            to: "/dashboard/$cycleId/settings" },
     { label: "Offerings",          to: "/dashboard/$cycleId/settings/offerings" },
     { label: "Event Log",          to: "/dashboard/$cycleId/settings/events" },
-    { label: "Users & Permissions",to: "/dashboard/$cycleId/settings/users" },
+    { label: "Users",to: "/dashboard/$cycleId/settings/users" },
   ].map(({ label, to }) => ({
     type: "link" as const,
     label,

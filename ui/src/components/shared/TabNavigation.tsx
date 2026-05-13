@@ -19,7 +19,7 @@ interface IndexTabItem extends BaseTabItem {
     onClick?: () => void;
 }
 
-type TabItem = LinkTabItem | IndexTabItem;
+export type TabItem = LinkTabItem | IndexTabItem;
 
 interface TabNavigationProps {
     tabs: Array<TabItem>;
@@ -37,21 +37,21 @@ function tabClass(isActive: boolean) {
 export function TabNavigation({ tabs, className }: TabNavigationProps) {
     return (
         <div className={className ?? "mx-6"}>
-            <nav className="flex items-center justify-between gap-x-16 mt-1.5 mb-4 border-b">
+            <nav className={`flex items-center justify-between gap-x-16 mt-1.5 border-b mb-2`}>
                 <div className="flex w-full text-sm">
                     {
                         tabs.map((tab) =>
                             tab.type === "link" ? (
                                 <Link
-                                key={tab.label}
-                                to={tab.to}
-                                params={tab.params}
-                                search={tab.search}
-                                activeOptions={tab.activeOptions}
-                                className={tabClass(tab.isActive ?? false)}
-                                {...(tab.isActive === undefined && {
-                                    activeProps: { className: "border-black! font-medium text-black!" }
-                                })}
+                                    key={tab.label}
+                                    to={tab.to}
+                                    params={tab.params}
+                                    search={tab.search}
+                                    activeOptions={tab.activeOptions}
+                                    className={tabClass(tab.isActive ?? false)}
+                                    {...(tab.isActive === undefined && {
+                                        activeProps: { className: "border-black! font-medium text-black!" }
+                                    })}
                                 >
                                     {tab.label}
                                 </Link>

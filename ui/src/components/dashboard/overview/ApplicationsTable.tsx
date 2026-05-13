@@ -124,7 +124,7 @@ export function ApplicationsTable() {
                       },
                     })
                   }}
-                  className="cursor-pointer"
+                  className="cursor-pointer h-12"
                 >
                   <TableCell className="font-medium">{application.code}</TableCell>
                   <TableCell>{application.name}</TableCell>

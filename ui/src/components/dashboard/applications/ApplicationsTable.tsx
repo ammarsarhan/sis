@@ -210,12 +210,6 @@ export default function ApplicationsTable({ applications: data = applications, s
 
   const pagination: PaginationState = { pageIndex: page - 1, pageSize: limit };
 
-  const selectedIds = Object.keys(rowSelection).filter((k) => rowSelection[k]);
-  const selectedRows = filtered.filter((_, i) => rowSelection[i]);
-  const bulkAcceptable = selectedRows.filter(
-    (a) => a.status !== "ACCEPTED" && a.status !== "REJECTED" && a.status != "DRAFT"
-  );
-
   function handleBulkAccept() {
     console.log("Bulk accepting:", bulkAcceptable.map((a) => a.id));
     setRowSelection({});
@@ -373,7 +367,7 @@ export default function ApplicationsTable({ applications: data = applications, s
       if (next.pageIndex !== pagination.pageIndex) setPage(next.pageIndex + 1);
       if (next.pageSize !== pagination.pageSize) setLimit(next.pageSize);
     },
-    enableRowSelection: true,
+    enableRowSelection: (row) => (status === undefined || status === "SUBMITTED") ? row.original.status === "SUBMITTED" : true,
     manualPagination: false,
     globalFilterFn: (row, _columnId, filterValue) => {
       const name = row.original.applicant.nameEn.toLowerCase();
@@ -391,6 +385,11 @@ export default function ApplicationsTable({ applications: data = applications, s
   const from = pagination.pageIndex * pagination.pageSize + 1;
   const to = Math.min(from + pagination.pageSize - 1, totalRows);
 
+  const selectedRows = table.getSelectedRowModel().rows.map((r) => r.original);
+  const bulkAcceptable = selectedRows.filter(
+    (a) => a.status !== "ACCEPTED" && a.status !== "REJECTED" && a.status !== "DRAFT"
+  );
+
   return (
     <>
       <div className="flex items-center justify-between gap-3 mb-4">
@@ -402,7 +401,7 @@ export default function ApplicationsTable({ applications: data = applications, s
         />
         <div className="flex items-center gap-2">
           {
-            selectedIds.length > 0 && status !== "ACCEPTED" && status !== "REJECTED" && (
+            selectedRows.length > 0 && status !== "ACCEPTED" && status !== "REJECTED" && (
               <Button
                 size="sm"
                 className="h-8 text-[0.8125rem] gap-x-1.5 font-normal"

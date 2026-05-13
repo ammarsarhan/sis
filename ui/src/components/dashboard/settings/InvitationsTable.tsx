@@ -109,7 +109,7 @@ export default function InvitationsTable({ payload, setPayload } : { payload: st
                 <TableBody>
                     {
                         invitations.map((invitation) => (
-                            <TableRow key={invitation.id}>
+                            <TableRow key={invitation.id} className="h-12">
                                 <TableCell>{invitation.email}</TableCell>
                                 <TableCell>{parseType(invitation.intendedRole)}</TableCell>
                                 <TableCell className="text-muted-foreground">{invitation.inviter.name}</TableCell>

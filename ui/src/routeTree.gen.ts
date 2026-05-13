@@ -32,6 +32,7 @@ import { Route as DashboardProtectedCycleIdSettingsUsersIndexRouteImport } from 
 import { Route as DashboardProtectedCycleIdSettingsOfferingsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/settings/offerings/index'
 import { Route as DashboardProtectedCycleIdSettingsEventsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/settings/events/index'
 import { Route as DashboardProtectedCycleIdApplicationsApplicationIdIndexRouteImport } from './routes/dashboard/_protected/$cycleId/applications/$applicationId/index'
+import { Route as DashboardProtectedCycleIdSettingsUsersInvitationsIndexRouteImport } from './routes/dashboard/_protected/$cycleId/settings/users/invitations/index'
 
 const DashboardRouteRoute = DashboardRouteRouteImport.update({
   id: '/dashboard',
@@ -165,6 +166,12 @@ const DashboardProtectedCycleIdApplicationsApplicationIdIndexRoute =
     path: '/$applicationId/',
     getParentRoute: () => DashboardProtectedCycleIdApplicationsRouteRoute,
   } as any)
+const DashboardProtectedCycleIdSettingsUsersInvitationsIndexRoute =
+  DashboardProtectedCycleIdSettingsUsersInvitationsIndexRouteImport.update({
+    id: '/users/invitations/',
+    path: '/users/invitations/',
+    getParentRoute: () => DashboardProtectedCycleIdSettingsRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardProtectedRouteRouteWithChildren
@@ -189,6 +196,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/$cycleId/settings/offerings/': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
   '/dashboard/$cycleId/settings/users/': typeof DashboardProtectedCycleIdSettingsUsersIndexRoute
   '/dashboard/faculties/$facultyId/departments/': typeof DashboardProtectedFacultiesFacultyIdDepartmentsIndexRoute
+  '/dashboard/$cycleId/settings/users/invitations/': typeof DashboardProtectedCycleIdSettingsUsersInvitationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/dashboard': typeof DashboardProtectedIndexRoute
@@ -207,6 +215,7 @@ export interface FileRoutesByTo {
   '/dashboard/$cycleId/settings/offerings': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
   '/dashboard/$cycleId/settings/users': typeof DashboardProtectedCycleIdSettingsUsersIndexRoute
   '/dashboard/faculties/$facultyId/departments': typeof DashboardProtectedFacultiesFacultyIdDepartmentsIndexRoute
+  '/dashboard/$cycleId/settings/users/invitations': typeof DashboardProtectedCycleIdSettingsUsersInvitationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -233,6 +242,7 @@ export interface FileRoutesById {
   '/dashboard/_protected/$cycleId/settings/offerings/': typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
   '/dashboard/_protected/$cycleId/settings/users/': typeof DashboardProtectedCycleIdSettingsUsersIndexRoute
   '/dashboard/_protected/faculties/$facultyId/departments/': typeof DashboardProtectedFacultiesFacultyIdDepartmentsIndexRoute
+  '/dashboard/_protected/$cycleId/settings/users/invitations/': typeof DashboardProtectedCycleIdSettingsUsersInvitationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -259,6 +269,7 @@ export interface FileRouteTypes {
     | '/dashboard/$cycleId/settings/offerings/'
     | '/dashboard/$cycleId/settings/users/'
     | '/dashboard/faculties/$facultyId/departments/'
+    | '/dashboard/$cycleId/settings/users/invitations/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/dashboard'
@@ -277,6 +288,7 @@ export interface FileRouteTypes {
     | '/dashboard/$cycleId/settings/offerings'
     | '/dashboard/$cycleId/settings/users'
     | '/dashboard/faculties/$facultyId/departments'
+    | '/dashboard/$cycleId/settings/users/invitations'
   id:
     | '__root__'
     | '/dashboard'
@@ -302,6 +314,7 @@ export interface FileRouteTypes {
     | '/dashboard/_protected/$cycleId/settings/offerings/'
     | '/dashboard/_protected/$cycleId/settings/users/'
     | '/dashboard/_protected/faculties/$facultyId/departments/'
+    | '/dashboard/_protected/$cycleId/settings/users/invitations/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -471,6 +484,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardProtectedCycleIdApplicationsApplicationIdIndexRouteImport
       parentRoute: typeof DashboardProtectedCycleIdApplicationsRouteRoute
     }
+    '/dashboard/_protected/$cycleId/settings/users/invitations/': {
+      id: '/dashboard/_protected/$cycleId/settings/users/invitations/'
+      path: '/users/invitations'
+      fullPath: '/dashboard/$cycleId/settings/users/invitations/'
+      preLoaderRoute: typeof DashboardProtectedCycleIdSettingsUsersInvitationsIndexRouteImport
+      parentRoute: typeof DashboardProtectedCycleIdSettingsRouteRoute
+    }
   }
 }
 
@@ -530,6 +550,7 @@ interface DashboardProtectedCycleIdSettingsRouteRouteChildren {
   DashboardProtectedCycleIdSettingsEventsIndexRoute: typeof DashboardProtectedCycleIdSettingsEventsIndexRoute
   DashboardProtectedCycleIdSettingsOfferingsIndexRoute: typeof DashboardProtectedCycleIdSettingsOfferingsIndexRoute
   DashboardProtectedCycleIdSettingsUsersIndexRoute: typeof DashboardProtectedCycleIdSettingsUsersIndexRoute
+  DashboardProtectedCycleIdSettingsUsersInvitationsIndexRoute: typeof DashboardProtectedCycleIdSettingsUsersInvitationsIndexRoute
 }
 
 const DashboardProtectedCycleIdSettingsRouteRouteChildren: DashboardProtectedCycleIdSettingsRouteRouteChildren =
@@ -542,6 +563,8 @@ const DashboardProtectedCycleIdSettingsRouteRouteChildren: DashboardProtectedCyc
       DashboardProtectedCycleIdSettingsOfferingsIndexRoute,
     DashboardProtectedCycleIdSettingsUsersIndexRoute:
       DashboardProtectedCycleIdSettingsUsersIndexRoute,
+    DashboardProtectedCycleIdSettingsUsersInvitationsIndexRoute:
+      DashboardProtectedCycleIdSettingsUsersInvitationsIndexRoute,
   }
 
 const DashboardProtectedCycleIdSettingsRouteRouteWithChildren =

@@ -83,7 +83,7 @@ export default function AppSidebar() {
                     { title: "Cycle Settings", url: `/dashboard/${cycle.id}/settings` },
                     { title: "Faculty Offerings", url: `/dashboard/${cycle.id}/settings/offerings` },
                     { title: "Event Log", url: `/dashboard/${cycle.id}/settings/events` },
-                    { title: "Users & Permissions", url: `/dashboard/${cycle.id}/settings/users` },
+                    { title: "Users", url: `/dashboard/${cycle.id}/settings/users` },
                 ],
             },
         ],
